@@ -1,13 +1,76 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* 공통 CSS */
+a {
+  text-decoration: none;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+
+/* 로그인 module */
+.Login {
+margin-top: 150px;
+padding:0px 0 150px;
 }
+.Login .LoginBox {
+  width: 500px;
+  margin: 0 auto;
+  border-radius: 6px;
+  background-color:#f6f5f0;
+  box-shadow: 2px 2px 20px rgba(0,0,0,.3);
+  color: #555;
+}
+.Login h2{
+  padding: 30px;
+  font-size: 25px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+.Login h2 strong{
+  font-weight: 700;
+  color: #4aa5cf;
+}
+
+.Login form{
+  padding : 30px 22px;
+}
+
+.Login form input {
+  width: 100%;
+  margin-bottom: 12px;
+  padding: 15px;
+  border: 1px solid rgb(149, 204, 240);
+  border-radius: 4px;
+  outline: none;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+.Login form [type="submit"]{
+  background-color: rgb(130, 157, 206);
+  border:none;
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+  }
+
+  .Login .actions {
+    display: flex;
+    border-top: 1px solid #ddd;
+  }
+
+  .Login .actions a{
+    flex-grow: 1; 
+    flex-basis: 0;
+    text-align: center;
+    padding: 20px;
+    color: #555;
+    font-size: 14px;
+    border-right: 1px solid #ddd;
+  }
+  
+  .Login .actions a:last-child{
+    border-right: none;
+  }
+  
+  .Login .actions a:hover{
+  text-decoration: underline;
+  }
