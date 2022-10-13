@@ -1,6 +1,11 @@
 import React from "react";
-import "./index.css";
-// import { Router, Link } from "react-router-dom"; Link to?
+import "../index.css";
+
+import { REST_API_KEY, REDIRECT_URI } from "./Kakao";
+const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}&response_type=code`;
+const handleLogin = () => {
+  window.location.href = KAKAO_AUTH_URL;
+};
 
 const Login = () => {
   return (
@@ -17,10 +22,11 @@ const Login = () => {
           <input type="submit" value={"로그인"} />
         </form>
         <div class="actions">
-          <a href="SignUp.js">회원가입</a>
+          <a href="javascript:void(0)">회원가입</a>
           <a href="javascript:void(0)">아이디 찾기</a>
           <a href="javascript:void(0)">비밀번호 찾기</a>
         </div>
+        <button onClick={handleLogin} className="kakaobtn"></button>
       </div>
     </div>
   );

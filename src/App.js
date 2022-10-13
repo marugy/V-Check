@@ -1,12 +1,21 @@
 import React from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+
 import "./App.css";
-import Login from "./Login.js";
+
+import Usermain from "./component/Usermain.js";
+import Login from "./page/Login.js";
 
 function App() {
   return (
-    <div className="App">
-      <Login />
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <Routes>
+          <Route path="/" element={<Login />} />
+          <Route path="/usermain" element={<Usermain />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 }
 export default App;
