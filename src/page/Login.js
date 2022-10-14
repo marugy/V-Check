@@ -13,21 +13,14 @@ const Login = () => {
       <div className="LoginBox">
         <h2>
           <strong>WelCome! </strong>
-          <br />
+          <br /><br/>
           V-Check에 오신 것을 환영합니다.
+          <br/><br/>
+        소셜 로그인 후 이용하세요!
         </h2>
-        <form>
-          <input type="text" placeholder="아이디를 입력하세요"></input>
-          <input type="password" placeholder="비밀번호를 입력하세요"></input>
-          <input type="submit" value={"로그인"} />
-        </form>
-        <div class="actions">
-          <a href="javascript:void(0)">회원가입</a>
-          <a href="javascript:void(0)">아이디 찾기</a>
-          <a href="javascript:void(0)">비밀번호 찾기</a>
-        </div>
-        <button onClick={handleLogin} className="kakaobtn"></button>
-      </div>
+        <div className="login_wrapper">
+          <button onClick={handleLogin} className="kakaobtn"></button>
+        </div></div>
     </div>
   );
 };

@@ -1,7 +1,9 @@
 import React from "react";
-import HomeHeader from "./HomeHeader";
+import HomeHeader from "../component/HomeHeader";
 
 const Usermain = () => {
+
+
   return (
     <div>
       <HomeHeader />

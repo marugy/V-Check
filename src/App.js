@@ -3,8 +3,9 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import "./App.css";
 
-import Usermain from "./component/Usermain.js";
+import Usermain from "./page/Usermain.js";
 import Login from "./page/Login.js";
+import Loading from "./page/Loading.js";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <div className="App">
         <Routes>
           <Route path="/" element={<Login />} />
+          <Route path="/loading" element={<Loading />}/>
           <Route path="/usermain" element={<Usermain />} />
         </Routes>
       </div>

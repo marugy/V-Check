@@ -4,10 +4,9 @@ a {
 }
 
 .kakaobtn{
-  margin-left: 30%;
   width: 200px;
-  height: 50px;
-  background: url("./image/kakao_login_medium_narrow.png");
+  height: 60px;
+  background: url("../public/assets/kakao_login_medium_narrow.png");
   background-position: center;
   background-repeat: no-repeat;
   border: none;
@@ -19,7 +18,7 @@ margin-top: 150px;
 padding:0px 0 150px;
 }
 .Login .LoginBox {
-  width: 500px;
+  width: 600px;
   margin: 0 auto;
   border-radius: 6px;
   background-color:#f6f5f0;
@@ -34,57 +33,15 @@ padding:0px 0 150px;
 }
 
 .Login h2 strong{
+  font-size: 70px;
   font-weight: 700;
   color: #4aa5cf;
 }
-
-.Login form{
-  padding : 30px 22px;
+.Login .kakao_wrapper{
+  display: flex;
+  justify-content: center;
+  flex-grow: 1;
 }
-
-.Login form input {
-  width: 100%;
-  margin-bottom: 12px;
-  padding: 15px;
-  border: 1px solid rgb(149, 204, 240);
-  border-radius: 4px;
-  outline: none;
-  box-sizing: border-box;
-  font-size: 14px;
-}
-
-.Login form [type="submit"]{
-  background-color: rgb(130, 157, 206);
-  border:none;
-  color: #fff;
-  font-size: 20px;
-  cursor: pointer;
-  }
-
-  .Login .actions {
-    display: flex;
-    border-top: 1px solid #ddd;
-    border-bottom: 1px solid #ddd;
-
-  }
-
-  .Login .actions a{
-    flex-grow: 1; 
-    flex-basis: 0;
-    text-align: center;
-    padding: 20px;
-    color: #555;
-    font-size: 14px;
-    border-right: 1px solid #ddd;
-  }
-  
-  .Login .actions a:last-child{
-    border-right: none;
-  }
-  
-  .Login .actions a:hover{
-  text-decoration: underline;
-  }
 
 /* HomeHeader */
   header{
@@ -105,14 +62,10 @@ header .menubar div{
   border: 2px solid black;
   text-align: center;
 }
-header .menubar .logout{
-  margin-top: 200%;
-  background-color: red;
-}
 
   /* UserInfo */
   .UserInfo {
-    width: 150px;
+    width: 100%;
     height: fit-content;
     background-color: blue;
   }
