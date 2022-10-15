@@ -45,16 +45,13 @@ padding:0px 0 150px;
 
 /* HomeHeader */
   header{
-    position: absolute;
     height: 100vh;
     width: fit-content;
     background-color: rgb(211, 84, 84);
     border: 1px solid black;
   }
 header .menubar{
-  position: relative;
-  background-color: pink;
-  height: 100%;
+  background-color: rgb(97, 69, 73);
   text-align: center;
 }
 header .menubar div{
@@ -66,13 +63,18 @@ header .menubar div{
   /* UserInfo */
   .UserInfo {
     width: 100%;
-    height: fit-content;
-    background-color: blue;
+    height:max-content;
+    background-color: rgb(112, 112, 146);
   }
   .UserInfo .imgbox{
-    width: 50px;
-    height: 50px;
-    background-color: yellow;
+    width: 100px;
+    height: 100px;
+    background-color: rgb(224, 224, 209);
   }
   .UserInfo div{
+  }
+
+  /* Usermain */
+  .Usermain {
+    display: flex;
   }
