@@ -1,12 +1,17 @@
-const UserInfo = () => {
+const UserInfo = ({ userdata }) => {
+  const imgA = "./assets/person.png";
+
   return (
     <div className="UserInfo">
-      <div className="imgbox">
-        <img src="" alt="유저이미지" className="Userimg" />
+      <div className="user_img">
+        <img src={imgA} alt="사용자 이미지" />
       </div>
-      <div>이름 : 홍길동</div>
-      <div>직책 : 검사관</div>
-      <div>이메일 : 길동@네이버.com</div>
+      <div className="user_data">
+        <div>이름 : {userdata.name}</div>
+        <div>소속 : {userdata.belong}</div>
+        <div>직책 : {userdata.job}</div>
+        <div>이메일 : {userdata.email}</div>
+      </div>
     </div>
   );
 };

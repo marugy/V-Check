@@ -1,11 +1,10 @@
 import React from "react";
-import HomeHeader from "../component/HomeHeader";
+import Header from "../component/Header";
 
 const Usermain = () => {
   return (
     <div className="Usermain">
-      <HomeHeader />
-      <div>보여줄 정보</div>
+      <Header />
     </div>
   );
 };

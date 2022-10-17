@@ -1,8 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Jua&family=Nanum+Gothic&display=swap');
 /* 공통 CSS */
 a {
   text-decoration: none;
 }
-
+body{
+  margin:0;
+  font-family: 'Jua', sans-serif;
+}
 .kakaobtn{
   width: 200px;
   height: 60px;
@@ -12,7 +16,7 @@ a {
   border: none;
 }
 
-/* 로그인 module */
+/* Login.js */
 .Login {
 margin-top: 150px;
 padding:0px 0 150px;
@@ -43,38 +47,64 @@ padding:0px 0 150px;
   flex-grow: 1;
 }
 
-/* HomeHeader */
-  header{
-    height: 100vh;
-    width: fit-content;
-    background-color: rgb(211, 84, 84);
-    border: 1px solid black;
-  }
-header .menubar{
-  background-color: rgb(97, 69, 73);
-  text-align: center;
+/* UserInfo */
+
+.UserInfo{
+  width: fit-content;
+  height: fit-content;
 }
-header .menubar div{
-  padding: 10px;
-  border: 2px solid black;
-  text-align: center;
+.UserInfo .user_img{
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-  /* UserInfo */
-  .UserInfo {
-    width: 100%;
-    height:max-content;
-    background-color: rgb(112, 112, 146);
-  }
-  .UserInfo .imgbox{
-    width: 100px;
-    height: 100px;
-    background-color: rgb(224, 224, 209);
-  }
-  .UserInfo div{
-  }
+.UserInfo img{
+  border-radius: 70%;
+  background-color: #ececec;
+  width: 100px;
+  height: 100px;
+}
+.UserInfo .user_data{
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+}
+.UserInfo .user_data div{
+  padding-bottom: 5px;
+}
 
-  /* Usermain */
-  .Usermain {
-    display: flex;
-  }
+/* MenuList */
+.MenuList{
+  text-align: center;
+  justify-content: center;
+  height: 100%;
+}
+.MenuList div{
+  display: flex;
+  margin:15px;
+  align-items: center;
+  justify-content: center;
+}
+.MenuList .logout{
+  align-self: flex-end;
+  justify-self: end;
+}
+
+.MenuList .logout img{
+  width: 25px;
+  height: 25px;
+}
+
+/* Header */
+.Header{
+  border: 1px solid black;
+  border-radius: 15px;
+  width: fit-content;
+  height: 100vh;
+  margin:5px;
+}
+
+.Header .menubar{
+  justify-items: center;
+  align-items: center;
+}
