@@ -4,7 +4,7 @@ import MenuList from "./MenuList";
 const userdummy = {
   name: "홍길동",
   belong: "행복선박",
-  job: "제조업체",
+  job: "검사관",
   email: "홍길동@네이버.com",
 };
 
