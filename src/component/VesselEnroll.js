@@ -7,17 +7,17 @@ const VesselEnroll = () => {
           <br /> 입력하세요
         </h2>
         <form>
-          IMO <input type={"text"} />
+          IMO : <input type={"text"} placeholder="" />
           <br />
-          선박 이름 <input type={"text"} />
+          선박 이름 : <input type={"text"} />
           <br />
-          선박 OWNER <input type={"text"} />
+          선박 OWNER : <input type={"text"} />
           <br />
-          선박 종류 <input type={"text"} />
+          선박 종류 : <input type={"text"} />
           <br />
-          총 톤 수 <input type={"text"} />
+          총 톤 수 : <input type={"text"} />
           <br />
-          <input type={"submit"} value="선박 등록" />
+          <button type="submit">선박 등록</button>
         </form>
       </div>
     </div>

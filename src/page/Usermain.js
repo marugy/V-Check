@@ -6,7 +6,6 @@ const Usermain = () => {
   return (
     <div className="Usermain">
       <Header />
-      <VesselEnroll />
     </div>
   );
 };

@@ -126,13 +126,14 @@ padding:0px 0 150px;
 }
 
 .VesselEnroll  h2{
-  padding:0 20px;
   text-align: center;
-  border-bottom: 1px solid black;
+
 }
 
 .VesselEnroll form{
-  padding:30px;
+  border-top: 1px solid black;
+  font-size: 20px;
+  padding:0px 30px 0px;
 }
 .VesselEnroll form input{
 width: 100%;
@@ -142,4 +143,55 @@ border-radius: 4px;
 outline: none;
 box-sizing: border-box;
 font-size: 14px;
+}
+
+.VesselEnroll button {
+  font-family: 'Jua', sans-serif;
+  width: 100%;
+  font-size: 25px;
+  margin: 20px 0px;
+
+  border-radius: 5px;
+}
+
+/* SignUp */
+.SignUp {
+  padding-top: 50px;
+  position: absolute;
+  width: 100%;
+  left: 40%;
+}
+
+.SignUp .signup_wrapper{
+  width: 500px;
+  background-color: #f6f5f0;
+  border-radius: 5px;
+  box-shadow: 2px 2px 20px rgba(0,0,0,.3);
+  border:1px solid black;
+}
+.SignUp  h2{
+  text-align: center;
+}
+.SignUp form{
+  border-top: 1px solid black;
+  font-size: 20px;
+  padding:10px 30px 0px;
+}
+.SignUp form input{
+width: 100%;
+margin-bottom: 12px;
+padding: 7px;
+border-radius: 4px;
+outline: none;
+box-sizing: border-box;
+font-size: 14px;
+}
+
+.SignUp button {
+  font-family: 'Jua', sans-serif;
+  width: 100%;
+  font-size: 25px;
+  margin: 20px 0px;
+
+  border-radius: 5px;
 }

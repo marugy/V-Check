@@ -1,18 +1,26 @@
 import React from "react";
-// import { useDispatch } from "react-redux";
-// import {actioncreators as userActions} from "../node_modules/redux/module/user"
 
 const Loading = () => {
-  //   const dispatch = useDispatch();
-
-  const href = window.location.href;
   const params = new URL(window.location.href).searchParams;
   const code = params.get("code");
   console.log(code);
 
-  React.useEffect(async () => {
-    // await dispatch(useActions.kakaoLogin(code));
-  }, []);
+  fetch("http://34.64.185.37:8080/v1/get_token ", {
+    method: "POST",
+    body: JSON.stringify({
+      code: code,
+    }),
+  })
+    .then((response) => response.json())
+    .then((response) => {
+      console.log(response);
+      if (response.token) {
+        localStorage.setItem("token", response.token);
+        this.props.history.push("/usermain");
+      } else {
+        alert("Error");
+      }
+    });
 
   return (
     <div>
