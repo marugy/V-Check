@@ -6,6 +6,7 @@ import "./App.css";
 import Usermain from "./page/Usermain.js";
 import Login from "./page/Login.js";
 import Loading from "./page/Loading.js";
+import SignUp from "./page/SignUp.js";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path="/" element={<Login />} />
           <Route path="/loading" element={<Loading />} />
           <Route path="/usermain" element={<Usermain />} />
+          <Route path="signup" element={<SignUp />} />
         </Routes>
       </div>
     </BrowserRouter>

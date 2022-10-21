@@ -43,5 +43,6 @@
   },
   "devDependencies": {
     "redux-devtools-extension": "^2.13.9"
-  }
+  },
+  "proxy" : "http://34.64.185.37:8080/"
 }

@@ -1,18 +1,11 @@
 import UserInfo from "./UserInfo";
 import MenuList from "./MenuList";
 
-const userdummy = {
-  name: "홍길동",
-  belong: "행복선박",
-  job: "검사관",
-  email: "홍길동@네이버.com",
-};
-
-const Header = () => {
+const Header = ({ userdata }) => {
   return (
     <div className="Header">
-      <UserInfo userdata={userdummy} />
-      <MenuList job={userdummy.job} />
+      <UserInfo userdata={userdata} />
+      <MenuList job={userdata.job} />
     </div>
   );
 };
