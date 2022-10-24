@@ -27,17 +27,18 @@ const SignUp = () => {
   };
 
   const checkSignUp = (e) => {
-    fetch("/v1/join", {
+    fetch("http://34.64.185.37:8080//v1/join", {
       method: "POST",
-      headers: { "Content-type": "application/json" },
+      headers: {
+        "Content-type": "application/json",
+        Authorization: localStorage.getItem("access_token"),
+      },
       body: JSON.stringify({
         name: name,
         email: email,
         belongs: belongs,
         duty: duty,
         client_type: client_type,
-        access_token: localStorage.getItem("access_token"),
-        refresh_token: localStorage.getItem("refresh_token"),
       }),
     });
   };

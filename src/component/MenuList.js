@@ -1,6 +1,6 @@
-const MenuList = ({ job }) => {
+const MenuList = ({ client_type }) => {
   const menulist = () => {
-    if (job === "검사관") {
+    if (client_type === "INSPECTOR") {
       return ["선박 조회", "My 선박", "선박 등록"];
     } else {
       return ["선박 조회", "My 선박"];

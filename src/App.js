@@ -7,6 +7,7 @@ import Usermain from "./page/Usermain.js";
 import Login from "./page/Login.js";
 import Loading from "./page/Loading.js";
 import SignUp from "./page/SignUp.js";
+import VesselEnroll from "./component/VesselEnroll";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/loading" element={<Loading />} />
           <Route path="/usermain" element={<Usermain />} />
           <Route path="signup" element={<SignUp />} />
+          <Route path="vesselenroll" element={<VesselEnroll />} />
         </Routes>
       </div>
     </BrowserRouter>
