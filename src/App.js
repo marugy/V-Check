@@ -7,7 +7,6 @@ import Usermain from "./page/Usermain.js";
 import Login from "./page/Login.js";
 import Loading from "./page/Loading.js";
 import SignUp from "./page/SignUp.js";
-import VesselEnroll from "./component/VesselEnroll";
 
 function App() {
   return (
@@ -15,10 +14,10 @@ function App() {
       <div className="App">
         <Routes>
           <Route path="/" element={<Login />} />
+          <Route path="/logout" element={<Login />} />
           <Route path="/loading" element={<Loading />} />
-          <Route path="/usermain" element={<Usermain />} />
-          <Route path="signup" element={<SignUp />} />
-          <Route path="vesselenroll" element={<VesselEnroll />} />
+          <Route path="/usermain/*" element={<Usermain />} />
+          <Route path="/signup" element={<SignUp />} />
         </Routes>
       </div>
     </BrowserRouter>

@@ -1,9 +1,13 @@
 const UserInfo = ({ userdata }) => {
   const imgA = "./assets/person.png";
+
   return (
     <div className="UserInfo">
       <div className="user_img">
-        <img src={imgA} alt="사용자 이미지" />
+        <img
+          src={`${process.env.PUBLIC_URL}/assets/person.png`}
+          alt="사용자 이미지"
+        />
       </div>
       <div className="user_data">
         <div>이름 : {userdata.name}</div>

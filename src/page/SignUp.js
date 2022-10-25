@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const SignUp = () => {
+  const navigate = useNavigate();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [belongs, setBelongs] = useState("");
@@ -13,24 +15,21 @@ const SignUp = () => {
   const emailHandler = (e) => {
     setEmail(e.target.value);
   };
-
   const belongsHandler = (e) => {
     setBelongs(e.target.value);
   };
-
   const dutyHandler = (e) => {
     setDuty(e.target.value);
   };
-
   const client_typeHandler = (e) => {
     setClient_type(e.target.value);
   };
 
   const checkSignUp = (e) => {
-    fetch("http://34.64.185.37:8080//v1/join", {
+    fetch("http://34.64.185.37:8080/v1/join", {
       method: "POST",
       headers: {
-        "Content-type": "application/json",
+        "Content-Type": "application/json",
         Authorization: localStorage.getItem("access_token"),
       },
       body: JSON.stringify({
@@ -40,7 +39,8 @@ const SignUp = () => {
         duty: duty,
         client_type: client_type,
       }),
-    });
+      // });
+    }).then(navigate("/usermain"));
   };
 
   return (
