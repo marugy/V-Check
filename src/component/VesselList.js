@@ -8,6 +8,12 @@ const sortOptionList = [
   { value: "isOwnerShip", name: "등록여부" },
 ];
 
+const filterOptionList = [
+  { value: "all", name: "전부다" },
+  { value: "own", name: "소유 선박" },
+  { value: "non-owned", name: "미소유 선박" },
+];
+
 const ControlMenu = ({ value, onChange, optionList }) => {
   return (
     <select value={value} onChange={(e) => onChange(e.target.value)}>
@@ -21,9 +27,18 @@ const ControlMenu = ({ value, onChange, optionList }) => {
 };
 
 const VesselList = ({ vesselList }) => {
-  const [sortType, setSortType] = useState("이름");
+  const [sortType, setSortType] = useState("IMO");
+  const [filter, setFilter] = useState("all");
 
   const getProcessedVesselList = () => {
+    const filterCallBack = (item) => {
+      if (filter === "own") {
+        return item.ownership === true;
+      } else {
+        return item.ownership === false;
+      }
+    };
+
     const compare = (a, b) => {
       if (sortType === "IMO") {
         return parseInt(b.imo) - parseInt(a.imo);
@@ -33,7 +48,10 @@ const VesselList = ({ vesselList }) => {
     };
 
     const copyList = JSON.parse(JSON.stringify(vesselList));
-    const sortedList = copyList.sort(compare);
+
+    const filteredList =
+      filter === "all" ? copyList : copyList.filter((it) => filterCallBack(it));
+    const sortedList = filteredList.sort(compare);
     return sortedList;
   };
 
@@ -44,10 +62,15 @@ const VesselList = ({ vesselList }) => {
           value={sortType}
           onChange={setSortType}
           optionList={sortOptionList}
+        />{" "}
+        <ControlMenu
+          value={filter}
+          onChange={setFilter}
+          optionList={filterOptionList}
         />
-        {/* {getProcessedVesselList().map((it) => (
+        {getProcessedVesselList().map((it) => (
           <VesselItem key={it.imo} {...it} />
-        ))} */}
+        ))}
       </div>
     </div>
   );

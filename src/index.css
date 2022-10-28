@@ -193,6 +193,22 @@ font-size: 14px;
   width: 100%;
   font-size: 25px;
   margin: 20px 0px;
-
   border-radius: 5px;
+}
+
+/* VesselLookup */
+.VesselLookup{
+  position: absolute;
+  left:300px;
+  top:20px;
+  border: 1px solid black;
+  border-radius: 5px;
+
+}
+
+/* VesselItem */
+
+.VesselItem{
+  padding:10px;
+  border-top: 1px solid black;
 }

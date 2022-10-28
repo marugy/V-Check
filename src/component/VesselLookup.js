@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import VesselList from "./VesselList";
 
 const VesselLookup = () => {
-  const [vesselData, setVesselData] = useState([]);
+  const [vesselData, setVesselData] = useState({});
   const [searchInfo, setsearchInfo] = useState({
     imo: "",
     name: "",
@@ -19,15 +19,10 @@ const VesselLookup = () => {
 
   const handleSubmit = () => {
     fetch(
-      "http://34.64.185.37:8080/v1/vessel/list?imo=" +
-        searchInfo.imo +
-        "vessel_name=" +
-        encodeURI(searchInfo.name, "UTF-8") +
-        "&vessel_type=" +
-        searchInfo.type,
+      `http://34.64.185.37:8080/v1/vessel/list?imo=${searchInfo.imo}&vessel_name=${searchInfo.name}&vessel_type=${searchInfo.type}`,
       {
         method: "GET",
-        header: {
+        headers: {
           Authorization: localStorage.getItem("access_token"),
         },
       }
@@ -35,14 +30,12 @@ const VesselLookup = () => {
       .then((response) => response.json())
       .then((result) => {
         setVesselData(result);
-        localStorage.setItem("vs", "야호");
       });
   };
 
   return (
     <div className="VesselLookup">
       <h2>서비스에 등록되어 있는 선박 조회</h2>
-      <h4>{vesselData.length}개의 선박이 있습니다.</h4>
       검색하실 IMO 입력하세요 :{" "}
       <input
         type={"text"}
@@ -70,7 +63,7 @@ const VesselLookup = () => {
         placeholder={"A,B,C"}
       />
       <button onClick={handleSubmit}>검색</button>
-      <VesselList vesselList={[vesselData]} />
+      <VesselList vesselList={vesselData.vesselInfoList} />
     </div>
   );
 };
