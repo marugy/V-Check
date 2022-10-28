@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useReducer } from "react";
 import { Route, Routes } from "react-router-dom";
 
 import Header from "../component/Header";
@@ -6,7 +6,37 @@ import VesselLookup from "../component/VesselLookup";
 import MyVessel from "../component/MyVessel";
 import VesselEnroll from "../component/VesselEnroll";
 
+// const reducer = (state, action) => {
+//   let newState = [];
+//   switch (action.type) {
+//     case "INIT": {
+//       return action.data;
+//     }
+//     case "CREATE": {
+//       newState = [action.data, ...state];
+//       break;
+//     }
+//     case "REMOVE": {
+//       newState = state.filter((it) => it.id !== action.targetID);
+//       break;
+//     }
+//     case "EDIT": {
+//       newState = state.map((it) =>
+//         it.id === action.data.id ? { ...action.data } : it
+//       );
+//       break;
+//     }
+//     default:
+//       return state;
+//   }
+//   return newState;
+// };
+
+// // export const VesselStateContext = React.createContext();
+// // export const VesselDispatchContext = React.createContext();
+
 const Usermain = () => {
+  // const [data, dispatch] = useReducer(reducer, []);
   const [userdata, setUserData] = useState({});
 
   useEffect(() => {
@@ -20,6 +50,7 @@ const Usermain = () => {
       .then((response) => response.json())
       .then((result) => {
         setUserData(result);
+        localStorage.setItem("is_our_client", true);
       })
       .catch((error) => console.log("error".error));
   }, []);
