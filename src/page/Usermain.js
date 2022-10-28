@@ -60,7 +60,7 @@ const Usermain = () => {
       <Header userdata={userdata} />
       <Routes>
         <Route path="/vessellookup" element={<VesselLookup />} />
-        <Route path="/usermain/myvessel" element={<MyVessel />} />
+        <Route path="/myvessel" element={<MyVessel />} />
         <Route path="/vesselenroll" element={<VesselEnroll />} />
       </Routes>
       <div className="Content"></div>

@@ -39,7 +39,6 @@ const SignUp = () => {
         duty: duty,
         client_type: client_type,
       }),
-      // });
     }).then(navigate("/usermain"));
   };
 
