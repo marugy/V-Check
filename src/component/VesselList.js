@@ -1,13 +1,6 @@
 import VesselItem from "./VesselItem";
 import { useState } from "react";
 
-const sortOptionList = [
-  { value: "imo", name: "IMO" },
-  { value: "vesselName", name: "이름" },
-  { value: "vesselType", name: "type" },
-  { value: "isOwnerShip", name: "등록여부" },
-];
-
 const filterOptionList = [
   { value: "all", name: "전부다" },
   { value: "own", name: "소유 선박" },
@@ -26,8 +19,7 @@ const ControlMenu = ({ value, onChange, optionList }) => {
   );
 };
 
-const VesselList = ({ vesselList }) => {
-  const [sortType, setSortType] = useState("IMO");
+const VesselList = ({ vesselList, btnType }) => {
   const [filter, setFilter] = useState("all");
 
   const getProcessedVesselList = () => {
@@ -39,37 +31,24 @@ const VesselList = ({ vesselList }) => {
       }
     };
 
-    const compare = (a, b) => {
-      if (sortType === "IMO") {
-        return parseInt(b.imo) - parseInt(a.imo);
-      } else {
-        return parseInt(a.imo) - parseInt(b.imo);
-      }
-    };
-
     const copyList = JSON.parse(JSON.stringify(vesselList));
 
     const filteredList =
       filter === "all" ? copyList : copyList.filter((it) => filterCallBack(it));
-    const sortedList = filteredList.sort(compare);
-    return sortedList;
+    return filteredList;
   };
 
   return (
     <div className="VesselList">
       <div>
-        <ControlMenu
-          value={sortType}
-          onChange={setSortType}
-          optionList={sortOptionList}
-        />{" "}
+        {/*
         <ControlMenu
           value={filter}
           onChange={setFilter}
           optionList={filterOptionList}
-        />
+        /> */}
         {getProcessedVesselList().map((it) => (
-          <VesselItem key={it.imo} {...it} />
+          <VesselItem key={it.imo} {...it} btnType={btnType} />
         ))}
       </div>
     </div>

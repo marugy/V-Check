@@ -5,38 +5,10 @@ import Header from "../component/Header";
 import VesselLookup from "../component/VesselLookup";
 import MyVessel from "../component/MyVessel";
 import VesselEnroll from "../component/VesselEnroll";
-
-// const reducer = (state, action) => {
-//   let newState = [];
-//   switch (action.type) {
-//     case "INIT": {
-//       return action.data;
-//     }
-//     case "CREATE": {
-//       newState = [action.data, ...state];
-//       break;
-//     }
-//     case "REMOVE": {
-//       newState = state.filter((it) => it.id !== action.targetID);
-//       break;
-//     }
-//     case "EDIT": {
-//       newState = state.map((it) =>
-//         it.id === action.data.id ? { ...action.data } : it
-//       );
-//       break;
-//     }
-//     default:
-//       return state;
-//   }
-//   return newState;
-// };
-
-// // export const VesselStateContext = React.createContext();
-// // export const VesselDispatchContext = React.createContext();
+import VesselDetail from "../component/VesselDetail";
+import BlockDetail from "../component/BlockDetail";
 
 const Usermain = () => {
-  // const [data, dispatch] = useReducer(reducer, []);
   const [userdata, setUserData] = useState({});
 
   useEffect(() => {
@@ -60,10 +32,14 @@ const Usermain = () => {
       <Header userdata={userdata} />
       <Routes>
         <Route path="/vessellookup" element={<VesselLookup />} />
-        <Route path="/myvessel" element={<MyVessel />} />
+        <Route path="/myvessel/*" element={<MyVessel />} />
         <Route path="/vesselenroll" element={<VesselEnroll />} />
+        <Route path="/myvessel/vesseldetail/*" element={<VesselDetail />} />
+        <Route
+          path="/myvessel/vesseldetail/blockdetail"
+          element={<BlockDetail />}
+        />
       </Routes>
-      <div className="Content"></div>
     </div>
   );
 };

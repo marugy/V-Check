@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import VesselList from "./VesselList";
 
@@ -63,7 +63,7 @@ const VesselLookup = () => {
         placeholder={"A,B,C"}
       />
       <button onClick={handleSubmit}>검색</button>
-      <VesselList vesselList={vesselData.vesselInfoList} />
+      <VesselList vesselList={vesselData.vesselInfoList} btnType="enroll" />
     </div>
   );
 };

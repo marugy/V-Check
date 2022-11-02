@@ -21,7 +21,7 @@ const MyVessel = () => {
   return (
     <div className="MyVessel">
       <h2>MY 선박</h2>
-      <VesselList vesselList={vesselData.vesselInfoList} />
+      <VesselList vesselList={vesselData.vesselInfoList} btnType={"detail"} />
     </div>
   );
 };

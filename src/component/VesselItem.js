@@ -1,17 +1,37 @@
 import { useState } from "react";
-const VesselItem = ({ imo, vesselName, vesselType, ownership }) => {
+import { useNavigate } from "react-router-dom";
+
+const VesselItem = ({ imo, vesselName, vesselType, ownership, btnType }) => {
+  const navigate = useNavigate();
   const [own, setOwn] = useState(ownership);
 
   const handleSubmit = () => {
-    fetch("http://34.64.185.37:8080/v1/vessel/add", {
-      method: "POST",
-      headers: {
-        "Content-type": "application/json",
-        Authorization: localStorage.getItem("access_token"),
-      },
-      body: JSON.stringify({ imo: String(imo) }),
-    }).then(setOwn(true));
+    if (own === true) {
+      alert("이미 등록된 선박입니다.");
+    } else {
+      fetch("http://34.64.185.37:8080/v1/vessel/add", {
+        method: "POST",
+        headers: {
+          "Content-type": "application/json",
+          Authorization: localStorage.getItem("access_token"),
+        },
+        body: JSON.stringify({ imo: String(imo) }),
+      }).then(setOwn(true));
+    }
   };
+
+  const handledetail = () => {
+    navigate("/usermain/myvessel/vesseldetail", {
+      state: { imo: imo, vesselName: vesselName, vesselType: vesselType },
+    });
+  };
+
+  let button;
+  if (btnType === "enroll") {
+    button = <button onClick={handleSubmit}>선박 등록</button>;
+  } else if (btnType === "detail") {
+    button = <button onClick={handledetail}>상세보기</button>;
+  }
 
   return (
     <div className="VesselItem">
@@ -22,9 +42,9 @@ const VesselItem = ({ imo, vesselName, vesselType, ownership }) => {
         <br />
         선박 타입 : {vesselType}
         <br />
-        소유여부 : {String(own)}
-        <br />
-        <button onClick={handleSubmit}>선박등록</button>
+        {/* 소유여부 : {String(own)}
+        <br /> */}
+        {button}
       </div>
     </div>
   );
