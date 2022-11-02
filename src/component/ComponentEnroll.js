@@ -18,18 +18,20 @@ const ComponentEnroll = ({ setEnrollModalOpen, block_name }) => {
   };
 
   const checkEnroll = (e) => {
+    e.preventDefault();
+    const file = e.currentTarget["fileInput"].files[0];
+    const data = new FormData();
+    data.append("blockName", block_name);
+    data.append("componentName", componentName);
+    data.append("sequenceNumber", sequenceNumber);
+    data.append("imageUploadName", file);
+
     fetch("http://34.64.185.37:8080/v1/component/register", {
       method: "POST",
       headers: {
-        "Content-Type": "multipart/form-data",
         Authorization: localStorage.getItem("access_token"),
       },
-      body: JSON.stringify({
-        block_name: block_name,
-        componentName: componentName,
-        sequenceNumber: sequenceNumber,
-        imageUploadName: imageUploadName,
-      }),
+      body: data,
     })
       .then((response) => {
         navigate("/usermain/myvessel");
@@ -41,20 +43,22 @@ const ComponentEnroll = ({ setEnrollModalOpen, block_name }) => {
   return (
     <div className="ComponentEnroll">
       <h2>선박에 등록할 블럭 정보를 입력하세요</h2>
-      <form>
+      <form onSubmit={checkEnroll}>
         부품 이름 :{" "}
         <input type={"text"} name="imo" onChange={componentNameHandler} />
         <br />
         부품 일련 번호 :{" "}
+        <input type={"text"} onChange={sequenceNumberHandler} />
+        <br />
+        부품 이미지 :{" "}
         <input
-          type={"text"}
-          placeholder="블럭 이름"
-          onChange={sequenceNumberHandler}
+          type={"file"}
+          id="fileInput"
+          accept="image/*"
+          onChange={imgHandler}
         />
         <br />
-        부품 이미지 : <input type={"file"} onChange={imgHandler} />
-        <br />
-        <button onClick={checkEnroll}>블럭 등록</button>
+        <button type="submit">부품 등록</button>
       </form>
     </div>
   );

@@ -1,30 +1,25 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import ComponentList from "./ComponentList";
 import ComponentEnroll from "./ComponentEnroll";
 
 const BlockDetail = () => {
   const { state } = useLocation();
-  const { componentList, setComponentList } = useState();
+  const [componentList, setComponentList] = useState({});
   const [enrollModalOpen, setEnrollModalOpen] = useState(false);
 
-  useState(() => {
-    fetch(
-      `http://34.64.185.37:8080/v1/vessel/${state.state.imo}/component/list?`,
-      {
-        method: "GET",
-        headers: {
-          Authorization: localStorage.getItem("access_token"),
-        },
-      }
-    )
+  useEffect(() => {
+    fetch(`http://34.64.185.37:8080/v1/vessel/${state.imo}/component/list?`, {
+      method: "GET",
+      headers: {
+        Authorization: localStorage.getItem("access_token"),
+      },
+    })
       .then((response) => response.json())
       .then((result) => {
         setComponentList(result);
       });
-  });
-
-  const handleSubmit = () => {};
+  }, []);
 
   const componentAdd = () => {
     setEnrollModalOpen(true);
@@ -45,13 +40,13 @@ const BlockDetail = () => {
         <hr />
       </div>
       <div className="componentList">
-        <ComponentList componentList={componentList} />
+        <ComponentList componentList={componentList.ComponentInfo} />
       </div>
       <button onClick={componentAdd}>부품 업로드</button>
       {enrollModalOpen && (
         <ComponentEnroll
           setEnrollModalOpen={setEnrollModalOpen}
-          imo={state.blockName}
+          block_name={state.blockName}
         />
       )}
     </div>

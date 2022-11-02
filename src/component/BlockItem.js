@@ -6,6 +6,7 @@ const BlockItem = ({ blockName, workingStep, imo, vessel_name, state }) => {
   const handleDetail = () => {
     navigate("/usermain/myvessel/vesseldetail/blockdetail", {
       state: {
+        imo: imo,
         state: state,
         blockName: blockName,
         workingStep: workingStep,
