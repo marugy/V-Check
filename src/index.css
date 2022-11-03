@@ -209,3 +209,7 @@ font-size: 14px;
   padding:10px;
   border-top: 1px solid black;
 }
+
+.ComponentItem img{
+  width: 500px;
+}

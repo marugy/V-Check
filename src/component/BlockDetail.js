@@ -17,6 +17,7 @@ const BlockDetail = () => {
     })
       .then((response) => response.json())
       .then((result) => {
+        console.log(result);
         setComponentList(result);
       });
   }, []);
@@ -40,7 +41,7 @@ const BlockDetail = () => {
         <hr />
       </div>
       <div className="componentList">
-        <ComponentList componentList={componentList.ComponentInfo} />
+        <ComponentList componentList={componentList.componentInfoList} />
       </div>
       <button onClick={componentAdd}>부품 업로드</button>
       {enrollModalOpen && (
