@@ -42,10 +42,10 @@ const VesselItem = ({ imo, vesselName, vesselType, ownership, btnType }) => {
         <br />
         선박 타입 : {vesselType}
         <br />
-        {/* 소유여부 : {String(own)}
-        <br /> */}
-        {button}
+        소유여부 : {String(own)}
+        <br />
       </div>
+      {button}
     </div>
   );
 };

@@ -197,17 +197,75 @@ font-size: 14px;
 }
 
 /* VesselLookup */
-.VesselLookup{
+.VesselLookup,.MyVessel, .VesselDetail, .BlockDetail{
+  margin:10px;
+  border-radius: 5px;
+}
+
+.VesselLookup .Lookup{
   border: 1px solid black;
   border-radius: 5px;
-
+  padding:10px;
 }
 
 /* VesselItem */
 
 .VesselItem{
+  border: 1px solid black;
+  border-radius: 5px;
   padding:10px;
-  border-top: 1px solid black;
+  margin-top: 5px;
+}
+
+.VesselItem button{
+}
+
+
+/* MyVessel */
+
+.MyVessel{
+width: 300px;
+}
+
+.MyVessel h2{
+text-align: center;
+}
+
+
+/* VesselDetail */
+
+.VesselDetail{
+  width: 300px;
+}
+
+.VesselDetail .vesselInfo{
+  margin:7px;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+
+/* BlockDetail */
+.BlockDetail {
+
+}
+
+.BlockDetail .vesselInfo{
+  margin:7px;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+
+/* ComponentItem */
+
+.ComponentItem {
+  border: 1px solid black;
+  border-radius: 5px;
+  padding:10px;
+  margin-top: 5px;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .ComponentItem img{

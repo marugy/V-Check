@@ -11,19 +11,19 @@ const ComponentItem = ({
 }) => {
   return (
     <div className="ComponentItem">
-      faultType : {faultType}
+      <img src={storeImageUrl} alt={""} />
       <br />
-      componentName : {componentName}
+      불량 타입 : {faultType}
       <br />
-      sequenceNumber: {sequenceNumber}
+      부품 이름 : {componentName}
       <br />
-      workingStatus : {workingStatus}
+      부품 일련번호: {sequenceNumber}
       <br />
-      uploadImageName : {uploadImageName}
+      작업 상태 : {workingStatus}
       <br />
-      storeImageUrl : <img src={storeImageUrl} alt={""} />
+      업로드 이미지 파일 이름 : {uploadImageName}
       <br />
-      componentId : {componentId}
+      부품 ID : {componentId}
     </div>
   );
 };

@@ -35,34 +35,36 @@ const VesselLookup = () => {
 
   return (
     <div className="VesselLookup">
-      <h2>서비스에 등록되어 있는 선박 조회</h2>
-      검색하실 IMO 입력하세요 :{" "}
-      <input
-        type={"text"}
-        name="imo"
-        value={searchInfo.imo}
-        onChange={handleChangeSearch}
-        placeholder={"1234567"}
-      />
-      <br />
-      검색하실 선박 명을 입력하세요 :{" "}
-      <input
-        type={"text"}
-        name="name"
-        value={searchInfo.name}
-        onChange={handleChangeSearch}
-        placeholder={"XX선박"}
-      />
-      <br />
-      검색하실 선박 타입을 입력하세요 :{" "}
-      <input
-        type={"text"}
-        name="type"
-        value={searchInfo.type}
-        onChange={handleChangeSearch}
-        placeholder={"A,B,C"}
-      />
-      <button onClick={handleSubmit}>검색</button>
+      <div className="Lookup">
+        <h2>서비스에 등록되어 있는 선박 조회</h2>
+        검색하실 IMO 입력하세요 :{" "}
+        <input
+          type={"text"}
+          name="imo"
+          value={searchInfo.imo}
+          onChange={handleChangeSearch}
+          placeholder={"1234567"}
+        />
+        <br />
+        검색하실 선박 명을 입력하세요 :{" "}
+        <input
+          type={"text"}
+          name="name"
+          value={searchInfo.name}
+          onChange={handleChangeSearch}
+          placeholder={"XX선박"}
+        />
+        <br />
+        검색하실 선박 타입을 입력하세요 :{" "}
+        <input
+          type={"text"}
+          name="type"
+          value={searchInfo.type}
+          onChange={handleChangeSearch}
+          placeholder={"A,B,C"}
+        />
+        <button onClick={handleSubmit}>검색</button>
+      </div>
       <VesselList vesselList={vesselData.vesselInfoList} btnType="enroll" />
     </div>
   );

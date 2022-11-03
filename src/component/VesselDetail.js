@@ -28,12 +28,12 @@ const VesselDetail = () => {
   return (
     <div className="VesselDetail">
       <div className="vesselInfo">
+        <h2>현재 선박 정보</h2>
         선박 IMO : {state.imo}
         <br />
         선박 이름 : {state.vesselName}
         <br />
         선박 타입 : {state.vesselType}
-        <hr />
       </div>
       <BlockList
         blockList={blockList.blockInfoList}

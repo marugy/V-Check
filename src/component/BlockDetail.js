@@ -29,20 +29,22 @@ const BlockDetail = () => {
   return (
     <div className="BlockDetail">
       <div className="vesselInfo">
+        <h2>선박 정보</h2>
         선박 IMO : {state.state.imo}
         <br />
         선박 이름 : {state.state.vesselName}
         <br />
         선박 타입 : {state.state.vesselType}
         <hr />
+        <h3>블럭 정보</h3>
         블럭 이름 : {state.blockName}
         <br />
         블럭 작업단계 : {state.workingStep}
-        <hr />
       </div>
       <div className="componentList">
         <ComponentList componentList={componentList.componentInfoList} />
       </div>
+      <br />
       <button onClick={componentAdd}>부품 업로드</button>
       {enrollModalOpen && (
         <ComponentEnroll
