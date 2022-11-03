@@ -68,7 +68,7 @@ const VesselEnroll = () => {
           선박 종류 :{" "}
           <input
             type={"text"}
-            placeholder="컨테이너선"
+            placeholder="A or B or C"
             onChange={vessel_typeHandler}
           />
           <br />
