@@ -42,8 +42,8 @@ const SignUp = () => {
     })
       .then((response) => response.json())
       .then((response) => {
-        localStorage.removeItem("user_email");
-        localStorage.removeItem("user_name");
+        localStorage.removeItem("userEmail");
+        localStorage.removeItem("userName");
         navigate("/usermain");
       });
   };
@@ -56,7 +56,7 @@ const SignUp = () => {
           이름{" "}
           <input
             type={"text"}
-            value={localStorage.getItem("user_name")}
+            value={localStorage.getItem("userName")}
             placeholder={"홍길동"}
             name="name"
             onChange={nameHandler}

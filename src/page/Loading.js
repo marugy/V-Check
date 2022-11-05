@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import spinner from "../spinner/spinner.gif";
 
 const Loading = () => {
   const navigate = useNavigate();
@@ -23,8 +24,8 @@ const Loading = () => {
           if (response.is_our_client) {
             navigate("/usermain");
           } else {
-            localStorage.setItem("user_name", response.name);
-            localStorage.setItem("user_email", response.email);
+            localStorage.setItem("userName", response.name);
+            localStorage.setItem("userEmail", response.email);
             navigate("/signup");
           }
         } else {
@@ -34,6 +35,7 @@ const Loading = () => {
   });
   return (
     <div className="Loading">
+      <img src={spinner} alt="로딩중" width="5%" />
       <div>*회원 여부 확인중*</div>
     </div>
   );
