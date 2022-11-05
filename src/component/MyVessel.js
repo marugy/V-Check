@@ -6,7 +6,7 @@ const MyVessel = () => {
   const [vesselData, setVesselData] = useState({});
 
   useState(() => {
-    fetch("http://34.64.185.37:8080/v2/client/vessels", {
+    fetch("http://34.64.185.37:8080/v2/client-vessel", {
       method: "GET",
       headers: {
         Authorization: localStorage.getItem("access_token"),

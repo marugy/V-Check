@@ -34,8 +34,8 @@ const VesselEnroll = () => {
       },
       body: JSON.stringify({
         imo: imo,
-        vessel_name: vessel_name,
-        vessel_type: vessel_type,
+        vesselName: vessel_name,
+        vesselType: vessel_type,
       }),
     })
       .then((response) => console.log("response:", response))
@@ -65,7 +65,7 @@ const VesselEnroll = () => {
           선박 종류 :{" "}
           <input
             type={"text"}
-            placeholder="A or B or C"
+            placeholder="General or Container or CrudeOil or Ore or Refrigerated"
             onChange={vessel_typeHandler}
           />
           <br />

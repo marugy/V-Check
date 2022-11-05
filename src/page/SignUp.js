@@ -39,7 +39,13 @@ const SignUp = () => {
         duty: duty,
         client_type: client_type,
       }),
-    }).then(navigate("/usermain"));
+    })
+      .then((response) => response.json())
+      .then((response) => {
+        localStorage.removeItem("user_email");
+        localStorage.removeItem("user_name");
+        navigate("/usermain");
+      });
   };
 
   return (

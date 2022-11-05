@@ -20,10 +20,11 @@ const Loading = () => {
           localStorage.setItem("access_token", response.access_token);
           localStorage.setItem("refresh_token", response.refresh_token);
           localStorage.setItem("is_our_client", response.is_our_client);
-          localStorage.setItem("user_name", response.name);
-          localStorage.setItem("user_email", response.email);
-          if (response.is_our_client) navigate("/usermain");
-          else {
+          if (response.is_our_client) {
+            navigate("/usermain");
+          } else {
+            localStorage.setItem("user_name", response.name);
+            localStorage.setItem("user_email", response.email);
             navigate("/signup");
           }
         } else {
