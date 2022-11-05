@@ -3,8 +3,8 @@ import { useNavigate } from "react-router-dom";
 
 const SignUp = () => {
   const navigate = useNavigate();
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
+  const [name, setName] = useState(localStorage.getItem("userName"));
+  const [email, setEmail] = useState(localStorage.getItem("userEmail"));
   const [belongs, setBelongs] = useState("");
   const [duty, setDuty] = useState("");
   const [client_type, setClient_type] = useState("");
@@ -29,7 +29,7 @@ const SignUp = () => {
     fetch("http://34.64.185.37:8080/v2/join", {
       method: "POST",
       headers: {
-        "Content-Type": "application/json",
+        "Content-type": "application/json",
         Authorization: localStorage.getItem("access_token"),
       },
       body: JSON.stringify({
@@ -37,11 +37,12 @@ const SignUp = () => {
         email: email,
         belongs: belongs,
         duty: duty,
-        client_type: client_type,
+        clientType: client_type,
       }),
     })
       .then((response) => response.json())
       .then((response) => {
+        console.log(response);
         localStorage.removeItem("userEmail");
         localStorage.removeItem("userName");
         navigate("/usermain");
@@ -56,7 +57,6 @@ const SignUp = () => {
           이름{" "}
           <input
             type={"text"}
-            value={localStorage.getItem("userName")}
             placeholder={"홍길동"}
             name="name"
             onChange={nameHandler}

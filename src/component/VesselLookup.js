@@ -8,6 +8,7 @@ const VesselLookup = () => {
     imo: "",
     name: "",
     type: "",
+    ton: "",
   });
 
   const handleChangeSearch = (e) => {
@@ -19,7 +20,7 @@ const VesselLookup = () => {
 
   const handleSubmit = () => {
     fetch(
-      `http://34.64.185.37:8080/v2/vessel/list?imo=${searchInfo.imo}&vessel_name=${searchInfo.name}&vessel_type=${searchInfo.type}`,
+      `http://34.64.185.37:8080/v2/vessel/list?imo=${searchInfo.imo}&vesselName=${searchInfo.name}&vesselType=${searchInfo.type}&ton=${searchInfo.ton}`,
       {
         method: "GET",
         headers: {
@@ -62,6 +63,15 @@ const VesselLookup = () => {
           value={searchInfo.type}
           onChange={handleChangeSearch}
           placeholder={"A,B,C"}
+        />
+        <br />
+        검색하실 선박 무게를 입력하세요 :
+        <input
+          type={"text"}
+          name="ton"
+          value={searchInfo.ton}
+          onChange={handleChangeSearch}
+          placeholder={"총 톤 수"}
         />
         <button onClick={handleSubmit}>검색</button>
       </div>

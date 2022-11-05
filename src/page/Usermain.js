@@ -15,7 +15,6 @@ const Usermain = () => {
     fetch("http://34.64.185.37:8080/v2/client", {
       method: "GET",
       headers: {
-        "Content-Type": "application/json",
         Authorization: localStorage.getItem("access_token"),
       },
     })
