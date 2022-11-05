@@ -1,11 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Jua&family=Nanum+Gothic&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap");
+@import "reset.css";
+
 /* 공통 CSS */
 a {
   text-decoration: none;
 }
 body{
   margin:0;
-  font-family: 'Jua', sans-serif;
+  font-family: 'Jua', sans-serif, 'Noto Sans KR', sans-serif;
 }
 .kakaobtn{
   width: 200px;
@@ -18,14 +21,17 @@ body{
 
 /* Login.js */
 .Login {
-margin-top: 150px;
-padding:0px 0 150px;
+  background-image: url("../public/assets/containership.jpg");
+  height: 100vh;
+  display: flex;
+  justify-content: center;
 }
 .Login .LoginBox {
+  position: absolute;
   width: 600px;
-  margin: 0 auto;
+  top:200px;
   border-radius: 6px;
-  background-color:#f6f5f0;
+  background-color:#eeeeee;
   box-shadow: 2px 2px 20px rgba(0,0,0,.3);
   color: #555;
 }
@@ -39,13 +45,29 @@ padding:0px 0 150px;
 .Login h2 strong{
   font-size: 70px;
   font-weight: 700;
-  color: #4aa5cf;
+  color: #447891;
 }
-.Login .kakao_wrapper{
+
+.Login .login_wrapper {
+  margin:10px;
   display: flex;
   justify-content: center;
-  flex-grow: 1;
 }
+
+.Login .kakaobtn{
+  justify-content: center;
+}
+
+/* Loading */
+.Loading {
+  font-size: 30px;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(255, 255, 255);
+}
+
 
 /* UserInfo */
 

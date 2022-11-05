@@ -13,7 +13,10 @@ const Login = () => {
     <div className="Login">
       <div className="LoginBox">
         <h2>
-          <strong>WelCome! </strong>
+          <strong>V-CHECK</strong>
+          <br />
+          <br />
+          선박 검사 시스템
           <br />
           <br />
           V-Check에 오신 것을 환영합니다.

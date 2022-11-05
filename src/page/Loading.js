@@ -32,8 +32,8 @@ const Loading = () => {
       });
   });
   return (
-    <div>
-      <div>로딩중입니다</div>
+    <div className="Loading">
+      <div>*회원 여부 확인중*</div>
     </div>
   );
 };
