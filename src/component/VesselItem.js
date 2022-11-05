@@ -28,7 +28,7 @@ const VesselItem = ({ imo, vesselName, vesselType, ownership, btnType }) => {
 
   let button;
   if (btnType === "enroll") {
-    button = <button onClick={handleSubmit}>선박 등록</button>;
+    button = <button onClick={handleSubmit}>선박 추가</button>;
   } else if (btnType === "detail") {
     button = <button onClick={handledetail}>상세보기</button>;
   }

@@ -1,4 +1,3 @@
-import { width } from "@mui/system";
 
 const ComponentItem = ({
   faultType,
