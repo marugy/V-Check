@@ -26,7 +26,7 @@ const SignUp = () => {
   };
 
   const checkSignUp = (e) => {
-    fetch("http://34.64.185.37:8080/v1/join", {
+    fetch("http://34.64.185.37:8080/v2/join", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -45,12 +45,13 @@ const SignUp = () => {
   return (
     <div className="SignUp">
       <div className="signup_wrapper">
-        <h2>회원 가입</h2>
+        <div className="signup_text">회원 가입</div>
         <form name="formsignup" action="/usermain">
           이름{" "}
           <input
             type={"text"}
-            placeholder="홍길동"
+            value={localStorage.getItem("user_name")}
+            placeholder={"홍길동"}
             name="name"
             onChange={nameHandler}
           />
@@ -58,7 +59,7 @@ const SignUp = () => {
           이메일{" "}
           <input
             type={"email"}
-            placeholder="홍길동@XXX.COM"
+            placeholder="hong@naver.com"
             name="email"
             onChange={emailHandler}
           />

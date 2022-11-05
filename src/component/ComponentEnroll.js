@@ -26,7 +26,7 @@ const ComponentEnroll = ({ setEnrollModalOpen, block_name }) => {
     data.append("sequenceNumber", sequenceNumber);
     data.append("imageUploadName", file);
 
-    fetch("http://34.64.185.37:8080/v1/component/register", {
+    fetch("http://34.64.185.37:8080/v2/component/register", {
       method: "POST",
       headers: {
         Authorization: localStorage.getItem("access_token"),

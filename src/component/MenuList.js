@@ -8,9 +8,9 @@ const handleLogout = () => {
   localStorage.clear();
 };
 
-const MenuList = ({ client_type }) => {
+const MenuList = ({ clientType }) => {
   const menulist = () => {
-    if (client_type === "INSPECTOR") {
+    if (clientType === "INSPECTOR") {
       return ["선박 조회", "My 선박", "선박 등록"];
     } else {
       return ["선박 조회", "My 선박"];
@@ -20,24 +20,23 @@ const MenuList = ({ client_type }) => {
 
   return (
     <div className="MenuList">
-      <Link to={"/usermain/vessellookup"} className="vessellookup">
+      <Link to={"/usermain/vessellookup"} className="vesselLookup">
         {menu[0]}
       </Link>
-      <br />
       <Link to={"/usermain/myvessel"} className="myVessel">
         {menu[1]}
       </Link>
-      <br />
       <Link to={"/usermain/vesselenroll"} className="vesselEnroll">
         {menu[2]}
       </Link>
-      <br />
       <div className="logout">
-        <img
-          src={`${process.env.PUBLIC_URL}/assets/Logout.png`}
-          alt="로그아웃"
-        />
-        <button onClick={handleLogout}>로그아웃</button>
+        <button onClick={handleLogout}>
+          <img
+            src={`${process.env.PUBLIC_URL}/assets/Logout.png`}
+            alt="로그아웃"
+          />
+          로그아웃
+        </button>
       </div>
     </div>
   );

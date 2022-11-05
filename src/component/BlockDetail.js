@@ -9,7 +9,7 @@ const BlockDetail = () => {
   const [enrollModalOpen, setEnrollModalOpen] = useState(false);
 
   useEffect(() => {
-    fetch(`http://34.64.185.37:8080/v1/vessel/${state.imo}/component/list?`, {
+    fetch(`http://34.64.185.37:8080/v2/vessel/${state.imo}/component/list?`, {
       method: "GET",
       headers: {
         Authorization: localStorage.getItem("access_token"),

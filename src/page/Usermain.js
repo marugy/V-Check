@@ -12,7 +12,7 @@ const Usermain = () => {
   const [userdata, setUserData] = useState({});
 
   useEffect(() => {
-    fetch("http://34.64.185.37:8080/v1/client", {
+    fetch("http://34.64.185.37:8080/v2/client", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",

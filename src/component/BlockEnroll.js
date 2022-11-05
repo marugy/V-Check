@@ -18,7 +18,7 @@ const BlockEnroll = ({ setEnrollModalOpen, imo }) => {
   };
 
   const checkEnroll = (e) => {
-    fetch("http://34.64.185.37:8080/v1/block/register", {
+    fetch("http://34.64.185.37:8080/v2/block/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

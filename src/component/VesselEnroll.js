@@ -26,7 +26,7 @@ const VesselEnroll = () => {
   // };
 
   const checkEnroll = (e) => {
-    fetch("http://34.64.185.37:8080/v1/vessel/register", {
+    fetch("http://34.64.185.37:8080/v2/vessel/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -45,10 +45,7 @@ const VesselEnroll = () => {
   return (
     <div className="VesselEnroll">
       <div className="vessel_wrapper">
-        <h2>
-          서비스에 등록할 선박 정보를
-          <br /> 입력하세요
-        </h2>
+        <h2>서비스에 등록할 선박 정보를 입력하세요</h2>
         <form>
           IMO :{" "}
           <input

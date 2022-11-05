@@ -19,7 +19,7 @@ const VesselLookup = () => {
 
   const handleSubmit = () => {
     fetch(
-      `http://34.64.185.37:8080/v1/vessel/list?imo=${searchInfo.imo}&vessel_name=${searchInfo.name}&vessel_type=${searchInfo.type}`,
+      `http://34.64.185.37:8080/v2/vessel/list?imo=${searchInfo.imo}&vessel_name=${searchInfo.name}&vessel_type=${searchInfo.type}`,
       {
         method: "GET",
         headers: {

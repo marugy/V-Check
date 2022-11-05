@@ -7,7 +7,7 @@ const Loading = () => {
   const code = params.get("code");
 
   useState(() => {
-    fetch("http://34.64.185.37:8080/v1/get_token", {
+    fetch("http://34.64.185.37:8080/v2/get_token", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
