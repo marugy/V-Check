@@ -1,44 +1,52 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const VesselEnroll = () => {
-  const [imo, setImo] = useState("");
-  const [vessel_name, setVessel_name] = useState("");
-  const [vessel_type, setVessel_type] = useState("");
-  // const [vessel_owner, setVessel_owner] = useState("");
-  // const [vessel_weight, setVessel_weight] = useState("");
+  const navigate = useNavigate();
+  const [enrollInfo, setEnrollInfo] = useState({
+    imo: "",
+    vessel_name: "",
+    vessel_type: "General",
+    ton: "",
+    startDate: "",
+    endDate: "",
+  });
 
-  const imoHandler = (e) => {
-    setImo(e.target.value);
-  };
-  const vessel_nameHandler = (e) => {
-    setVessel_name(e.target.value);
-  };
+  const selectList = [
+    "General",
+    "Container",
+    "CrudeOil",
+    "Ore",
+    "Refrigerated",
+  ];
 
-  const vessel_typeHandler = (e) => {
-    setVessel_type(e.target.value);
+  const handleChangeInfo = (e) => {
+    setEnrollInfo({
+      ...enrollInfo,
+      [e.target.name]: e.target.value,
+    });
   };
-
-  // const vessel_ownerHandler = (e) => {
-  //   setVessel_owner(e.target.value);
-  // };
-  // const vessel_weightHandler = (e) => {
-  //   setVessel_weight(e.target.value);
-  // };
 
   const checkEnroll = (e) => {
     fetch("http://34.64.185.37:8080/v2/vessel/register", {
       method: "POST",
       headers: {
-        "Content-Type": "application/json",
+        "Content-type": "application/json",
         Authorization: localStorage.getItem("access_token"),
       },
       body: JSON.stringify({
-        imo: imo,
-        vesselName: vessel_name,
-        vesselType: vessel_type,
+        imo: enrollInfo.imo,
+        vesselName: enrollInfo.vessel_name,
+        vesselType: enrollInfo.vessel_type,
+        ton: Number(enrollInfo.ton),
+        startDate: enrollInfo.startDate,
+        endDate: enrollInfo.endDate,
       }),
     })
-      .then((response) => console.log("response:", response))
+      .then((response) => response.json)
+      .then((result) => {
+        navigate("/vesselenroll");
+      })
       .catch((error) => console.log("error", error));
   };
 
@@ -50,32 +58,55 @@ const VesselEnroll = () => {
           IMO :{" "}
           <input
             type={"text"}
-            placeholder="5559531"
+            placeholder="숫자로 이루어진 IMO를 입력해주세요"
             name="imo"
-            onChange={imoHandler}
+            onChange={handleChangeInfo}
           />
           <br />
           선박 이름 :{" "}
           <input
             type={"text"}
-            placeholder="행복선박"
-            onChange={vessel_nameHandler}
+            name="name"
+            placeholder="XX선박"
+            onChange={handleChangeInfo}
+          />
+          <br />총 톤 수 :{" "}
+          <input
+            type={"text"}
+            name="ton"
+            placeholder="톤 단위로 입력하세요"
+            onChange={handleChangeInfo}
+          />
+          <br />
+          착공 예정일 :{" "}
+          <input
+            type={"text"}
+            name="startDate"
+            placeholder="yyyy-mm-dd"
+            onChange={handleChangeInfo}
+          />
+          <br />
+          준공 예정일 :{" "}
+          <input
+            type={"text"}
+            name="endDate"
+            placeholder="yyyy-mm-dd"
+            onChange={handleChangeInfo}
           />
           <br />
           선박 종류 :{" "}
-          <input
-            type={"text"}
-            placeholder="General or Container or CrudeOil or Ore or Refrigerated"
-            onChange={vessel_typeHandler}
-          />
-          <br />
-          {/* 선박 OWNER : <input type={"text"} placeholder="XX기업" />
-          <br />
-          총 톤 수 : <input type={"text"} placeholder="3000"/>
-          <br /> */}
-          <button type="" onClick={checkEnroll}>
-            선박 등록
-          </button>
+          <select
+            onChange={handleChangeInfo}
+            value={enrollInfo.type}
+            name="type"
+          >
+            {selectList.map((item) => (
+              <option value={item} key={item}>
+                {item}
+              </option>
+            ))}
+          </select>
+          <button onClick={checkEnroll}>선박 등록</button>
         </form>
       </div>
     </div>

@@ -12,17 +12,13 @@ const VesselLookup = () => {
   });
 
   const selectList = [
+    "",
     "General",
     "Container",
     "CrudeOil",
-    "Oil",
+    "Ore",
     "Refrigerated",
   ];
-  const [Selected, setSelected] = useState("");
-
-  const handleSelect = (e) => {
-    setSelected(e.target.value);
-  };
 
   const handleChangeSearch = (e) => {
     setsearchInfo({

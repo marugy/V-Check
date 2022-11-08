@@ -25,7 +25,7 @@ const SignUp = () => {
     setClient_type(e.target.value);
   };
 
-  const checkSignUp = (e) => {
+  const checkSignUp = () => {
     fetch("http://34.64.185.37:8080/v2/join", {
       method: "POST",
       headers: {
@@ -53,7 +53,7 @@ const SignUp = () => {
     <div className="SignUp">
       <div className="signup_wrapper">
         <div className="signup_text">회원 가입</div>
-        <form name="formsignup" action="/usermain">
+        <form name="formsignup">
           이름{" "}
           <input
             type={"text"}
