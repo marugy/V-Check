@@ -11,6 +11,19 @@ const VesselLookup = () => {
     ton: "",
   });
 
+  const selectList = [
+    "General",
+    "Container",
+    "CrudeOil",
+    "Oil",
+    "Refrigerated",
+  ];
+  const [Selected, setSelected] = useState("");
+
+  const handleSelect = (e) => {
+    setSelected(e.target.value);
+  };
+
   const handleChangeSearch = (e) => {
     setsearchInfo({
       ...searchInfo,
@@ -57,13 +70,17 @@ const VesselLookup = () => {
         />
         <br />
         검색하실 선박 타입을 입력하세요 :{" "}
-        <input
-          type={"text"}
-          name="type"
-          value={searchInfo.type}
+        <select
           onChange={handleChangeSearch}
-          placeholder={"A,B,C"}
-        />
+          value={searchInfo.type}
+          name="type"
+        >
+          {selectList.map((item) => (
+            <option value={item} key={item}>
+              {item}
+            </option>
+          ))}
+        </select>
         <br />
         검색하실 선박 무게를 입력하세요 :
         <input
