@@ -3,21 +3,29 @@ import { useNavigate } from "react-router-dom";
 
 const BlockEnroll = ({ setEnrollModalOpen, imo }) => {
   const navigate = useNavigate();
-  const [block_imo, setImo] = useState(imo);
-  const [block_name, setVessel_name] = useState("");
-  const [working_step, setVessel_type] = useState("");
 
-  const imoHandler = (e) => {
-    setImo(e.target.value);
-  };
-  const block_nameHandler = (e) => {
-    setVessel_name(e.target.value);
-  };
-  const working_stepHandler = (e) => {
-    setVessel_type(e.target.value);
+  const [enrollInfo, setEnrollInfo] = useState({
+    imo: imo,
+    blockName: "",
+    workingStep: "PieceAssembly",
+  });
+
+  const selectList = [
+    "PieceAssembly",
+    "SubBlockAssembly",
+    "BlockAssembly",
+    "INSTALL"
+  ];
+
+  const handleChangeInfo = (e) => {
+    setEnrollInfo({
+      ...enrollInfo,
+      [e.target.name]: e.target.value,
+    });
   };
 
   const checkEnroll = (e) => {
+    alert(enrollInfo.imo+enrollInfo.blockName+enrollInfo.workingStep)
     fetch("http://34.64.185.37:8080/v2/block/register", {
       method: "POST",
       headers: {
@@ -25,9 +33,9 @@ const BlockEnroll = ({ setEnrollModalOpen, imo }) => {
         Authorization: localStorage.getItem("access_token"),
       },
       body: JSON.stringify({
-        imo: String(block_imo),
-        block_name: block_name,
-        working_step: working_step,
+        imo: enrollInfo.imo,
+        blockName: enrollInfo.blockName,
+        workingStep: enrollInfo.workingStep,
       }),
     })
       .then((response) => {
@@ -43,22 +51,28 @@ const BlockEnroll = ({ setEnrollModalOpen, imo }) => {
         <h2>선박에 등록할 블럭 정보를 입력하세요</h2>
         <form>
           IMO :{" "}
-          <input type={"text"} value={imo} name="imo" onChange={imoHandler} />
+          <input type={"text"} value={imo} name="imo" onChange={handleChangeInfo} />
           <br />
           블록 이름 :{" "}
           <input
             type={"text"}
+            name="blockName"
             placeholder="블럭 이름"
-            onChange={block_nameHandler}
+            onChange={handleChangeInfo}
           />
           <br />
-          작업 단계 :{" "}
-          <input
-            type={"text"}
-            placeholder="ASSEMBLY or INSTALL"
-            onChange={working_stepHandler}
-          />
-          <br />
+          작업 단계 :
+          <select
+            onChange={handleChangeInfo}
+            value={enrollInfo.workingStep}
+            name="workingStep"
+          >
+            {selectList.map((item) => (
+              <option value={item} key={item}>
+                {item}
+              </option>
+            ))}
+          </select>
           <button onClick={checkEnroll}>블럭 등록</button>
         </form>
       </div>

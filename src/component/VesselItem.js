@@ -7,6 +7,8 @@ const VesselItem = ({
   vesselType,
   ownership,
   ton,
+  startDate,
+  endDate,
   btnType,
 }) => {
   const navigate = useNavigate();
@@ -29,7 +31,7 @@ const VesselItem = ({
 
   const handledetail = () => {
     navigate("/usermain/myvessel/vesseldetail", {
-      state: { imo: imo, vesselName: vesselName, vesselType: vesselType },
+      state: { imo: imo, vesselName: vesselName, vesselType: vesselType, ton: ton, startDate: startDate, endDate:endDate },
     });
   };
 
@@ -48,9 +50,9 @@ const VesselItem = ({
         선박 이름 : {vesselName}
         <br />
         선박 타입 : {vesselType}
-        <br />
-        소유여부 : {String(own)}
         <br />총 톤 수 : {ton}
+        <br/>착공일 : {startDate}
+        <br/>준공일(준공예정일) : {endDate}
       </div>
       {button}
     </div>

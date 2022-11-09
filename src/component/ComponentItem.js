@@ -6,7 +6,7 @@ const ComponentItem = ({
   workingStatus,
   uploadImageName,
   storeImageUrl,
-  componentId,
+  blockName
 }) => {
   return (
     <div className="ComponentItem">
@@ -20,9 +20,9 @@ const ComponentItem = ({
       <br />
       작업 상태 : {workingStatus}
       <br />
-      업로드 이미지 파일 이름 : {uploadImageName}
-      <br />
-      부품 ID : {componentId}
+      업로드 이미지 명 : {uploadImageName}
+      <br/>
+      블럭 이름 : {blockName}
     </div>
   );
 };

@@ -34,6 +34,9 @@ const VesselDetail = () => {
         선박 이름 : {state.vesselName}
         <br />
         선박 타입 : {state.vesselType}
+        <br />총 톤 수 : {state.ton}
+        <br/>착공일 : {state.startDate}
+        <br/>준공일(준공예정일) : {state.endDate}
       </div>
       <BlockList
         blockList={blockList.blockInfoList}

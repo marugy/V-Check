@@ -9,7 +9,7 @@ const BlockDetail = () => {
   const [enrollModalOpen, setEnrollModalOpen] = useState(false);
 
   useEffect(() => {
-    fetch(`http://34.64.185.37:8080/v2/vessel/${state.imo}/component/list?`, {
+    fetch(`http://34.64.185.37:8080/v2/vessel/${state.state.imo}/component/list?`, {
       method: "GET",
       headers: {
         Authorization: localStorage.getItem("access_token"),
@@ -35,7 +35,11 @@ const BlockDetail = () => {
         선박 이름 : {state.state.vesselName}
         <br />
         선박 타입 : {state.state.vesselType}
-        <hr />
+        <br />총 톤 수 : {state.state.ton}
+        <br/>착공일 : {state.state.startDate}
+        <br/>준공일(준공예정일) : {state.state.endDate}
+      </div>
+      <div className="blockInfo">
         <h3>블럭 정보</h3>
         블럭 이름 : {state.blockName}
         <br />
