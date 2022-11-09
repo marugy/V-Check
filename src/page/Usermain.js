@@ -30,12 +30,12 @@ const Usermain = () => {
     <div className="Usermain">
       <Header userdata={userdata} />
       <Routes>
-        <Route path="/vessellookup" element={<VesselLookup />} />
+        <Route path="/vessellookup/*" element={<VesselLookup />} />
         <Route path="/myvessel/*" element={<MyVessel />} />
-        <Route path="/vesselenroll" element={<VesselEnroll />} />
+        <Route path="/vesselenroll/*" element={<VesselEnroll />} />
         <Route path="/myvessel/vesseldetail/*" element={<VesselDetail />} />
         <Route
-          path="/myvessel/vesseldetail/blockdetail"
+          path="/myvessel/vesseldetail/blockdetail/*"
           element={<BlockDetail />}
         />
       </Routes>

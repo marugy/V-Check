@@ -30,6 +30,8 @@ const VesselEnroll = () => {
   };
 
   const checkEnroll = () => {
+    alert(enrollInfo.imo + enrollInfo.vessel_name+enrollInfo.vessel_type+enrollInfo.ton+enrollInfo.startDate+enrollInfo.endDate);
+
     fetch("http://34.64.185.37:8080/v2/vessel/register", {
       method: "POST",
       headers: {
@@ -47,8 +49,9 @@ const VesselEnroll = () => {
     })
       .then((response) => response.json())
       .then((result) => {
-        console.log(result.message);
-        alert(result.message);
+        console.log(result.message[0]);
+        alert(result.message[0]);
+        alert(result.status);
         localStorage.setItem("result", result.message);
         navigate("/vesselenroll");
       })

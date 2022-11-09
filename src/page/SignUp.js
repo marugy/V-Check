@@ -41,19 +41,19 @@ const SignUp = () => {
       }),
     })
       .then((response) => response.json())
-      .then((response) => {
-        console.log(response);
-        localStorage.removeItem("userEmail");
-        localStorage.removeItem("userName");
-        navigate("/usermain");
-      });
+      .then((result) => {
+        localStorage.setItem("status",result.status);
+        if(result.status === "OK"){
+          localStorage.removeItem("userEmail");
+          localStorage.removeItem("userName");
+      }});
   };
 
   return (
     <div className="SignUp">
       <div className="signup_wrapper">
         <div className="signup_text">회원 가입</div>
-        <form name="formsignup">
+        <form name="formsignup" action="/usermain">
           이름{" "}
           <input
             type={"text"}
@@ -94,7 +94,7 @@ const SignUp = () => {
             onChange={client_typeHandler}
           />
           <br />
-          <button type="" onClick={checkSignUp}>
+          <button type="submit" onClick={checkSignUp}>
             회원 가입
           </button>
         </form>
