@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 
 const VesselEnroll = () => {
+  const inputRef = useRef();
   const navigate = useNavigate();
+
   const [enrollInfo, setEnrollInfo] = useState({
     imo: "",
     vessel_name: "",
@@ -27,7 +29,7 @@ const VesselEnroll = () => {
     });
   };
 
-  const checkEnroll = (e) => {
+  const checkEnroll = () => {
     fetch("http://34.64.185.37:8080/v2/vessel/register", {
       method: "POST",
       headers: {
@@ -43,8 +45,11 @@ const VesselEnroll = () => {
         endDate: enrollInfo.endDate,
       }),
     })
-      .then((response) => response.json)
+      .then((response) => response.json())
       .then((result) => {
+        console.log(result.message);
+        alert(result.message);
+        localStorage.setItem("result", result.message);
         navigate("/vesselenroll");
       })
       .catch((error) => console.log("error", error));
@@ -66,7 +71,7 @@ const VesselEnroll = () => {
           선박 이름 :{" "}
           <input
             type={"text"}
-            name="name"
+            name="vessel_name"
             placeholder="XX선박"
             onChange={handleChangeInfo}
           />
@@ -98,7 +103,7 @@ const VesselEnroll = () => {
           <select
             onChange={handleChangeInfo}
             value={enrollInfo.type}
-            name="type"
+            name="vessel_type"
           >
             {selectList.map((item) => (
               <option value={item} key={item}>
