@@ -42,7 +42,7 @@ const SignUp = () => {
     })
       .then((response) => response.json())
       .then((result) => {
-        localStorage.setItem("status",result.status);
+        localStorage.setItem("status",result);
         if(result.status === "OK"){
           localStorage.removeItem("userEmail");
           localStorage.removeItem("userName");

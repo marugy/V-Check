@@ -73,7 +73,7 @@ const BlockEnroll = ({ setEnrollModalOpen, imo }) => {
               </option>
             ))}
           </select>
-          <button onClick={checkEnroll}>블럭 등록</button>
+          <button type={"submit"}onClick={checkEnroll}>블럭 등록</button>
         </form>
       </div>
     </div>
