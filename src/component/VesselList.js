@@ -19,7 +19,7 @@ const ControlMenu = ({ value, onChange, optionList }) => {
   );
 };
 
-const VesselList = ({ vesselList, btnType }) => {
+const VesselList = ({ vesselList, btnType, listType }) => {
   const [filter, setFilter] = useState("all");
 
   const getProcessedVesselList = () => {
@@ -38,15 +38,19 @@ const VesselList = ({ vesselList, btnType }) => {
     return filteredList;
   };
 
+    let controlMenu;
+      if(listType=="lookUp"){
+        controlMenu = <ControlMenu
+        value={filter}
+        onChange={setFilter}
+        optionList={filterOptionList}
+      />
+      }
+
   return (
     <div className="VesselList">
       <div>
-        {/*
-        <ControlMenu
-          value={filter}
-          onChange={setFilter}
-          optionList={filterOptionList}
-        /> */}
+        {controlMenu}
         {getProcessedVesselList().map((it) => (
           <VesselItem key={it.imo} {...it} btnType={btnType} />
         ))}
