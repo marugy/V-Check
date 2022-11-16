@@ -33,7 +33,7 @@ const VesselDetail = () => {
   };
 
   const handleSubmit = () => {
-    fetch(`http://34.64.185.37:8080/v2/block/list?imo=${state.imo}&block_name=${searchInfo.blockName}&working_step=${searchInfo.workingStep}`, {
+    fetch(`http://34.64.185.37:8080/v2/block/list?imo=${state.imo}&blockName=${searchInfo.blockName}&workingStep=${searchInfo.workingStep}`, {
       method: "GET",
       headers: {
         Authorization: localStorage.getItem("access_token"),
