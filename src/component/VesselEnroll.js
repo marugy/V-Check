@@ -61,7 +61,7 @@ const VesselEnroll = () => {
   return (
     <div className="VesselEnroll">
       <div className="vessel_wrapper">
-        <h2>서비스에 등록할 선박 정보를 입력하세요</h2>
+        <h2>서비스에 등록할<br/>선박 정보를 입력하세요</h2>
         <form>
           IMO :{" "}
           <input

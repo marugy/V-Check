@@ -45,16 +45,17 @@ const VesselItem = ({
   return (
     <div className="VesselItem">
       <div className="vesselInfo">
-        선박 imo : {imo}
+        선박 IMO : {imo}
         <br />
         선박 이름 : {vesselName}
-        <br />
-        선박 타입 : {vesselType}
-        <br />총 톤 수 : {ton}
+        <br />총 톤 수 : {ton} T
         <br/>착공일 : {startDate}
-        <br/>준공일(준공예정일) : {endDate}
+        <br/>준공일 : {endDate}
+        <br/>선박 타입 : {vesselType}
       </div>
-      {button}
+      <div className="btnWrapper">
+        {button}
+      </div>
     </div>
   );
 };

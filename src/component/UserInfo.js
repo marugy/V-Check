@@ -1,6 +1,9 @@
 const UserInfo = ({ userdata }) => {
   return (
     <div className="UserInfo">
+      <div className="sys_name">
+        V-Check
+      </div>
       <div className="user_img">
         <img
           src={`${process.env.PUBLIC_URL}/assets/person.png`}

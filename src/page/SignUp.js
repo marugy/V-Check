@@ -42,6 +42,7 @@ const SignUp = () => {
     })
       .then((response) => response.json())
       .then((result) => {
+        navigate("/usermain/");
         localStorage.setItem("status",result);
         if(result.status === "OK"){
           localStorage.removeItem("userEmail");
