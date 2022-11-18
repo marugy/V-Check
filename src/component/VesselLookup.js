@@ -12,12 +12,12 @@ const VesselLookup = () => {
   });
 
   const selectList = [
-    "",
-    "General",
-    "Container",
-    "CrudeOil",
-    "Ore",
-    "Refrigerated",
+    { id: 0, type: "", name: "상관없음" },
+    { id: 1, type: "General", name: "일반 화물선" },
+    { id: 2, type: "Container", name: "컨테이너선" },
+    { id: 3, type: "CrudeOil", name: "원유 운반선" },
+    { id: 4, type: "Ore", name: "광석 전용선" },
+    { id: 5, type: "Refrigerated", name: "냉동선" },
   ];
 
   const handleChangeSearch = (e) => {
@@ -72,8 +72,8 @@ const VesselLookup = () => {
           name="type"
         >
           {selectList.map((item) => (
-            <option value={item} key={item}>
-              {item}
+            <option value={item.type} key={item.id}>
+              {item.name}
             </option>
           ))}
         </select>
