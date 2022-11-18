@@ -432,6 +432,24 @@ body{
   margin-top: 10px;
 }
 
+/* BlockItem */
+.BlockItem{
+  width: 1000px;
+  margin-bottom: 10px;
+
+  color:white;
+  background-color: #333;
+  border-radius: 5px;
+}
+.BlockItem .BlockInfo{
+  padding: 15px;
+  position: relative;
+}
+.BlockItem .BlockInfo button{
+  position: absolute;
+  right:10px;
+  bottom:10px;
+}
 
 /* BlockEnroll */
 .BlockEnroll{
