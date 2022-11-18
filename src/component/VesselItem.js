@@ -31,7 +31,14 @@ const VesselItem = ({
 
   const handledetail = () => {
     navigate("/usermain/myvessel/vesseldetail", {
-      state: { imo: imo, vesselName: vesselName, vesselType: vesselType, ton: ton, startDate: startDate, endDate:endDate },
+      state: {
+        imo: imo,
+        vesselName: vesselName,
+        vesselType: vesselType,
+        ton: ton,
+        startDate: startDate,
+        endDate: endDate,
+      },
     });
   };
 
@@ -45,17 +52,23 @@ const VesselItem = ({
   return (
     <div className="VesselItem">
       <div className="vesselInfo">
-        선박 IMO : {imo}
+        <div className="name_imo">
+          {vesselName}
+          <br />
+          {imo}
+        </div>
         <br />
-        선박 이름 : {vesselName}
-        <br />총 톤 수 : {ton} T
-        <br/>착공일 : {startDate}
-        <br/>준공일 : {endDate}
-        <br/>선박 타입 : {vesselType}
+        <div className="">
+          선박 타입 : {vesselType}
+          <br />총 톤 수 : {ton}t
+        </div>
+        <div className="dayInfo">
+          착공일 : {startDate}
+          <br />
+          준공일 : {endDate}
+        </div>
       </div>
-      <div className="btnWrapper">
-        {button}
-      </div>
+      {button}
     </div>
   );
 };

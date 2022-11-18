@@ -88,7 +88,11 @@ const VesselLookup = () => {
         />
         <button onClick={handleSubmit}>검색</button>
       </div>
-      <VesselList vesselList={vesselData.vesselInfoList} btnType="enroll" listType="lookUp"/>
+      <VesselList
+        vesselList={vesselData.vesselInfoList}
+        btnType="enroll"
+        listType="lookUp"
+      />
     </div>
   );
 };

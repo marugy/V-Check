@@ -334,13 +334,26 @@ body{
   padding:10px;
   margin: 20px;
 }
-.VesselItem .vesselInfo .btnWrapper{
+.VesselItem .vesselInfo{
+  display: flex;
   width: 100%;
+}
+.VesselItem .vesselInfo div{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  width: 20%;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top:5px;
+  padding-bottom:5px;
+  border-right: 1px solid black;
+
 }
 .VesselItem button{
   position: absolute;
   right:10px;
-  bottom:10px;
+  bottom:30%;
 }
 
 /* MyVessel */

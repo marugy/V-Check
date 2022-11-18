@@ -2,7 +2,7 @@ import VesselItem from "./VesselItem";
 import { useState } from "react";
 
 const filterOptionList = [
-  { value: "all", name: "전부다" },
+  { value: "all", name: "전부 표시" },
   { value: "own", name: "소유 선박" },
   { value: "non-owned", name: "미소유 선박" },
 ];
@@ -38,14 +38,16 @@ const VesselList = ({ vesselList, btnType, listType }) => {
     return filteredList;
   };
 
-    let controlMenu;
-      if(listType=="lookUp"){
-        controlMenu = <ControlMenu
+  let controlMenu;
+  if (listType == "lookUp") {
+    controlMenu = (
+      <ControlMenu
         value={filter}
         onChange={setFilter}
         optionList={filterOptionList}
       />
-      }
+    );
+  }
 
   return (
     <div className="VesselList">
