@@ -278,6 +278,7 @@ body{
 
 .VesselLookup .Lookup{
   position: fixed;
+  top:10px;
   z-index: 999;
   width: 50vw;
   color: white;
@@ -311,7 +312,7 @@ body{
 /* VesselList */
 .VesselList{
   position: relative;
-  top:185px;
+  top:195px;
   width: 50vw;
   background-color: #333;
   border-radius: 5px;
@@ -357,14 +358,16 @@ body{
 
 /* VesselDetail */
 .VesselDetail{
+  height: 100%;
   display: flex;
   position: relative;
   width: fit-content;
-  left:19vw;
+  left:15vw;
   padding-top: 10px;
 }
 .VesselDetail .vesselInfo{
   min-width:fit-content;
+  height: fit-content;
   background-color: #333;
   color: white;
   padding:10px;
@@ -378,7 +381,7 @@ body{
   margin:10px;
 }
 .VesselDetail .Lookup_wrapper{
-  margin-left: 10px;
+  margin-left: 30px;
 }
 .VesselDetail .Lookup_wrapper .Lookup{
   background-color: #333;
@@ -405,6 +408,7 @@ body{
 /* BlockList */
 .BlockList{
   width: 50vw;
+  margin-top: 10px;
 }
 
 
@@ -437,6 +441,7 @@ body{
   margin:7px;
   border: 1px solid black;
   border-radius: 5px;
+  max-height: fit-content;
 }
 
 
