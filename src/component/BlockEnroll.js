@@ -46,8 +46,8 @@ const BlockEnroll = ({ setEnrollModalOpen, imo }) => {
   };
 
   return (
-    <div className="VesselEnroll">
-      <div className="vessel_wrapper">
+    <div className="BlockEnroll">
+      <div className="Block_wrapper">
         <h2>선박에 등록할 블럭 정보를 입력하세요</h2>
         <form>
           IMO :{" "}
