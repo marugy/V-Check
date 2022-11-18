@@ -4,6 +4,12 @@ import VesselList from "./VesselList";
 
 const MyVessel = () => {
   const [vesselData, setVesselData] = useState({});
+  const [searchInfo, setsearchInfo] = useState({
+    imo: "",
+    name: "",
+    type: "",
+    ton: "",
+  });
 
   useState(() => {
     fetch("http://34.64.185.37:8080/v2/client-vessel", {

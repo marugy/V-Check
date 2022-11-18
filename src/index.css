@@ -323,6 +323,7 @@ body{
   margin-top:15px;
   margin-left:20px;
 }
+
 /* VesselItem */
 .VesselItem{
   position: relative;
@@ -458,4 +459,15 @@ body{
 
 .ComponentItem img{
   width: 500px;
+}
+
+
+/* ComponentDetail */
+.ComponentDetail{
+  margin-left: 20vw;
+
+}
+
+.ComponentDetail img{
+width:500px
 }

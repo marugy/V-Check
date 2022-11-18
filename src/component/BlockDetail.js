@@ -12,13 +12,12 @@ const BlockDetail = () => {
     setEnrollModalOpen(true);
   };
 
-
   const [searchInfo, setsearchInfo] = useState({
     faultType: "",
     componentName: "",
-    sequenceNumber:"",
-    workingStatus:"",
-    blockName:"",
+    sequenceNumber: "",
+    workingStatus: "",
+    blockName: "",
   });
 
   const falutTypeSelectList = [
@@ -45,7 +44,7 @@ const BlockDetail = () => {
     "WorkingStart",
     "WorkingIng",
     "WorkingComplete",
-    "InspectionComplete", 
+    "InspectionComplete",
   ];
 
   const handleChangeSearch = (e) => {
@@ -56,24 +55,22 @@ const BlockDetail = () => {
   };
 
   const handleSubmit = () => {
-    fetch(`http://34.64.185.37:8080/v2/vessel/${state.state.imo}/component/list?faultType=${searchInfo.faultType}&componentName=${searchInfo.componentName}&
-    sequenceNumber=${searchInfo.sequenceNumber}&workingStatus=${searchInfo.workingStatus}&blockName=${searchInfo.blockName}`, {
-      method: "GET",
-      headers: {
-        Authorization: localStorage.getItem("access_token"),
-      },
-    })
+    fetch(
+      `http://34.64.185.37:8080/v2/vessel/${state.state.imo}/component/list?faultType=${searchInfo.faultType}&componentName=${searchInfo.componentName}&
+    sequenceNumber=${searchInfo.sequenceNumber}&workingStatus=${searchInfo.workingStatus}&blockName=${searchInfo.blockName}`,
+      {
+        method: "GET",
+        headers: {
+          Authorization: localStorage.getItem("access_token"),
+        },
+      }
+    )
       .then((response) => response.json())
       .then((result) => {
         console.log(result);
         setComponentList(result);
       });
   };
-
-
-
-
-
 
   return (
     <div className="BlockDetail">
@@ -85,8 +82,10 @@ const BlockDetail = () => {
         <br />
         선박 타입 : {state.state.vesselType}
         <br />총 톤 수 : {state.state.ton}
-        <br/>착공일 : {state.state.startDate}
-        <br/>준공일(준공예정일) : {state.state.endDate}
+        <br />
+        착공일 : {state.state.startDate}
+        <br />
+        준공일(준공예정일) : {state.state.endDate}
       </div>
       <div className="blockInfo">
         <h3>블럭 정보</h3>
@@ -94,8 +93,6 @@ const BlockDetail = () => {
         <br />
         블럭 작업단계 : {state.workingStep}
       </div>
-
-
 
       <div className="Lookup">
         <h2>블록에 업로드되어 있는 부품 조회</h2>
@@ -117,7 +114,6 @@ const BlockDetail = () => {
           placeholder={"1234.."}
         />
         <br />
-
         작업 상태를 입력하세요 :
         <select
           onChange={handleChangeSearch}
@@ -130,7 +126,7 @@ const BlockDetail = () => {
             </option>
           ))}
         </select>
-        <br/>
+        <br />
         불량 상태를 입력하세요 :
         <select
           onChange={handleChangeSearch}

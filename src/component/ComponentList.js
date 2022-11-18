@@ -4,7 +4,7 @@ const ComponentList = ({ componentList }) => {
   return (
     <div className="ComponentList">
       {componentList.map((it) => (
-        <ComponentItem key={it.sequenceNumber} {...it} />
+        <ComponentItem key={it.componentId} {...it} />
       ))}
     </div>
   );

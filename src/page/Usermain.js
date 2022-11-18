@@ -7,6 +7,7 @@ import MyVessel from "../component/MyVessel";
 import VesselEnroll from "../component/VesselEnroll";
 import VesselDetail from "../component/VesselDetail";
 import BlockDetail from "../component/BlockDetail";
+import ComponentDetail from "../component/ComponentDetail";
 
 const Usermain = () => {
   const [userdata, setUserData] = useState({});
@@ -37,6 +38,10 @@ const Usermain = () => {
         <Route
           path="/myvessel/vesseldetail/blockdetail/*"
           element={<BlockDetail />}
+        />
+        <Route
+          path="/myvessel/vesseldetail/blockdetail/componentdetail"
+          element={<ComponentDetail />}
         />
       </Routes>
     </div>

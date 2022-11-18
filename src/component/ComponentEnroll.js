@@ -37,7 +37,6 @@ const ComponentEnroll = ({ setEnrollModalOpen, block_name }) => {
         navigate("/usermain/myvessel");
       })
       .catch((error) => console.log("error", error));
-    setEnrollModalOpen(false);
   };
 
   return (

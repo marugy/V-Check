@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 
 const ComponentItem = ({
   faultType,
@@ -6,8 +7,26 @@ const ComponentItem = ({
   workingStatus,
   uploadImageName,
   storeImageUrl,
-  blockName
+  blockName,
+  componentId,
 }) => {
+  const navigate = useNavigate();
+
+  const handleDetail = () => {
+    navigate("/usermain/myvessel/vesseldetail/blockdetail/componentdetail", {
+      state: {
+        faultType: faultType,
+        componentName: componentName,
+        sequenceNumber: sequenceNumber,
+        workingStatus: workingStatus,
+        uploadImageName: uploadImageName,
+        storeImageUrl: storeImageUrl,
+        blockName: blockName,
+        componentId: componentId,
+      },
+    });
+  };
+
   return (
     <div className="ComponentItem">
       <img src={storeImageUrl} alt={""} />
@@ -21,8 +40,10 @@ const ComponentItem = ({
       작업 상태 : {workingStatus}
       <br />
       업로드 이미지 명 : {uploadImageName}
-      <br/>
+      <br />
       블럭 이름 : {blockName}
+      <br />
+      <button onClick={handleDetail}>상세보기</button>
     </div>
   );
 };
