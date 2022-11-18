@@ -226,7 +226,6 @@ body{
   position: absolute;
   top:10vh;
   left:40vw;
-  width: fit-content;
 }
 
 .VesselEnroll .vessel_wrapper{
@@ -305,6 +304,7 @@ body{
 }
 
 .VesselLookup .Lookup button{
+  position: absolute;
   cursor: pointer;
   margin : 3px;
 }
@@ -376,14 +376,16 @@ body{
   display: flex;
   position: relative;
   width: fit-content;
-  left:15vw;
+  left:300px;
   padding-top: 10px;
 }
 .VesselDetail .vesselInfo{
   min-width:fit-content;
   height: fit-content;
+
   background-color: #333;
   color: white;
+  
   padding:10px;
   border: 1px solid black;
   border-radius: 5px;
@@ -395,15 +397,18 @@ body{
   margin:10px;
 }
 .VesselDetail .Lookup_wrapper{
-  margin-left: 30px;
+  width: 1000px;
+  margin-left: 50px;
 }
 .VesselDetail .Lookup_wrapper .Lookup{
+  position: relative;
   background-color: #333;
   color:white;
   min-width: fit-content;
-  height: fit-content;
+  height: 100px;
   border: 1px solid black;
   border-radius: 5px;
+  padding:15px;
 }
 .VesselDetail .Lookup_wrapper .Lookup h2{
   display: flex;
@@ -413,7 +418,9 @@ body{
   margin:10px;
 }
 .VesselDetail .Lookup_wrapper .Lookup button{
-  margin-top: 10px;
+  position: absolute;
+  right: 15px;
+  bottom:15px;
 }
 .VesselDetail .Lookup_wrapper button{
   margin-top: 10px; 
@@ -429,24 +436,49 @@ body{
 /* BlockEnroll */
 .BlockEnroll{
   position: absolute;
+  top:10vh;
   left:20vw;
-  top:5vw;
-
-  height: 300px;
-
-  background-color: #333;
-  border : 1px solid black;
-  border-radius: 5px;
 }
 .BlockEnroll .Block_wrapper{
-
+  width: 500px;
+  color:white;
+  background-color: #333;
+  border-radius: 5px;
+  box-shadow: 2px 2px 20px rgba(0,0,0,.3);
+  border:1px solid black;
 }
-
 .BlockEnroll .Block_wrapper h2{
-  margin:10px;
+  display: block;
+  text-align: center;
   font-size: 30px;
-  font-weight: 700;
+  margin:20px;;
 }
+.BlockEnroll .Block_wrapper form{
+  font-size: 20px;
+  padding:0px 30px 0px;
+}
+.BlockEnroll .Block_wrapper form input{
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 7px;
+  border-radius: 4px;
+  outline: none;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+.BlockEnroll .Block_wrapper form select{
+  width: 100%;
+  font-size: 14px;
+  padding:7px;
+}
+.BlockEnroll .Block_wrapper button{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.BlockEnroll .Block_wrapper .cancelBtn{
+  margin-left: 323px;
+}
+
 /* BlockDetail */
 .BlockDetail {
 

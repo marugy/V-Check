@@ -11,10 +11,10 @@ const BlockEnroll = ({ setEnrollModalOpen, imo }) => {
   });
 
   const selectList = [
-    "PieceAssembly",
-    "SubBlockAssembly",
-    "BlockAssembly",
-    "INSTALL"
+    { id: 0, type: "PieceAssembly", name: "소조립" },
+    { id: 1, type: "SubBlockAssembly", name: "중조립" },
+    { id: 2, type: "BlockAssembly", name: "대조립" },
+    { id: 3, type: "INSTALL", name: "선행 의장" },
   ];
 
   const handleChangeInfo = (e) => {
@@ -25,7 +25,7 @@ const BlockEnroll = ({ setEnrollModalOpen, imo }) => {
   };
 
   const checkEnroll = (e) => {
-    alert(enrollInfo.imo+enrollInfo.blockName+enrollInfo.workingStep)
+    alert(enrollInfo.imo + enrollInfo.blockName + enrollInfo.workingStep);
     fetch("http://34.64.185.37:8080/v2/block/register", {
       method: "POST",
       headers: {
@@ -45,15 +45,28 @@ const BlockEnroll = ({ setEnrollModalOpen, imo }) => {
     setEnrollModalOpen(false);
   };
 
+  const cancelModal = () => {
+    setEnrollModalOpen(false);
+  };
+
   return (
     <div className="BlockEnroll">
       <div className="Block_wrapper">
-        <h2>선박에 등록할 블럭 정보를 입력하세요</h2>
-        <form>
-          IMO :{" "}
-          <input type={"text"} value={imo} name="imo" onChange={handleChangeInfo} />
+        <h2>
+          선박에 등록할
           <br />
-          블록 이름 :{" "}
+          블럭 정보를 입력하세요
+        </h2>
+        <form>
+          IMO : <br />
+          <input
+            type={"text"}
+            value={imo}
+            name="imo"
+            onChange={handleChangeInfo}
+          />
+          <br />
+          블록 이름 : <br />
           <input
             type={"text"}
             name="blockName"
@@ -68,12 +81,18 @@ const BlockEnroll = ({ setEnrollModalOpen, imo }) => {
             name="workingStep"
           >
             {selectList.map((item) => (
-              <option value={item} key={item}>
-                {item}
+              <option value={item.type} key={item.id}>
+                {item.name}
               </option>
             ))}
           </select>
-          <button type={"submit"}onClick={checkEnroll}>블럭 등록</button>
+          <br />
+          <button type={"submit"} onClick={checkEnroll}>
+            블럭 등록
+          </button>
+          <button className="cancelBtn" onClick={cancelModal}>
+            취소
+          </button>
         </form>
       </div>
     </div>

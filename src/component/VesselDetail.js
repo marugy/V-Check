@@ -18,11 +18,11 @@ const VesselDetail = () => {
   });
 
   const selectList = [
-    "",
-    "PieceAssembly",
-    "SubBlockAssembly",
-    "BlockAssembly",
-    "INSTALL",
+    { id: 0, type: "", name: "모두" },
+    { id: 1, type: "PieceAssembly", name: "소조립" },
+    { id: 2, type: "SubBlockAssembly", name: "중조립" },
+    { id: 3, type: "BlockAssembly", name: "대조립" },
+    { id: 4, type: "INSTALL", name: "선행 의장" },
   ];
 
   const handleChangeSearch = (e) => {
@@ -33,12 +33,15 @@ const VesselDetail = () => {
   };
 
   const handleSubmit = () => {
-    fetch(`http://34.64.185.37:8080/v2/block/list?imo=${state.imo}&blockName=${searchInfo.blockName}&workingStep=${searchInfo.workingStep}`, {
-      method: "GET",
-      headers: {
-        Authorization: localStorage.getItem("access_token"),
-      },
-    })
+    fetch(
+      `http://34.64.185.37:8080/v2/block/list?imo=${state.imo}&blockName=${searchInfo.blockName}&workingStep=${searchInfo.workingStep}`,
+      {
+        method: "GET",
+        headers: {
+          Authorization: localStorage.getItem("access_token"),
+        },
+      }
+    )
       .then((response) => response.json())
       .then((result) => {
         setBlockList(result);
@@ -49,14 +52,16 @@ const VesselDetail = () => {
     <div className="VesselDetail">
       <div className="vesselInfo">
         <h2>현재 선박 정보</h2>
-        선박 IMO : {state.imo}
+        IMO : {state.imo}
         <br />
-        선박 이름 : {state.vesselName}
+        이름 : {state.vesselName}
         <br />
-        선박 타입 : {state.vesselType}
+        타입 : {state.vesselType}
         <br />총 톤 수 : {state.ton}t
-        <br/>착공일 : {state.startDate}
-        <br/>준공일(준공예정일) : {state.endDate}
+        <br />
+        착공일 : {state.startDate}
+        <br />
+        준공일 : {state.endDate}
       </div>
 
       <div className="Lookup_wrapper">
@@ -78,18 +83,20 @@ const VesselDetail = () => {
             name="workingStep"
           >
             {selectList.map((item) => (
-              <option value={item} key={item}>
-                {item}
+              <option value={item.type} key={item.id}>
+                {item.name}
               </option>
             ))}
           </select>
-          <br/>
-          <button onClick={handleSubmit}>검색</button>
+          <br />
+          <div>
+            <button onClick={handleSubmit}>검색</button>
+          </div>
         </div>
         <BlockList
-        blockList={blockList.blockInfoList}
-        btnType="detail"
-        state={state}
+          blockList={blockList.blockInfoList}
+          btnType="detail"
+          state={state}
         />
         <button onClick={blockAdd}>블럭 추가</button>
       </div>

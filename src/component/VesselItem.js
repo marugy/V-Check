@@ -42,7 +42,7 @@ const VesselItem = ({
       state: {
         imo: imo,
         vesselName: vesselName,
-        vesselType: vesselType,
+        vesselType: vesselTypeList[vesselType],
         ton: ton,
         startDate: startDate,
         endDate: endDate,
