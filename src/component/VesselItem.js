@@ -14,6 +14,14 @@ const VesselItem = ({
   const navigate = useNavigate();
   const [own, setOwn] = useState(ownership);
 
+  const vesselTypeList = {
+    General: "일반 화물선",
+    Container: "컨테이너선",
+    CrudeOil: "원유 운반선",
+    Ore: "광석 전용선",
+    Refrigerated: "냉동선",
+  };
+
   const handleSubmit = () => {
     if (own === true) {
       alert("이미 등록된 선박입니다.");
@@ -55,12 +63,13 @@ const VesselItem = ({
         <div className="name_imo">
           {vesselName}
           <br />
-          {imo}
+          IMO : {imo}
         </div>
         <br />
         <div className="">
-          선박 타입 : {vesselType}
-          <br />총 톤 수 : {ton}t
+          {vesselTypeList[vesselType]}
+          <br />
+          {ton}t
         </div>
         <div className="dayInfo">
           착공일 : {startDate}

@@ -12,7 +12,7 @@ const VesselLookup = () => {
   });
 
   const selectList = [
-    { id: 0, type: "", name: "상관없음" },
+    { id: 0, type: "", name: "모두" },
     { id: 1, type: "General", name: "일반 화물선" },
     { id: 2, type: "Container", name: "컨테이너선" },
     { id: 3, type: "CrudeOil", name: "원유 운반선" },
