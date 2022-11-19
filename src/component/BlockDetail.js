@@ -21,30 +21,30 @@ const BlockDetail = () => {
   });
 
   const falutTypeSelectList = [
-    "",
-    "GOOD",
-    "FAULT_TYPE_201",
-    "FAULT_TYPE_202",
-    "FAULT_TYPE_203",
-    "FAULT_TYPE_205",
-    "FAULT_TYPE_206",
-    "FAULT_TYPE_207",
-    "FAULT_TYPE_208",
-    "FAULT_TYPE_209",
-    "FAULT_TYPE_210",
-    "FAULT_TYPE_211",
-    "FAULT_TYPE_212",
-    "FAULT_TYPE_213",
-    "FAULT_TYPE_401",
-    "FAULT_TYPE_402",
+    { id: 0, type: "", name: "모두" },
+    { id: 1, type: "GOOD", name: "정상" },
+    { id: 2, type: "FAULT_TYPE_201", name: "가공불량" },
+    { id: 3, type: "FAULT_TYPE_202", name: "단차" },
+    { id: 4, type: "FAULT_TYPE_203", name: "덕트 손상" },
+    { id: 5, type: "FAULT_TYPE_205", name: "바인딩 불량" },
+    { id: 6, type: "FAULT_TYPE_206", name: "보강재 설치 불량" },
+    { id: 7, type: "FAULT_TYPE_207", name: "보온재 손상" },
+    { id: 8, type: "FAULT_TYPE_208", name: "설치 불량" },
+    { id: 9, type: "FAULT_TYPE_209", name: "연결 불량" },
+    { id: 10, type: "FAULT_TYPE_210", name: "연계 처리 불량" },
+    { id: 11, type: "FAULT_TYPE_211", name: "케이블 손상" },
+    { id: 12, type: "FAULT_TYPE_212", name: "테이프 불량" },
+    { id: 13, type: "FAULT_TYPE_213", name: "함석 처리 불량" },
+    { id: 14, type: "FAULT_TYPE_401", name: "볼트 체결 불량" },
+    { id: 15, type: "FAULT_TYPE_402", name: "파이프 손상" },
   ];
 
   const workingStatusSelectList = [
-    "",
-    "WorkingStart",
-    "WorkingIng",
-    "WorkingComplete",
-    "InspectionComplete",
+    { id: 0, type: "", name: "모두" },
+    { id: 1, type: "WorkingStart", name: "재작업 시작" },
+    { id: 2, type: "WorkingIng", name: "작업 중" },
+    { id: 3, type: "WorkingComplete", name: "작업 완료" },
+    { id: 4, type: "InspectionComplete", name: "검사 완료" },
   ];
 
   const handleChangeSearch = (e) => {
@@ -115,28 +115,28 @@ const BlockDetail = () => {
             placeholder={"1234.."}
           />
           <br />
-          작업 상태를 입력하세요 :
+          작업 상태를 입력하세요 :{" "}
           <select
             onChange={handleChangeSearch}
             value={searchInfo.workingStatus}
             name="workingStatus"
           >
             {workingStatusSelectList.map((item) => (
-              <option value={item} key={item}>
-                {item}
+              <option value={item.type} key={item.id}>
+                {item.name}
               </option>
             ))}
           </select>
           <br />
-          불량 상태를 입력하세요 :
+          불량 상태를 입력하세요 :{" "}
           <select
             onChange={handleChangeSearch}
             value={searchInfo.faultType}
             name="faultType"
           >
             {falutTypeSelectList.map((item) => (
-              <option value={item} key={item}>
-                {item}
+              <option value={item.type} key={item.id}>
+                {item.name}
               </option>
             ))}
           </select>
