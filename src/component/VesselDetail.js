@@ -93,12 +93,12 @@ const VesselDetail = () => {
             <button onClick={handleSubmit}>검색</button>
           </div>
         </div>
+        <button onClick={blockAdd}>블럭 추가</button>
         <BlockList
           blockList={blockList.blockInfoList}
           btnType="detail"
           state={state}
         />
-        <button onClick={blockAdd}>블럭 추가</button>
       </div>
 
       {enrollModalOpen && (

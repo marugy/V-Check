@@ -267,7 +267,7 @@ body{
 }
 
 /* VesselLookup */
-.VesselLookup, .MyVessel, .BlockDetail{
+.VesselLookup, .MyVessel{
   position: relative;
   left: 30vw;
   border-radius: 5px;
@@ -379,7 +379,7 @@ body{
   left:300px;
   padding-top: 10px;
 }
-.VesselDetail .vesselInfo{
+.VesselDetail .vesselInfo, .BlockDetail .vesselInfo, .BlockDetail .blockInfo{
   min-width:fit-content;
   height: fit-content;
 
@@ -390,7 +390,7 @@ body{
   border: 1px solid black;
   border-radius: 5px;
 }
-.VesselDetail .vesselInfo h2{
+.VesselDetail .vesselInfo h2, .BlockDetail .vesselInfo h2, .BlockDetail .blockInfo h2{
   text-align: center;
   font-weight: 700;
   font-size: 30px;
@@ -415,7 +415,8 @@ body{
   justify-content: center;
   font-size: 30px;
   font-weight: 700;
-  margin:10px;
+  margin-top:10px;
+  margin-bottom: 20px;
 }
 .VesselDetail .Lookup_wrapper .Lookup button{
   position: absolute;
@@ -499,25 +500,65 @@ body{
 
 /* BlockDetail */
 .BlockDetail {
-
+  display: flex;
+  position: relative;
+  left:300px;
 }
-.BlockDetail .vesselInfo{
-  margin:7px;
+
+.BlockDetail .info_wrapper {
+  margin-top: 10px;
+}
+
+.BlockDetail .info_wrapper .vesselInfo{
   border: 1px solid black;
   border-radius: 5px;
-  max-height: fit-content;
+}
+.BlockDetail .info_wrapper .blockInfo{
+  margin-top: 20px;
+}
+.BlockDetail .component_wrapper{
+  margin-left: 30px;
+  padding-top: 10px;
 }
 
+.BlockDetail .component_wrapper .Lookup{
+  position: relative;
+  border: 1px solid black;
+  border-radius: 5px;
 
+  background-color: #333;
+  color:white;
+  width: 1000px;
+  padding:15px
+}
+
+.BlockDetail .component_wrapper .Lookup h2{
+  display: flex;
+  justify-content: center;
+  font-size: 30px;
+  font-weight: 700;
+  margin-top:10px;
+  margin-bottom: 20px;
+}
+
+.BlockDetail .component_wrapper .Lookup button{
+  position: absolute;
+  right:15px;
+  bottom:15px;
+}
+.BlockDetail .component_wrapper .btn{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.BlockDetail .component_wrapper .componentList{
+
+}
 
 /* ComponentItem */
 .ComponentItem {
   border: 1px solid black;
   border-radius: 5px;
   padding:10px;
-  margin-top: 5px;
-  margin-left: 10px;
-  margin-right: 10px;
 }
 
 .ComponentItem img{
