@@ -47,6 +47,13 @@ const BlockDetail = () => {
     { id: 4, type: "InspectionComplete", name: "검사 완료" },
   ];
 
+  const workingStatusList = {
+    PieceAssembly: "소조립",
+    SubBlockAssembly: "중조립",
+    BlockAssembly: "대조립",
+    INSTALL: "선행 의장",
+  };
+
   const handleChangeSearch = (e) => {
     setsearchInfo({
       ...searchInfo,
@@ -91,7 +98,7 @@ const BlockDetail = () => {
           <h2>블럭 정보</h2>
           이름 : {state.blockName}
           <br />
-          작업단계 : {state.workingStep}
+          작업단계 : {workingStatusList[state.workingStep]}
         </div>
       </div>
       <div className="component_wrapper">
