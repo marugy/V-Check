@@ -550,28 +550,48 @@ body{
   margin-top: 10px;
   margin-bottom: 10px;
 }
-.BlockDetail .component_wrapper .componentList{
 
-}
+/* ComponentList */
+.ComponentList{}
 
 /* ComponentItem */
 .ComponentItem {
   border: 1px solid black;
   border-radius: 5px;
+  
+  
   padding:10px;
-}
+  margin-bottom: 10px;
 
-.ComponentItem img{
-  width: 500px;
+  color: white;
+  background-color: #333;
+}
+.ComponentList .componentInfo_wrapper{
+  position: relative;
+}
+.ComponentItem button{
+  position: absolute;
+  right: 0;
+  bottom: 0;
 }
 
 
 /* ComponentDetail */
 .ComponentDetail{
   margin-left: 20vw;
-
 }
 
-.ComponentDetail img{
-width:500px
+.ComponentDetail .component_wrapper{
+  display: flex;
+  padding-top: 100px;
+}
+
+.ComponentDetail .component_wrapper img{
+ width: 600px;
+}
+
+.ComponentDetail .component_wrapper .componentInfo_wrapper{
+  padding-top: 20px;
+  padding-left: 20px;
+  line-height: 30px;
 }

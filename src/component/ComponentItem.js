@@ -54,16 +54,17 @@ const ComponentItem = ({
 
   return (
     <div className="ComponentItem">
-      <img src={storeImageUrl} alt={""} />
-      부품 이름 : {componentName}
-      <br />
-      부품 일련번호: {sequenceNumber}
-      <br />
-      불량 타입 : {falutTypeList[faultType]}
-      <br />
-      작업 상태 : {workingStatusList[workingStatus]}
-      <br />
-      <button onClick={handleDetail}>상세보기</button>
+      <div className="componentInfo_wrapper">
+        부품 이름 : {componentName}
+        <br />
+        부품 일련번호: {sequenceNumber}
+        <br />
+        작업 상태 : {workingStatusList[workingStatus]}
+        <br />
+        불량 타입 : {falutTypeList[faultType]}
+        <br />
+        <button onClick={handleDetail}>상세보기</button>
+      </div>
     </div>
   );
 };

@@ -25,33 +25,48 @@ const ComponentDetail = () => {
     }).then((response) => navigate("/usermain/myvessel"));
   };
 
+  const handleWorkingStatus = () => {
+    fetch("http://34.64.185.37:8080/v2/component/working-status", {
+      method: "PATCH",
+      headers: {
+        Authorization: localStorage.getItem("access_token"),
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify({
+        componentId: state.componentId,
+      }),
+    }).then((response) => navigate("/usermain/myvessel/vesseldetail"));
+  };
+
   return (
     <div className="ComponentDetail">
       <div className="component_wrapper">
         <img src={state.storeImageUrl} alt={""} />
         <br />
-        불량 타입 : {state.faultType}
-        <br />
-        부품 이름 : {state.componentName}
-        <br />
-        부품 일련번호: {state.sequenceNumber}
-        <br />
-        작업 상태 : {state.workingStatus}
-        <br />
-        업로드 이미지 명 : {state.uploadImageName}
-        <br />
-        블럭 이름 : {state.blockName}
-        <br />
-        <form onSubmit={handleReupload}>
-          <input
-            type={"file"}
-            id="fileInput"
-            accept="image/*"
-            onChange={imgHandler}
-          />
+        <div className="componentInfo_wrapper">
+          부품 이름 : {state.componentName}
           <br />
-          <button type="submit">재업로드</button>
-        </form>
+          부품 일련번호: {state.sequenceNumber}
+          <br />
+          불량 타입 : {state.faultType}
+          <br />
+          업로드 파일 명 : {state.uploadImageName}
+          <br />
+          작업 상태 : {state.workingStatus}
+          <br />
+          <button onClick={handleWorkingStatus}>상태 변경하기</button>
+          <hr />
+          <form onSubmit={handleReupload}>
+            <input
+              type={"file"}
+              id="fileInput"
+              accept="image/*"
+              onChange={imgHandler}
+            />
+            <br />
+            <button type="submit">재업로드</button>
+          </form>
+        </div>
       </div>
     </div>
   );
