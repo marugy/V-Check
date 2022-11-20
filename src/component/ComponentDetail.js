@@ -35,7 +35,7 @@ const ComponentDetail = () => {
       body: JSON.stringify({
         componentId: state.componentId,
       }),
-    }).then((response) => navigate("/usermain/myvessel/vesseldetail"));
+    }).then((response) => navigate("/usermain/myvessel"));
   };
 
   return (
