@@ -7,7 +7,7 @@ const SignUp = () => {
   const [email, setEmail] = useState(localStorage.getItem("userEmail"));
   const [belongs, setBelongs] = useState("");
   const [duty, setDuty] = useState("");
-  const [client_type, setClient_type] = useState("");
+  const [client_type, setClient_type] = useState("INSPECTOR");
 
   const nameHandler = (e) => {
     setName(e.target.value);
@@ -24,6 +24,11 @@ const SignUp = () => {
   const client_typeHandler = (e) => {
     setClient_type(e.target.value);
   };
+
+  const jobSelectList = [
+    { id: 0, type: "INSPECTOR", name: "검사관" },
+    { id: 1, type: "MANUFURER", name: "제조업자" },
+  ];
 
   const checkSignUp = () => {
     fetch("http://34.64.185.37:8080/v2/join", {
@@ -43,11 +48,12 @@ const SignUp = () => {
       .then((response) => response.json())
       .then((result) => {
         navigate("/usermain/");
-        localStorage.setItem("status",result);
-        if(result.status === "OK"){
+        localStorage.setItem("status", result);
+        if (result.status === "OK") {
           localStorage.removeItem("userEmail");
           localStorage.removeItem("userName");
-      }});
+        }
+      });
   };
 
   return (
@@ -87,13 +93,14 @@ const SignUp = () => {
             onChange={dutyHandler}
           />
           <br />
-          직업{" "}
-          <input
-            type={"text"}
-            placeholder="INSPECTOR or MANUFURER"
-            name="client_type"
-            onChange={client_typeHandler}
-          />
+          직업 <br />
+          <select onChange={client_typeHandler} value={client_type} name="type">
+            {jobSelectList.map((item) => (
+              <option value={item.type} key={item.id}>
+                {item.name}
+              </option>
+            ))}
+          </select>
           <br />
           <button type="submit" onClick={checkSignUp}>
             회원 가입
