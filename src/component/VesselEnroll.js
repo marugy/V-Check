@@ -15,11 +15,11 @@ const VesselEnroll = () => {
   });
 
   const selectList = [
-    "General",
-    "Container",
-    "CrudeOil",
-    "Ore",
-    "Refrigerated",
+    { id: 0, type: "General", name: "일반 화물선" },
+    { id: 1, type: "Container", name: "컨테이너선" },
+    { id: 2, type: "CrudeOil", name: "원유 운반선" },
+    { id: 3, type: "Ore", name: "광석 전용선" },
+    { id: 4, type: "Refrigerated", name: "냉동선" },
   ];
 
   const handleChangeInfo = (e) => {
@@ -30,7 +30,14 @@ const VesselEnroll = () => {
   };
 
   const checkEnroll = () => {
-    alert(enrollInfo.imo + enrollInfo.vessel_name+enrollInfo.vessel_type+enrollInfo.ton+enrollInfo.startDate+enrollInfo.endDate);
+    alert(
+      enrollInfo.imo +
+        enrollInfo.vessel_name +
+        enrollInfo.vessel_type +
+        enrollInfo.ton +
+        enrollInfo.startDate +
+        enrollInfo.endDate
+    );
 
     fetch("http://34.64.185.37:8080/v2/vessel/register", {
       method: "POST",
@@ -61,7 +68,11 @@ const VesselEnroll = () => {
   return (
     <div className="VesselEnroll">
       <div className="vessel_wrapper">
-        <h2>서비스에 등록할<br/>선박 정보를 입력하세요</h2>
+        <h2>
+          서비스에 등록할
+          <br />
+          선박 정보를 입력하세요
+        </h2>
         <form>
           IMO :{" "}
           <input
@@ -102,15 +113,15 @@ const VesselEnroll = () => {
             onChange={handleChangeInfo}
           />
           <br />
-          선박 종류 :{" "}
+          선박 종류 : <br />
           <select
             onChange={handleChangeInfo}
             value={enrollInfo.type}
             name="vessel_type"
           >
             {selectList.map((item) => (
-              <option value={item} key={item}>
-                {item}
+              <option value={item.type} key={item.id}>
+                {item.name}
               </option>
             ))}
           </select>

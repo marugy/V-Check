@@ -100,7 +100,7 @@ body{
   font-size: 20px;
   padding:10px 30px 0px;
 }
-.SignUp form input, select{
+.SignUp form input, .SignUp form select, .VesselEnroll .vessel_wrapper form select{
   width: 100%;
   margin-top:7px;
   margin-bottom: 12px;
@@ -109,6 +109,7 @@ body{
   outline: none;
   box-sizing: border-box;
   font-size: 14px;
+  border: 2px solid black;
 }
 .SignUp form select{
   border: 2px solid black;
