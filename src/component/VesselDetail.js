@@ -48,6 +48,13 @@ const VesselDetail = () => {
       });
   };
 
+  const buttonOn = () => {
+    if (localStorage.getItem("clientType") == "INSPECTOR")
+      return <button onClick={handleSubmit}>검색</button>;
+    else return;
+  };
+
+  const blockenrollbtn = buttonOn();
   return (
     <div className="VesselDetail">
       <div className="vesselInfo">
@@ -93,7 +100,7 @@ const VesselDetail = () => {
             <button onClick={handleSubmit}>검색</button>
           </div>
         </div>
-        <button onClick={blockAdd}>블럭 추가</button>
+        {blockenrollbtn}
         <BlockList
           blockList={blockList.blockInfoList}
           btnType="detail"

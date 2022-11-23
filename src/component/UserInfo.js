@@ -1,7 +1,7 @@
 const UserInfo = ({ userdata }) => {
   const clientTypeList = {
     INSPECTOR: "검사관",
-    MANUFURER: "제조업자",
+    MANUFACTURER: "제조업자",
   };
 
   return (

@@ -78,6 +78,14 @@ const BlockDetail = () => {
       });
   };
 
+  const buttonOn = () => {
+    if (localStorage.getItem("clientType") == "INSPECTOR")
+      return <button onClick={componentAdd}>부품 업로드</button>;
+    else return;
+  };
+
+  const componentEnrollBtn = buttonOn();
+
   return (
     <div className="BlockDetail">
       <div className="info_wrapper">
@@ -149,9 +157,7 @@ const BlockDetail = () => {
           </select>
           <button onClick={handleSubmit}>검색</button>
         </div>
-        <div className="btn">
-          <button onClick={componentAdd}>부품 업로드</button>
-        </div>
+        <div className="btn">{componentEnrollBtn}</div>
 
         <div className="componentList">
           <ComponentList componentList={componentList.componentInfoList} />

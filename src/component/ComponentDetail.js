@@ -38,6 +38,27 @@ const ComponentDetail = () => {
     }).then((response) => navigate("/usermain/myvessel"));
   };
 
+  const buttonOn = () => {
+    if (localStorage.getItem("clientType") == "INSPECTOR")
+      return (
+        <div>
+          <hr />
+          <form onSubmit={handleReupload}>
+            <input
+              type={"file"}
+              id="fileInput"
+              accept="image/*"
+              onChange={imgHandler}
+            />
+            <br />
+            <button type="submit">재업로드</button>
+          </form>
+        </div>
+      );
+    else return;
+  };
+
+  const reuploadBtn = buttonOn();
   return (
     <div className="ComponentDetail">
       <div className="component_wrapper">
@@ -55,17 +76,7 @@ const ComponentDetail = () => {
           작업 상태 : {state.workingStatus}
           <br />
           <button onClick={handleWorkingStatus}>상태 변경하기</button>
-          <hr />
-          <form onSubmit={handleReupload}>
-            <input
-              type={"file"}
-              id="fileInput"
-              accept="image/*"
-              onChange={imgHandler}
-            />
-            <br />
-            <button type="submit">재업로드</button>
-          </form>
+          {reuploadBtn}
         </div>
       </div>
     </div>

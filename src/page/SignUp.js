@@ -27,7 +27,7 @@ const SignUp = () => {
 
   const jobSelectList = [
     { id: 0, type: "INSPECTOR", name: "검사관" },
-    { id: 1, type: "MANUFURER", name: "제조업자" },
+    { id: 1, type: "MANUFACTURER", name: "제조업체" },
   ];
 
   const checkSignUp = () => {
@@ -47,7 +47,7 @@ const SignUp = () => {
     })
       .then((response) => response.json())
       .then((result) => {
-        navigate("/usermain/", -1);
+        navigate("/usermain");
         localStorage.setItem("status", result);
         if (result.status === "OK") {
           localStorage.removeItem("userEmail");

@@ -22,6 +22,7 @@ const Usermain = () => {
       .then((response) => response.json())
       .then((result) => {
         setUserData(result);
+        localStorage.setItem("clientType", result.clientType);
         localStorage.setItem("is_our_client", true);
       })
       .catch((error) => console.log("error".error));

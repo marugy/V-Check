@@ -9,26 +9,46 @@ const handleLogout = () => {
 };
 
 const MenuList = ({ clientType }) => {
+  // const menulist = () => {
+  //   if (clientType === "INSPECTOR") {
+  //     return ["선박 조회", "My 선박", "선박 등록"];
+  //   } else {
+  //     return ["선박 조회", "My 선박"];
+  //   }
+  // };
   const menulist = () => {
     if (clientType === "INSPECTOR") {
-      return ["선박 조회", "My 선박", "선박 등록"];
+      return (
+        <div>
+          <Link to={"/usermain/vessellookup"} className="vesselLookup">
+            {"선박 조회"}
+          </Link>
+          <Link to={"/usermain/myvessel"} className="myVessel">
+            {"My 선박"}
+          </Link>
+          <Link to={"/usermain/vesselenroll"} className="vesselEnroll">
+            {"선박 등록"}
+          </Link>
+        </div>
+      );
     } else {
-      return ["선박 조회", "My 선박"];
+      return (
+        <div>
+          <Link to={"/usermain/vessellookup"} className="vesselLookup">
+            {"선박 조회"}
+          </Link>
+          <Link to={"/usermain/myvessel"} className="myVessel">
+            {"My 선박"}
+          </Link>
+        </div>
+      );
     }
   };
-  const menu = menulist();
+  const menuList = menulist();
 
   return (
     <div className="MenuList">
-      <Link to={"/usermain/vessellookup"} className="vesselLookup">
-        {menu[0]}
-      </Link>
-      <Link to={"/usermain/myvessel"} className="myVessel">
-        {menu[1]}
-      </Link>
-      <Link to={"/usermain/vesselenroll"} className="vesselEnroll">
-        {menu[2]}
-      </Link>
+      {menuList}
       <div className="logout">
         <button onClick={handleLogout}>
           <img
@@ -37,6 +57,7 @@ const MenuList = ({ clientType }) => {
           />
           로그아웃
         </button>
+        {localStorage.getItem("Job")}
       </div>
     </div>
   );
