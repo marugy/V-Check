@@ -19,7 +19,7 @@ const MenuList = ({ clientType }) => {
   const menulist = () => {
     if (clientType === "INSPECTOR") {
       return (
-        <div>
+        <div className="MenuList">
           <Link to={"/usermain/vessellookup"} className="vesselLookup">
             {"선박 조회"}
           </Link>
@@ -33,7 +33,7 @@ const MenuList = ({ clientType }) => {
       );
     } else {
       return (
-        <div>
+        <div className="MenuList">
           <Link to={"/usermain/vessellookup"} className="vesselLookup">
             {"선박 조회"}
           </Link>
@@ -57,7 +57,6 @@ const MenuList = ({ clientType }) => {
           />
           로그아웃
         </button>
-        {localStorage.getItem("Job")}
       </div>
     </div>
   );

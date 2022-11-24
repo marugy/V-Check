@@ -125,8 +125,8 @@ body{
 
 /* Usermain */
 .Usermain{
-  height: 100;
-  width: 100%;
+  height: 100vh;
+  width: 100vw;
 }
 
 /* Header */
@@ -273,7 +273,7 @@ body{
 /* VesselLookup */
 .VesselLookup, .MyVessel{
   position: relative;
-  left: 30vw;
+  left:27vw;
   border-radius: 5px;
   width: fit-content;
   height: 100%;
@@ -283,7 +283,7 @@ body{
   position: fixed;
   top:10px;
   z-index: 999;
-  width: 50vw;
+  width: 60vw;
   color: white;
   background-color: #333;
   border: 1px solid black;
@@ -317,7 +317,7 @@ body{
 .VesselList{
   position: relative;
   top:195px;
-  width: 50vw;
+  width: 60vw;
   background-color: #333;
   border-radius: 5px;
   padding-top: 5px;
@@ -401,14 +401,14 @@ body{
   margin:10px;
 }
 .VesselDetail .Lookup_wrapper{
-  width: 1000px;
+  width: auto;
   margin-left: 50px;
 }
 .VesselDetail .Lookup_wrapper .Lookup{
   position: relative;
   background-color: #333;
   color:white;
-  min-width: fit-content;
+  width: 50vw;
   height: 100px;
   border: 1px solid black;
   border-radius: 5px;
@@ -439,7 +439,7 @@ body{
 
 /* BlockItem */
 .BlockItem{
-  width: 1000px;
+  width: 100%;
   margin-bottom: 10px;
 
   color:white;
@@ -507,6 +507,7 @@ body{
   display: flex;
   position: relative;
   left:300px;
+  width:fit-content;
 }
 
 .BlockDetail .info_wrapper {
@@ -532,7 +533,7 @@ body{
 
   background-color: #333;
   color:white;
-  width: 1000px;
+  width: 50vw;
   padding:15px
 }
 
