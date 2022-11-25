@@ -125,8 +125,11 @@ body{
 
 /* Usermain */
 .Usermain{
-  height: 100vh;
+  position: absolute;
   width: 100vw;
+  top:0;
+  bottom:0;
+  background-color: rgb(17, 116, 245);
 }
 
 /* Header */
@@ -381,7 +384,6 @@ body{
   position: relative;
   width: fit-content;
   left:300px;
-  padding-top: 10px;
 }
 .VesselDetail .vesselInfo, .BlockDetail .vesselInfo, .BlockDetail .blockInfo{
   min-width:fit-content;
@@ -390,6 +392,7 @@ body{
   background-color: #333;
   color: white;
   
+  margin-top: 10px;
   padding:10px;
   border: 1px solid black;
   border-radius: 5px;
@@ -403,6 +406,7 @@ body{
 .VesselDetail .Lookup_wrapper{
   width: auto;
   margin-left: 50px;
+  margin-top: 10px;
 }
 .VesselDetail .Lookup_wrapper .Lookup{
   position: relative;
