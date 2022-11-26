@@ -1,4 +1,6 @@
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import ComponentDetail from "./ComponentDetail";
 
 const ComponentItem = ({
   faultType,
@@ -11,6 +13,11 @@ const ComponentItem = ({
   componentId,
   imo,
 }) => {
+  const [detailModalOpen, setDetailModalOpen] = useState(false);
+
+  const componentDetail = () => {
+    setDetailModalOpen(true);
+  };
   const navigate = useNavigate();
 
   const handleDetail = () => {
@@ -61,9 +68,24 @@ const ComponentItem = ({
         <div>작업 상태 : {workingStatusList[workingStatus]}</div>
         <div>불량 타입 : {falutTypeList[faultType]}</div>
         <div>
-          <button onClick={handleDetail}>상세보기</button>
+          <button onClick={componentDetail}>상세보기</button>
         </div>
       </div>
+
+      {detailModalOpen && (
+        <ComponentDetail
+          setDetailModalOpen={setDetailModalOpen}
+          faultType={faultType}
+          componentName={componentName}
+          sequenceNumber={sequenceNumber}
+          workingStatus={workingStatus}
+          uploadImageName={uploadImageName}
+          storeImageUrl={storeImageUrl}
+          blockName={blockName}
+          componentId={componentId}
+          imo={imo}
+        />
+      )}
     </div>
   );
 };

@@ -56,11 +56,7 @@ const VesselEnroll = () => {
     })
       .then((response) => response.json())
       .then((result) => {
-        console.log(result.message[0]);
-        alert(result.message[0]);
-        alert(result.status);
-        localStorage.setItem("result", result.message);
-        navigate("/vesselenroll");
+        navigate("/usermain//vesselenroll/");
       })
       .catch((error) => console.log("error", error));
   };

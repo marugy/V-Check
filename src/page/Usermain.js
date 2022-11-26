@@ -32,8 +32,8 @@ const Usermain = () => {
     <div className="Usermain">
       <Header userdata={userdata} />
       <Routes>
-        <Route path="/vessellookup/*" element={<VesselLookup />} />
-        <Route path="/myvessel" element={<MyVessel />} />
+        <Route path="/vessellookup" element={<VesselLookup />} />
+        <Route path="/myvessel/*" element={<MyVessel />} />
         <Route path="/vesselenroll/*" element={<VesselEnroll />} />
         <Route path="/myvessel/:id/" element={<VesselDetail />} />
         <Route path="/myvessel/:id/:id" element={<BlockDetail />} />

@@ -1,16 +1,11 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
-import BlockEnroll from "./BlockEnroll";
+
 import BlockList from "./BlockList";
 
 const VesselDetail = () => {
   const { state } = useLocation();
   const [blockList, setBlockList] = useState({});
-  const [enrollModalOpen, setEnrollModalOpen] = useState(false);
-
-  const blockAdd = () => {
-    setEnrollModalOpen(true);
-  };
 
   const [searchInfo, setsearchInfo] = useState({
     blockName: "",
@@ -48,13 +43,6 @@ const VesselDetail = () => {
       });
   };
 
-  const buttonOn = () => {
-    if (localStorage.getItem("clientType") == "INSPECTOR")
-      return <button onClick={handleSubmit}>검색</button>;
-    else return;
-  };
-
-  const blockenrollbtn = buttonOn();
   return (
     <div className="VesselDetail">
       <div className="vesselInfo">
@@ -105,17 +93,12 @@ const VesselDetail = () => {
             </div>
           </div>
         </div>
-        {blockenrollbtn}
         <BlockList
           blockList={blockList.blockInfoList}
           btnType="detail"
           state={state}
         />
       </div>
-
-      {enrollModalOpen && (
-        <BlockEnroll setEnrollModalOpen={setEnrollModalOpen} imo={state.imo} />
-      )}
     </div>
   );
 };

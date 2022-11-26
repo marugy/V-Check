@@ -1,16 +1,10 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useLocation } from "react-router-dom";
 import ComponentList from "./ComponentList";
-import ComponentEnroll from "./ComponentEnroll";
 
 const BlockDetail = () => {
   const { state } = useLocation();
   const [componentList, setComponentList] = useState({});
-  const [enrollModalOpen, setEnrollModalOpen] = useState(false);
-
-  const componentAdd = () => {
-    setEnrollModalOpen(true);
-  };
 
   const [searchInfo, setsearchInfo] = useState({
     faultType: "",
@@ -77,14 +71,6 @@ const BlockDetail = () => {
         setComponentList(result);
       });
   };
-
-  const buttonOn = () => {
-    if (localStorage.getItem("clientType") == "INSPECTOR")
-      return <button onClick={componentAdd}>부품 업로드</button>;
-    else return;
-  };
-
-  const componentEnrollBtn = buttonOn();
 
   return (
     <div className="BlockDetail">
@@ -167,21 +153,15 @@ const BlockDetail = () => {
             </div>
           </div>
         </div>
-        <div className="btn">{componentEnrollBtn}</div>
 
         <div className="componentList">
           <ComponentList
             componentList={componentList.componentInfoList}
             imo={state.state.imo}
+            blockName={state.blockName}
           />
         </div>
         <br />
-        {enrollModalOpen && (
-          <ComponentEnroll
-            setEnrollModalOpen={setEnrollModalOpen}
-            block_name={state.blockName}
-          />
-        )}
       </div>
     </div>
   );

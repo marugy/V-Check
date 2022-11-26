@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const ComponentEnroll = ({ setEnrollModalOpen, block_name }) => {
+const ComponentEnroll = ({ setEnrollModalOpen, blockName }) => {
   const navigate = useNavigate();
   const [componentName, setComponentName] = useState();
   const [sequenceNumber, setSequenceNumber] = useState("");
@@ -21,7 +21,7 @@ const ComponentEnroll = ({ setEnrollModalOpen, block_name }) => {
     e.preventDefault();
     const file = e.currentTarget["fileInput"].files[0];
     const data = new FormData();
-    data.append("blockName", block_name);
+    data.append("blockName", blockName);
     data.append("componentName", componentName);
     data.append("sequenceNumber", sequenceNumber);
     data.append("imageUploadName", file);
@@ -33,32 +33,37 @@ const ComponentEnroll = ({ setEnrollModalOpen, block_name }) => {
       },
       body: data,
     })
-      .then((response) => {
-        navigate("/usermain/myvessel");
-      })
+      .then((response) => {})
       .catch((error) => console.log("error", error));
   };
-
+  const cancelModal = () => {
+    setEnrollModalOpen(false);
+  };
   return (
     <div className="ComponentEnroll">
-      <h2>선박에 등록할 블럭 정보를 입력하세요</h2>
-      <form onSubmit={checkEnroll}>
-        부품 이름 :{" "}
-        <input type={"text"} name="imo" onChange={componentNameHandler} />
-        <br />
-        부품 일련 번호 :{" "}
-        <input type={"text"} onChange={sequenceNumberHandler} />
-        <br />
-        부품 이미지 :{" "}
-        <input
-          type={"file"}
-          id="fileInput"
-          accept="image/*"
-          onChange={imgHandler}
-        />
-        <br />
-        <button type="submit">부품 등록</button>
-      </form>
+      <div className="Component_wrapper">
+        <h2>선박에 등록할 블럭 정보를 입력하세요</h2>
+        <form onSubmit={checkEnroll}>
+          부품 이름 :{" "}
+          <input type={"text"} name="imo" onChange={componentNameHandler} />
+          <br />
+          부품 일련 번호 :{" "}
+          <input type={"text"} onChange={sequenceNumberHandler} />
+          <br />
+          부품 이미지 :{" "}
+          <input
+            type={"file"}
+            id="fileInput"
+            accept="image/*"
+            onChange={imgHandler}
+          />
+          <br />
+          <button type="submit">부품 등록</button>
+          <button className="cancelBtn" onClick={cancelModal}>
+            취소
+          </button>
+        </form>
+      </div>
     </div>
   );
 };

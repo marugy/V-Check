@@ -38,9 +38,7 @@ const BlockEnroll = ({ setEnrollModalOpen, imo }) => {
         workingStep: enrollInfo.workingStep,
       }),
     })
-      .then((response) => {
-        navigate("/usermain/myvessel");
-      })
+      .then((response) => {})
       .catch((error) => console.log("error", error));
     setEnrollModalOpen(false);
   };
@@ -87,7 +85,7 @@ const BlockEnroll = ({ setEnrollModalOpen, imo }) => {
             ))}
           </select>
           <br />
-          <button type={"submit"} onClick={checkEnroll}>
+          <button type="submit" onClick={checkEnroll}>
             블럭 등록
           </button>
           <button className="cancelBtn" onClick={cancelModal}>

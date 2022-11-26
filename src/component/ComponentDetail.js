@@ -1,10 +1,47 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import { useState } from "react";
 
-const ComponentDetail = () => {
+const ComponentDetail = ({
+  setDetailModalOpen,
+  faultType,
+  componentName,
+  sequenceNumber,
+  workingStatus,
+  uploadImageName,
+  storeImageUrl,
+  blockName,
+  componentId,
+  imo,
+}) => {
   const navigate = useNavigate();
   const { state } = useLocation();
   const [imageUploadName, setImageUploadName] = useState();
+
+  const falutTypeList = {
+    GOOD: "정상",
+    FAULT_TYPE_201: "가공불량",
+    FAULT_TYPE_202: "단차",
+    FAULT_TYPE_203: "덕트 손상",
+    FAULT_TYPE_205: "바인딩 불량",
+    FAULT_TYPE_206: "보강재 설치 불량",
+    FAULT_TYPE_207: "보온재 손상",
+    FAULT_TYPE_208: "설치 불량",
+    FAULT_TYPE_209: "연결 불량",
+    FAULT_TYPE_210: "연계 처리 불량",
+    FAULT_TYPE_211: "케이블 손상",
+    FAULT_TYPE_212: "테이프 불량",
+    FAULT_TYPE_213: "함석 처리 불량",
+    FAULT_TYPE_401: "볼트 체결 불량",
+    FAULT_TYPE_402: "파이프 손상",
+  };
+
+  const workingStatusList = {
+    WorkingStart: "재작업 시작",
+    WorkingIng: "작업 중",
+    WorkingComplete: "작업 완료",
+    InspectionComplete: "검사 완료",
+  };
+
   const imgHandler = (e) => {
     setImageUploadName(e.target.value);
   };
@@ -35,14 +72,17 @@ const ComponentDetail = () => {
       body: JSON.stringify({
         componentId: state.componentId,
       }),
-    }).then((response) => navigate("/usermain/myvessel"));
+    }).then((response) => setDetailModalOpen(false));
+  };
+
+  const cancelModal = () => {
+    setDetailModalOpen(false);
   };
 
   const buttonOn = () => {
     if (localStorage.getItem("clientType") == "INSPECTOR")
       return (
         <div>
-          <hr />
           <form onSubmit={handleReupload}>
             <input
               type={"file"}
@@ -59,24 +99,36 @@ const ComponentDetail = () => {
   };
 
   const reuploadBtn = buttonOn();
+
   return (
     <div className="ComponentDetail">
-      <div className="component_wrapper">
-        <img src={state.storeImageUrl} alt={""} />
-        <br />
-        <div className="componentInfo_wrapper">
-          부품 이름 : {state.componentName}
-          <br />
-          부품 일련번호: {state.sequenceNumber}
-          <br />
-          불량 타입 : {state.faultType}
-          <br />
-          업로드 파일 명 : {state.uploadImageName}
-          <br />
-          작업 상태 : {state.workingStatus}
-          <br />
-          <button onClick={handleWorkingStatus}>상태 변경하기</button>
-          {reuploadBtn}
+      <div className="componentDetail_wrapper">
+        <div className="img_wrapper">
+          <img src={storeImageUrl} alt={""} />
+        </div>
+        <div className="componentInfoTotal_wrapper">
+          <div className="componentInfo_wrapper">
+            부품 이름 : {componentName}
+            <br />
+            부품 일련번호: {sequenceNumber}
+            <br />
+            불량 타입 : {falutTypeList[faultType]}
+            <br />
+            업로드 파일 명 : {uploadImageName}
+            <br />
+            작업 상태 : {workingStatusList[workingStatus]}
+          </div>
+          <div className="btn_wrapper">
+            <div>
+              <button onClick={handleWorkingStatus}>상태 변경하기</button>
+            </div>
+            {reuploadBtn}
+            <div>
+              <button className="cancelBtn" onClick={cancelModal}>
+                닫기
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>

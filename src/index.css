@@ -127,9 +127,11 @@ body{
 .Usermain{
   position: absolute;
   width: 100vw;
+  min-height: 100vh;
+  height: fit-content;
   top:0;
   bottom:0;
-  background-color: #e5e7f3;
+  background-color: #a0d7f0;
 }
 
 /* Header */
@@ -290,7 +292,7 @@ body{
   justify-content: center;
   border-radius: 5px;
   width: 100%;
-  height: 100%;
+  height: fit-content;
   box-sizing: border-box;
 }
 .VesselLookup .vesselLookup_wrapper{
@@ -491,8 +493,15 @@ body{
 
 /* BlockList */
 .BlockList{
-  width: 100%;
+  width: 50vw;
   margin-top: 20px;
+  background-color: white;
+  border:2px solid black;
+  border-radius: 7px;
+  padding:15px;
+}
+.BlockList .blockAdd{
+  margin: 10px;
 }
 
 /* BlockItem */
@@ -502,7 +511,7 @@ body{
   background-color: rgb(198, 190, 233);
   border: 2px solid black;
   border-radius: 5px;
-  width: 100%;
+  margin: 10px;
 }
 .BlockItem .BlockInfo{
   display: flex;
@@ -628,7 +637,6 @@ body{
   margin-left: 50px;
   margin-top: 10px;
 }
-
 .BlockDetail .component_wrapper .search_wrapper{
   position: relative;
   background-color: rgb(253, 253, 253);
@@ -638,7 +646,6 @@ body{
   border-radius: 5px;
   padding:15px;
 }
-
 .BlockDetail .component_wrapper .search_wrapper h2{
   text-decoration: underline skyblue;
   text-underline-offset: 4px;
@@ -679,8 +686,12 @@ body{
 
 /* ComponentList */
 .ComponentList{
-  width: 100%;
+  width: 50vw;
   margin-top: 20px;
+  background-color: white;
+  border:2px solid black;
+  border-radius: 7px;
+  padding:15px;
 }
 
 /* ComponentItem */
@@ -715,21 +726,81 @@ body{
 
 /* ComponentDetail */
 .ComponentDetail{
+  position: fixed;
+  left: 25vw;
+  border:2px solid black;
+  border-radius: 5px;
+
   background-color: white;
-  margin-left: 20vw;
-}
 
-.ComponentDetail .component_wrapper{
+  padding:20px;
+}
+.ComponentDetail .componentDetail_wrapper{
   display: flex;
-  padding-top: 100px;
+}
+.ComponentDetail .componentDetail_wrapper .img_wrapper{
+}
+.ComponentDetail .componentDetail_wrapper .img_wrapper img{
+  width: 400px;
+}
+.ComponentDetail .componentDetail_wrapper .componentInfoTotal_wrapper{
 }
 
-.ComponentDetail .component_wrapper img{
- width: 600px;
+.ComponentDetail .componentDetail_wrapper .componentInfoTotal_wrapper .componentInfo_wrapper{
 }
 
-.ComponentDetail .component_wrapper .componentInfo_wrapper{
-  padding-top: 20px;
-  padding-left: 20px;
-  line-height: 30px;
+.ComponentDetail .componentDetail_wrapper .componentInfoTotal_wrapper .btn_wrapper{
+  margin:20px;
+}
+.ComponentDetail .componentDetail_wrapper .componentInfoTotal_wrapper .btn_wrapper div{
+  width: 50%;
+}
+.ComponentDetail .btn_wrapper{
+  display: flex;
+}
+/* ComponentEnroll */
+
+.ComponentEnroll{
+  position: absolute;
+  top:10vh;
+  left:20vw;
+}
+.ComponentEnroll .Component_wrapper{
+  width: 500px;
+  color:white;
+  background-color: #333;
+  border-radius: 5px;
+  box-shadow: 2px 2px 20px rgba(0,0,0,.3);
+  border:1px solid black;
+}
+.ComponentEnroll .Component_wrapper h2{
+  display: block;
+  text-align: center;
+  font-size: 30px;
+  margin:20px;;
+}
+.ComponentEnroll .Component_wrapper form{
+  font-size: 20px;
+  padding:0px 30px 0px;
+}
+.ComponentEnroll .Component_wrapper form input{
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 7px;
+  border-radius: 4px;
+  outline: none;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+.ComponentEnroll .Component_wrapper form select{
+  width: 100%;
+  font-size: 14px;
+  padding:7px;
+}
+.ComponentEnroll .Component_wrapper button{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.ComponentEnroll .Component_wrapper .cancelBtn{
+  margin-left: 323px;
 }
