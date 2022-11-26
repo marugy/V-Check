@@ -35,10 +35,26 @@ const MenuList = ({ clientType }) => {
       return (
         <div className="MenuList">
           <Link to={"/usermain/vessellookup"} className="vesselLookup">
-            {"선박 조회"}
+            {
+              <div className="">
+                <img
+                  src={`${process.env.PUBLIC_URL}/assets/search.png`}
+                  alt="선박 조회"
+                />
+                선박 조회
+              </div>
+            }
           </Link>
           <Link to={"/usermain/myvessel"} className="myVessel">
-            {"My 선박"}
+            {
+              <div>
+                <img
+                  src={`${process.env.PUBLIC_URL}/assets/vessel.png`}
+                  alt="내선박"
+                />
+                My 선박
+              </div>
+            }
           </Link>
         </div>
       );
