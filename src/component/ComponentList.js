@@ -1,10 +1,10 @@
 import ComponentItem from "./ComponentItem";
 
-const ComponentList = ({ componentList }) => {
+const ComponentList = ({ componentList, imo }) => {
   return (
     <div className="ComponentList">
       {componentList.map((it) => (
-        <ComponentItem key={it.componentId} {...it} />
+        <ComponentItem key={it.componentId} {...it} imo={imo} />
       ))}
     </div>
   );

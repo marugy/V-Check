@@ -129,12 +129,13 @@ body{
   width: 100vw;
   top:0;
   bottom:0;
-  background-color: rgb(32, 66, 214);
+  background-color: #e5e7f3;
 }
 
 /* Header */
 .Header{
   position: fixed;
+  z-index: 999;
   background-color: #333;
   border: 2px solid rgb(0, 0, 0);
   border-radius: 15px;
@@ -199,7 +200,7 @@ body{
   display:block;
 }
 .MenuList a:hover{
-  background-color: rgb(255, 255, 255);
+  background-color: #808080;
   color: black;
 }
 .MenuList a img{
@@ -226,7 +227,7 @@ body{
   font-weight: 700;
 }
 .MenuList .logout button:hover{
-  background-color: rgb(255, 255, 255);
+  background-color: #808080;
   color: black;
 }
 .MenuList .logout img{
@@ -283,55 +284,71 @@ body{
 }
 
 /* VesselLookup */
-.VesselLookup, .MyVessel{
+.VesselLookup {
   position: relative;
-  left:27vw;
+  display: flex;
+  justify-content: center;
   border-radius: 5px;
-  width: fit-content;
+  width: 100%;
   height: 100%;
-}
-
-.VesselLookup .Lookup{
-  position: fixed;
-  top:10px;
-  z-index: 999;
-  width: 60vw;
-  color: white;
-  background-color: #333;
-  border: 1px solid black;
-  border-radius: 7px;
-  padding:10px;
-  padding-left: 20px;
   box-sizing: border-box;
 }
-
+.VesselLookup .vesselLookup_wrapper{
+  
+}
+.VesselLookup .Lookup{
+  width: 60vw;
+  background-color: rgb(255, 255, 255);
+  border: 2px solid black;
+  border-radius: 7px;
+  padding:20px 20px 10px;
+  margin-top: 20px;
+  box-sizing: border-box;
+}
 .VesselLookup .Lookup h2{
+  text-decoration: underline skyblue;
+  text-underline-offset: 4px;
   display: flex;
   justify-content: center;
 
-  color: white;
   font-size: 30px;
 
   padding: 10px;
 }
-
-.VesselLookup .Lookup input{
-  margin : 3px;
+.VesselLookup .Lookup .lookup_info{
+  display: flex;
+  margin-top: 10px;
+  height: 50px;
 }
-
+.VesselLookup .Lookup .lookup_info div{
+  margin-top: 5px;
+  width: 25%;
+}
+.VesselLookup .Lookup .lookup_info div input{
+  margin-top: 5px;
+  width: 90%;
+}
+.VesselLookup .Lookup .lookup_info div select{
+  margin-top: 5px;
+  width:70%;
+  height: 21px;
+}
 .VesselLookup .Lookup button{
-  position: absolute;
+  width: 15%;
+  height: 25px;
   cursor: pointer;
-  margin : 3px;
+  margin-top : 22px;
+  margin-right: 5px;
 }
 
 /* VesselList */
 .VesselList{
-  position: relative;
-  top:195px;
+  margin-top: 10px;
   width: 60vw;
-  background-color: #333;
-  border-radius: 5px;
+  background-color: rgb(255, 255, 255);
+  border: 2px solid black;
+  border-radius: 7px;
+  box-sizing: border-box;
   padding-top: 5px;
   padding-bottom:5px;
 }
@@ -344,8 +361,8 @@ body{
 .VesselItem{
   position: relative;
   display: flex;
-  background-color: #fff;
-  border: 1px solid black;
+  background-color: rgb(190, 230, 233);
+  border: 2px solid black;
   border-radius: 5px;
   padding:10px;
   margin: 20px;
@@ -358,29 +375,38 @@ body{
   display: flex;
   justify-content: center;
   text-align: center;
-  width: 20%;
+  width: 25%;
   padding-left: 20px;
   padding-right: 20px;
   padding-top:5px;
   padding-bottom:5px;
-  border-right: 1px solid black;
-
+  border-right: 2px solid black;
+}
+.VesselItem .vesselInfo div:last-child{
+ border: none;
 }
 .VesselItem button{
-  position: absolute;
-  right:10px;
-  bottom:30%;
+  cursor: pointer;
+  width: 100%;
 }
 
 /* MyVessel */
 .MyVessel{
-  width: 50vw;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  border-radius: 5px;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
 }
 .MyVessel h2{
   text-align: center;
+  text-decoration: underline 5px skyblue;
   padding-top: 20px;
   font-size: 40px;
   font-weight:700;
+  padding-bottom: 30px;
 }
 .MyVessel .VesselList{
   top:45px;
@@ -394,19 +420,21 @@ body{
   width: fit-content;
   left:300px;
 }
-.VesselDetail .vesselInfo, .BlockDetail .vesselInfo, .BlockDetail .blockInfo{
+.VesselDetail .vesselInfo{
   min-width:fit-content;
   height: fit-content;
 
-  background-color: #333;
-  color: white;
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
   
   margin-top: 10px;
   padding:10px;
-  border: 1px solid black;
+  border: 2px solid black;
   border-radius: 5px;
 }
-.VesselDetail .vesselInfo h2, .BlockDetail .vesselInfo h2, .BlockDetail .blockInfo h2{
+.VesselDetail .vesselInfo h2{
+  text-decoration: underline 4px skyblue;
+  text-underline-offset: 3px;
   text-align: center;
   font-weight: 700;
   font-size: 30px;
@@ -419,54 +447,83 @@ body{
 }
 .VesselDetail .Lookup_wrapper .Lookup{
   position: relative;
-  background-color: #333;
-  color:white;
+  background-color: rgb(253, 253, 253);
+  color:rgb(5, 5, 5);
   width: 50vw;
   height: 100px;
-  border: 1px solid black;
+  border: 2px solid black;
   border-radius: 5px;
   padding:15px;
 }
 .VesselDetail .Lookup_wrapper .Lookup h2{
   display: flex;
   justify-content: center;
+  text-decoration: underline 4px skyblue;
+  text-underline-offset: 3px;
   font-size: 30px;
   font-weight: 700;
   margin-top:10px;
   margin-bottom: 20px;
 }
+.VesselDetail .Lookup_wrapper .Lookup .search_wrapper{
+  display: flex;
+  margin-top: 25px;
+}
+.VesselDetail .Lookup_wrapper .Lookup .search_wrapper div{
+  margin-left: 20px;
+  width: 33%;
+}
+.VesselDetail .Lookup_wrapper .Lookup .search_wrapper div:last-child{
+  position: relative;
+}
+.VesselDetail .Lookup_wrapper .Lookup .search_wrapper div input{
+  width:90%;
+}
+.VesselDetail .Lookup_wrapper .Lookup .search_wrapper div select{
+  width:90%;
+}
 .VesselDetail .Lookup_wrapper .Lookup button{
   position: absolute;
-  right: 15px;
-  bottom:15px;
-}
-.VesselDetail .Lookup_wrapper button{
-  margin-top: 10px; 
+  right:0;
+  bottom:0;
+  width:30%;
 }
 
 /* BlockList */
 .BlockList{
-  width: 50vw;
-  margin-top: 10px;
+  width: 100%;
+  margin-top: 20px;
 }
 
 /* BlockItem */
 .BlockItem{
-  width: 100%;
-  margin-bottom: 10px;
-
-  color:white;
-  background-color: #333;
+  position: relative;
+  display: flex;
+  background-color: rgb(198, 190, 233);
+  border: 2px solid black;
   border-radius: 5px;
+  width: 100%;
 }
 .BlockItem .BlockInfo{
-  padding: 15px;
-  position: relative;
+  display: flex;
+  width: 100%;
+  padding: 10px;
 }
+.BlockItem .BlockInfo div{
+  display: flex;
+  justify-content: center;
+  width: 33%;
+  padding:20px 5px 20px;
+  border-right: 2px solid black;
+}
+.BlockItem .BlockInfo div:last-child{
+  border: none;
+  padding:10px;
+}
+
 .BlockItem .BlockInfo button{
-  position: absolute;
-  right:10px;
-  bottom:10px;
+  cursor:pointer;
+  width: 100%;
 }
 
 /* BlockEnroll */
@@ -526,43 +583,94 @@ body{
 .BlockDetail .info_wrapper {
   margin-top: 10px;
 }
-
 .BlockDetail .info_wrapper .vesselInfo{
-  border: 1px solid black;
+  min-width:fit-content;
+  height: fit-content;
+
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+  
+  margin-top: 10px;
+  padding:10px;
+  border: 2px solid black;
   border-radius: 5px;
+}
+.BlockDetail .info_wrapper .vesselInfo h2{
+  text-decoration: underline 4px skyblue;
+  text-underline-offset: 3px;
+  text-align: center;
+  font-weight: 700;
+  font-size: 30px;
+  margin:10px;
 }
 .BlockDetail .info_wrapper .blockInfo{
-  margin-top: 20px;
+  min-width:fit-content;
+  height: fit-content;
+
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+  
+  margin-top: 10px;
+  padding:10px;
+  border: 2px solid black;
+  border-radius: 5px;
+}
+.BlockDetail .info_wrapper .blockInfo h2{
+  text-decoration: underline 4px skyblue;
+  text-underline-offset: 3px;
+  text-align: center;
+  font-weight: 700;
+  font-size: 30px;
+  margin:10px;
 }
 .BlockDetail .component_wrapper{
-  margin-left: 30px;
-  padding-top: 10px;
+  width: auto;
+  margin-left: 50px;
+  margin-top: 10px;
 }
 
-.BlockDetail .component_wrapper .Lookup{
+.BlockDetail .component_wrapper .search_wrapper{
   position: relative;
-  border: 1px solid black;
-  border-radius: 5px;
-
-  background-color: #333;
-  color:white;
+  background-color: rgb(253, 253, 253);
+  color:rgb(5, 5, 5);
   width: 50vw;
-  padding:15px
+  border: 2px solid black;
+  border-radius: 5px;
+  padding:15px;
 }
 
-.BlockDetail .component_wrapper .Lookup h2{
+.BlockDetail .component_wrapper .search_wrapper h2{
+  text-decoration: underline skyblue;
+  text-underline-offset: 4px;
   display: flex;
   justify-content: center;
+
   font-size: 30px;
   font-weight: 700;
-  margin-top:10px;
-  margin-bottom: 20px;
+  padding: 10px;
 }
-
-.BlockDetail .component_wrapper .Lookup button{
+.BlockDetail .component_wrapper .search_wrapper .search{
+  display: flex;
+  margin-top: 25px;
+}
+.BlockDetail .component_wrapper .search_wrapper .search div{
+  margin-left: 20px;
+  width: 33%;
+}
+.BlockDetail .component_wrapper .search_wrapper .search div:last-child{
+  position: relative;
+}
+.BlockDetail .component_wrapper .search_wrapper .search div input{
+  width: 90%;
+}
+.BlockDetail .component_wrapper .search_wrapper .search div select{
+  width: 90%;
+}
+.BlockDetail .component_wrapper .search_wrapper button{
   position: absolute;
-  right:15px;
-  bottom:15px;
+  right:0;
+  bottom:0;
+  width:30%;
 }
 .BlockDetail .component_wrapper .btn{
   margin-top: 10px;
@@ -570,32 +678,44 @@ body{
 }
 
 /* ComponentList */
-.ComponentList{}
+.ComponentList{
+  width: 100%;
+  margin-top: 20px;
+}
 
 /* ComponentItem */
 .ComponentItem {
-  border: 1px solid black;
+  position: relative;
+  display: flex;
+  background-color: rgb(191, 233, 190);
+  border: 2px solid black;
   border-radius: 5px;
-  
-  
-  padding:10px;
-  margin-bottom: 10px;
-
-  color: white;
-  background-color: #333;
+  width: 100%;
 }
 .ComponentList .componentInfo_wrapper{
-  position: relative;
+  display: flex;
+  width: 100%;
+  padding: 10px;
+}
+.ComponentList .componentInfo_wrapper div{
+  display: flex;
+  justify-content: center;
+  width: 33%;
+  padding:20px 5px 20px;
+  border-right: 2px solid black;
+}
+.ComponentList .componentInfo_wrapper div:last-child{
+  border: none;
 }
 .ComponentItem button{
-  position: absolute;
-  right: 0;
-  bottom: 0;
+  cursor: pointer;
+  width: 100%;
 }
 
 
 /* ComponentDetail */
 .ComponentDetail{
+  background-color: white;
   margin-left: 20vw;
 }
 

@@ -74,30 +74,35 @@ const VesselDetail = () => {
       <div className="Lookup_wrapper">
         <div className="Lookup">
           <h2>선박에 등록되어 있는 블럭 조회</h2>
-          검색하실 블럭 명을 입력하세요 :{" "}
-          <input
-            type={"text"}
-            name="blockName"
-            value={searchInfo.blockName}
-            onChange={handleChangeSearch}
-            placeholder={"XX블럭"}
-          />
-          <br />
-          검색하실 작업단계를 입력하세요 :{" "}
-          <select
-            onChange={handleChangeSearch}
-            value={searchInfo.workingStep}
-            name="workingStep"
-          >
-            {selectList.map((item) => (
-              <option value={item.type} key={item.id}>
-                {item.name}
-              </option>
-            ))}
-          </select>
-          <br />
-          <div>
-            <button onClick={handleSubmit}>검색</button>
+          <div className="search_wrapper">
+            <div>
+              블럭 명
+              <input
+                type={"text"}
+                name="blockName"
+                value={searchInfo.blockName}
+                onChange={handleChangeSearch}
+                placeholder={"XX블럭"}
+              />
+            </div>
+            <div>
+              작업단계
+              <br />
+              <select
+                onChange={handleChangeSearch}
+                value={searchInfo.workingStep}
+                name="workingStep"
+              >
+                {selectList.map((item) => (
+                  <option value={item.type} key={item.id}>
+                    {item.name}
+                  </option>
+                ))}
+              </select>
+            </div>
+            <div>
+              <button onClick={handleSubmit}>검색</button>
+            </div>
           </div>
         </div>
         {blockenrollbtn}

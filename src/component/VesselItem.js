@@ -38,7 +38,7 @@ const VesselItem = ({
   };
 
   const handledetail = () => {
-    navigate("/usermain/myvessel/vesseldetail", {
+    navigate(`/usermain/myvessel/${imo}`, {
       state: {
         imo: imo,
         vesselName: vesselName,
@@ -76,8 +76,8 @@ const VesselItem = ({
           <br />
           준공일 : {endDate}
         </div>
+        <div>{button}</div>
       </div>
-      {button}
     </div>
   );
 };

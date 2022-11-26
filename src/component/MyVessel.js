@@ -26,8 +26,10 @@ const MyVessel = () => {
 
   return (
     <div className="MyVessel">
-      <h2>MY 선박</h2>
-      <VesselList vesselList={vesselData.vesselInfoList} btnType={"detail"} />
+      <div className="MyVessel_wrapper">
+        <h2>MY 선박</h2>
+        <VesselList vesselList={vesselData.vesselInfoList} btnType={"detail"} />
+      </div>
     </div>
   );
 };

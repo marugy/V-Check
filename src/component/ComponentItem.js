@@ -9,11 +9,12 @@ const ComponentItem = ({
   storeImageUrl,
   blockName,
   componentId,
+  imo,
 }) => {
   const navigate = useNavigate();
 
   const handleDetail = () => {
-    navigate("/usermain/myvessel/vesseldetail/blockdetail/componentdetail", {
+    navigate(`/usermain/myvessel/${imo}/${blockName}/${componentId}`, {
       state: {
         faultType: faultType,
         componentName: componentName,
@@ -55,15 +56,13 @@ const ComponentItem = ({
   return (
     <div className="ComponentItem">
       <div className="componentInfo_wrapper">
-        부품 이름 : {componentName}
-        <br />
-        부품 일련번호: {sequenceNumber}
-        <br />
-        작업 상태 : {workingStatusList[workingStatus]}
-        <br />
-        불량 타입 : {falutTypeList[faultType]}
-        <br />
-        <button onClick={handleDetail}>상세보기</button>
+        <div>부품 이름 : {componentName}</div>
+        <div>부품 일련번호: {sequenceNumber}</div>
+        <div>작업 상태 : {workingStatusList[workingStatus]}</div>
+        <div>불량 타입 : {falutTypeList[faultType]}</div>
+        <div>
+          <button onClick={handleDetail}>상세보기</button>
+        </div>
       </div>
     </div>
   );

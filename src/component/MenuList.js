@@ -9,13 +9,6 @@ const handleLogout = () => {
 };
 
 const MenuList = ({ clientType }) => {
-  // const menulist = () => {
-  //   if (clientType === "INSPECTOR") {
-  //     return ["선박 조회", "My 선박", "선박 등록"];
-  //   } else {
-  //     return ["선박 조회", "My 선박"];
-  //   }
-  // };
   const menulist = () => {
     if (clientType === "INSPECTOR") {
       return (

@@ -33,17 +33,11 @@ const Usermain = () => {
       <Header userdata={userdata} />
       <Routes>
         <Route path="/vessellookup/*" element={<VesselLookup />} />
-        <Route path="/myvessel/*" element={<MyVessel />} />
+        <Route path="/myvessel" element={<MyVessel />} />
         <Route path="/vesselenroll/*" element={<VesselEnroll />} />
-        <Route path="/myvessel/vesseldetail/*" element={<VesselDetail />} />
-        <Route
-          path="/myvessel/vesseldetail/blockdetail/*"
-          element={<BlockDetail />}
-        />
-        <Route
-          path="/myvessel/vesseldetail/blockdetail/componentdetail"
-          element={<ComponentDetail />}
-        />
+        <Route path="/myvessel/:id/" element={<VesselDetail />} />
+        <Route path="/myvessel/:id/:id" element={<BlockDetail />} />
+        <Route path="/myvessel/:id/:id/:id" element={<ComponentDetail />} />
       </Routes>
     </div>
   );

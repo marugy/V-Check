@@ -110,57 +110,70 @@ const BlockDetail = () => {
         </div>
       </div>
       <div className="component_wrapper">
-        <div className="Lookup">
+        <div className="search_wrapper">
           <h2>블록에 업로드되어 있는 부품 조회</h2>
-          검색하실 부품명을 입력하세요 :{" "}
-          <input
-            type={"text"}
-            name="componentName"
-            value={searchInfo.componentName}
-            onChange={handleChangeSearch}
-            placeholder={"덕트, 파이프 등등.."}
-          />
-          <br />
-          검색하실 일련 번호를 입력하세요 :{" "}
-          <input
-            type={"text"}
-            name="sequenceNumber"
-            value={searchInfo.sequenceNumber}
-            onChange={handleChangeSearch}
-            placeholder={"1234.."}
-          />
-          <br />
-          작업 상태를 입력하세요 :{" "}
-          <select
-            onChange={handleChangeSearch}
-            value={searchInfo.workingStatus}
-            name="workingStatus"
-          >
-            {workingStatusSelectList.map((item) => (
-              <option value={item.type} key={item.id}>
-                {item.name}
-              </option>
-            ))}
-          </select>
-          <br />
-          불량 상태를 입력하세요 :{" "}
-          <select
-            onChange={handleChangeSearch}
-            value={searchInfo.faultType}
-            name="faultType"
-          >
-            {falutTypeSelectList.map((item) => (
-              <option value={item.type} key={item.id}>
-                {item.name}
-              </option>
-            ))}
-          </select>
-          <button onClick={handleSubmit}>검색</button>
+          <div className="search">
+            <div>
+              부품명
+              <input
+                type={"text"}
+                name="componentName"
+                value={searchInfo.componentName}
+                onChange={handleChangeSearch}
+                placeholder={"덕트, 파이프 등등.."}
+              />
+            </div>
+            <div>
+              일련 번호
+              <input
+                type={"text"}
+                name="sequenceNumber"
+                value={searchInfo.sequenceNumber}
+                onChange={handleChangeSearch}
+                placeholder={"1234.."}
+              />
+            </div>
+            <div>
+              작업 상태
+              <br />
+              <select
+                onChange={handleChangeSearch}
+                value={searchInfo.workingStatus}
+                name="workingStatus"
+              >
+                {workingStatusSelectList.map((item) => (
+                  <option value={item.type} key={item.id}>
+                    {item.name}
+                  </option>
+                ))}
+              </select>
+            </div>
+            <div>
+              불량 상태
+              <select
+                onChange={handleChangeSearch}
+                value={searchInfo.faultType}
+                name="faultType"
+              >
+                {falutTypeSelectList.map((item) => (
+                  <option value={item.type} key={item.id}>
+                    {item.name}
+                  </option>
+                ))}
+              </select>
+            </div>
+            <div>
+              <button onClick={handleSubmit}>검색</button>
+            </div>
+          </div>
         </div>
         <div className="btn">{componentEnrollBtn}</div>
 
         <div className="componentList">
-          <ComponentList componentList={componentList.componentInfoList} />
+          <ComponentList
+            componentList={componentList.componentInfoList}
+            imo={state.state.imo}
+          />
         </div>
         <br />
         {enrollModalOpen && (

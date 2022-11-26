@@ -45,54 +45,67 @@ const VesselLookup = () => {
 
   return (
     <div className="VesselLookup">
-      <div className="Lookup">
-        <h2>서비스에 등록되어 있는 선박 조회</h2>
-        검색하실 IMO 입력하세요 :{" "}
-        <input
-          type={"text"}
-          name="imo"
-          value={searchInfo.imo}
-          onChange={handleChangeSearch}
-          placeholder={"1234567"}
+      <div className="vesselLookup_wrapper">
+        <div className="Lookup">
+          <h2>서비스에 등록되어 있는 선박 조회</h2>
+          <div className="lookup_info">
+            <div>
+              IMO
+              <br />
+              <input
+                type={"text"}
+                name="imo"
+                value={searchInfo.imo}
+                onChange={handleChangeSearch}
+                placeholder={"1234567"}
+              />
+            </div>
+            <div>
+              선박 명
+              <br />
+              <input
+                type={"text"}
+                name="name"
+                value={searchInfo.name}
+                onChange={handleChangeSearch}
+                placeholder={"XX선박"}
+              />
+            </div>
+            <div>
+              선박 무게
+              <br />
+              <input
+                type={"text"}
+                name="ton"
+                value={searchInfo.ton}
+                onChange={handleChangeSearch}
+                placeholder={"총 톤 수"}
+              />
+            </div>
+            <div>
+              선박 타입
+              <br />
+              <select
+                onChange={handleChangeSearch}
+                value={searchInfo.type}
+                name="type"
+              >
+                {selectList.map((item) => (
+                  <option value={item.type} key={item.id}>
+                    {item.name}
+                  </option>
+                ))}
+              </select>
+            </div>
+            <button onClick={handleSubmit}>검색</button>
+          </div>
+        </div>
+        <VesselList
+          vesselList={vesselData.vesselInfoList}
+          btnType="enroll"
+          listType="lookUp"
         />
-        <br />
-        검색하실 선박 명을 입력하세요 :{" "}
-        <input
-          type={"text"}
-          name="name"
-          value={searchInfo.name}
-          onChange={handleChangeSearch}
-          placeholder={"XX선박"}
-        />
-        <br />
-        검색하실 선박 타입을 입력하세요 :{" "}
-        <select
-          onChange={handleChangeSearch}
-          value={searchInfo.type}
-          name="type"
-        >
-          {selectList.map((item) => (
-            <option value={item.type} key={item.id}>
-              {item.name}
-            </option>
-          ))}
-        </select>
-        <br />
-        검색하실 선박 무게를 입력하세요 :
-        <input
-          type={"text"}
-          name="ton"
-          value={searchInfo.ton}
-          onChange={handleChangeSearch}
-          placeholder={"총 톤 수"}
-        />
-        <button onClick={handleSubmit}>검색</button>
       </div>
-      <VesselList
-        vesselList={vesselData.vesselInfoList}
-        btnType="enroll"
-        listType="lookUp"
-      />
     </div>
   );
 };

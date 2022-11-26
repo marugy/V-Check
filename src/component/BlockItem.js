@@ -4,7 +4,7 @@ const BlockItem = ({ blockName, workingStep, imo, vessel_name, state }) => {
   const navigate = useNavigate();
 
   const handleDetail = () => {
-    navigate("/usermain/myvessel/vesseldetail/blockdetail", {
+    navigate(`/usermain/myvessel/${imo}}/${blockName}`, {
       state: {
         imo: imo,
         state: state,
@@ -24,11 +24,11 @@ const BlockItem = ({ blockName, workingStep, imo, vessel_name, state }) => {
   return (
     <div className="BlockItem">
       <div className="BlockInfo">
-        이름 : {blockName}
-        <br />
-        작업단계 : {blockStatusList[workingStep]}
-        <br />
-        <button onClick={handleDetail}>상세보기</button>
+        <div>블럭 명 : {blockName}</div>
+        <div>작업 단계 : {blockStatusList[workingStep]}</div>
+        <div>
+          <button onClick={handleDetail}>상세보기</button>
+        </div>
       </div>
     </div>
   );
