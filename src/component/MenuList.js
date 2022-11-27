@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-
 import { REST_API_KEY, LOGOUT_REDIRECT_URI } from "../page/Kakao";
 const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/logout?client_id=${REST_API_KEY}&logout_redirect_uri=${LOGOUT_REDIRECT_URI}`;
 
