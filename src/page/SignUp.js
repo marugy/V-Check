@@ -30,7 +30,8 @@ const SignUp = () => {
     { id: 1, type: "MANUFACTURER", name: "제조업체" },
   ];
 
-  const checkSignUp = () => {
+  const checkSignUp = (e) => {
+    e.preventDefault();
     fetch("http://34.64.185.37:8080/v2/join", {
       method: "POST",
       headers: {

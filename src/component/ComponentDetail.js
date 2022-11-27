@@ -77,11 +77,11 @@ const ComponentDetail = ({
         "Content-type": "application/json",
       },
       body: JSON.stringify({
-        componentId: state.componentId,
+        componentId: componentId,
       }),
     }).then((response) => {
-      setDetailModalOpen(false);
       setChange(true);
+      setDetailModalOpen(false);
       setLoadingModalOpen(false);
     });
   };
@@ -91,33 +91,43 @@ const ComponentDetail = ({
   };
 
   const buttonOn = () => {
-    if (localStorage.getItem("clientType") == "INSPECTOR")
-      return (
-        <div>
-          <form onSubmit={handleReupload}>
-            <input
-              type={"file"}
-              id="fileInput"
-              accept="image/*"
-              onChange={imgHandler}
-            />
-            <br />
-            <button type="submit">재업로드</button>
-          </form>
-        </div>
-      );
-    else return;
+    if (localStorage.getItem("clientType") == "INSPECTOR") {
+      if (workingStatus === "WorkingComplete") {
+        return (
+          <div>
+            <form onSubmit={handleReupload}>
+              <input
+                type={"file"}
+                id="fileInput"
+                accept="image/*"
+                onChange={imgHandler}
+              />
+              <br />
+              <button type="submit">재업로드</button>
+            </form>
+          </div>
+        );
+      }
+    } else return;
   };
 
   const reuploadBtn = buttonOn();
 
   const changeWorkingStatus = () => {
     if (localStorage.getItem("clientType") == "INSPECTOR") return;
-    return (
-      <div>
-        <button onClick={handleWorkingStatus}>상태 변경하기</button>
-      </div>
-    );
+    else {
+      if (
+        workingStatus === "WorkingComplete" ||
+        workingStatus === "InspectionComplete"
+      )
+        return;
+      else
+        return (
+          <div>
+            <button onClick={handleWorkingStatus}>상태 변경하기</button>
+          </div>
+        );
+    }
   };
 
   const changeWorkingStatusBtn = changeWorkingStatus();
