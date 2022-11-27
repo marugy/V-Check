@@ -86,7 +86,7 @@ const BlockDetail = () => {
           <h2>블록에 업로드되어 있는 부품 조회</h2>
           <div className="search">
             <div>
-              부품명
+              부품 명
               <input
                 type={"text"}
                 name="componentName"

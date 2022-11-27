@@ -66,7 +66,7 @@ const VesselDetail = () => {
               />
             </div>
             <div>
-              작업단계
+              작업 단계
               <br />
               <select
                 onChange={handleChangeSearch}
