@@ -1,17 +1,19 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import ComponentList from "./ComponentList";
 
 const BlockDetail = () => {
   const { state } = useLocation();
   const [componentList, setComponentList] = useState({});
+  const [uploadModalOpen, setUploadModalOpen] = useState(false);
+  const [change, setChange] = useState(false);
 
   const [searchInfo, setsearchInfo] = useState({
     faultType: "",
     componentName: "",
     sequenceNumber: "",
     workingStatus: "",
-    blockName: "",
+    blockName: state.blockName,
   });
 
   const falutTypeSelectList = [
@@ -35,9 +37,9 @@ const BlockDetail = () => {
 
   const workingStatusSelectList = [
     { id: 0, type: "", name: "모두" },
-    { id: 1, type: "WorkingStart", name: "재작업 시작" },
-    { id: 2, type: "WorkingIng", name: "작업 중" },
-    { id: 3, type: "WorkingComplete", name: "작업 완료" },
+    { id: 1, type: "WorkingStart", name: "재작업 필요" },
+    { id: 2, type: "WorkingIng", name: "재작업 중" },
+    { id: 3, type: "WorkingComplete", name: "재작업 완료" },
     { id: 4, type: "InspectionComplete", name: "검사 완료" },
   ];
 
@@ -47,6 +49,11 @@ const BlockDetail = () => {
     BlockAssembly: "대조립",
     INSTALL: "선행 의장",
   };
+
+  useEffect(() => {
+    handleSubmit();
+    setChange(false);
+  }, [uploadModalOpen, change]);
 
   const handleChangeSearch = (e) => {
     setsearchInfo({
@@ -74,27 +81,6 @@ const BlockDetail = () => {
 
   return (
     <div className="BlockDetail">
-      <div className="info_wrapper">
-        <div className="vesselInfo">
-          <h2>현재 선박 정보</h2>
-          IMO : {state.state.imo}
-          <br />
-          이름 : {state.state.vesselName}
-          <br />
-          타입 : {state.state.vesselType}
-          <br />총 톤 수 : {state.state.ton}t
-          <br />
-          착공일 : {state.state.startDate}
-          <br />
-          준공일 : {state.state.endDate}
-        </div>
-        <div className="blockInfo">
-          <h2>블럭 정보</h2>
-          이름 : {state.blockName}
-          <br />
-          작업단계 : {workingStatusList[state.workingStep]}
-        </div>
-      </div>
       <div className="component_wrapper">
         <div className="search_wrapper">
           <h2>블록에 업로드되어 있는 부품 조회</h2>
@@ -156,12 +142,36 @@ const BlockDetail = () => {
 
         <div className="componentList">
           <ComponentList
+            uploadModalOpen={uploadModalOpen}
+            setUploadModalOpen={setUploadModalOpen}
+            setChange={setChange}
             componentList={componentList.componentInfoList}
             imo={state.state.imo}
             blockName={state.blockName}
           />
         </div>
         <br />
+      </div>
+      <div className="info_wrapper">
+        <div className="vesselInfo">
+          <h2>현재 선박 정보</h2>
+          IMO : {state.state.imo}
+          <br />
+          이름 : {state.state.vesselName}
+          <br />
+          타입 : {state.state.vesselType}
+          <br />총 톤 수 : {state.state.ton}t
+          <br />
+          착공일 : {state.state.startDate}
+          <br />
+          준공일 : {state.state.endDate}
+        </div>
+        <div className="blockInfo">
+          <h2>블럭 정보</h2>
+          이름 : {state.blockName}
+          <br />
+          작업단계 : {workingStatusList[state.workingStep]}
+        </div>
       </div>
     </div>
   );

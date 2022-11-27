@@ -2,11 +2,16 @@ import { useState } from "react";
 import ComponentItem from "./ComponentItem";
 import ComponentEnroll from "./ComponentEnroll";
 
-const ComponentList = ({ componentList, imo, blockName }) => {
-  const [enrollModalOpen, setEnrollModalOpen] = useState(false);
-
+const ComponentList = ({
+  componentList,
+  imo,
+  blockName,
+  uploadModalOpen,
+  setUploadModalOpen,
+  setChange,
+}) => {
   const componentAdd = () => {
-    setEnrollModalOpen(true);
+    setUploadModalOpen(true);
   };
 
   const buttonOn = () => {
@@ -20,13 +25,25 @@ const ComponentList = ({ componentList, imo, blockName }) => {
   return (
     <div className="ComponentList">
       <div className="btn">{componentEnrollBtn}</div>
+      <div className="category_wrapper">
+        <div>부품 명</div>
+        <div>일련 번호</div>
+        <div>작업 상태</div>
+        <div>불량 타입</div>
+        <div>상세 보기</div>
+      </div>
       {componentList.map((it) => (
-        <ComponentItem key={it.componentId} {...it} imo={imo} />
+        <ComponentItem
+          key={it.componentId}
+          {...it}
+          imo={imo}
+          setChange={setChange}
+        />
       ))}
 
-      {enrollModalOpen && (
+      {uploadModalOpen && (
         <ComponentEnroll
-          setEnrollModalOpen={setEnrollModalOpen}
+          setUploadModalOpen={setUploadModalOpen}
           blockName={blockName}
         />
       )}

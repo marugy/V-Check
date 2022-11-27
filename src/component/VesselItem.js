@@ -23,18 +23,14 @@ const VesselItem = ({
   };
 
   const handleSubmit = () => {
-    if (own === true) {
-      alert("이미 등록된 선박입니다.");
-    } else {
-      fetch("http://34.64.185.37:8080/v2/vessel/add", {
-        method: "POST",
-        headers: {
-          "Content-type": "application/json",
-          Authorization: localStorage.getItem("access_token"),
-        },
-        body: JSON.stringify({ imo: String(imo) }),
-      }).then(setOwn(true));
-    }
+    fetch("http://34.64.185.37:8080/v2/vessel/add", {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+        Authorization: localStorage.getItem("access_token"),
+      },
+      body: JSON.stringify({ imo: String(imo) }),
+    }).then(setOwn(true));
   };
 
   const handledetail = () => {
@@ -52,7 +48,14 @@ const VesselItem = ({
 
   let button;
   if (btnType === "enroll") {
-    button = <button onClick={handleSubmit}>선박 추가</button>;
+    if (own == false)
+      button = <button onClick={handleSubmit}>선박 추가</button>;
+    else if (own)
+      button = (
+        <button onClick={handleSubmit} disabled>
+          등록 완료
+        </button>
+      );
   } else if (btnType === "detail") {
     button = <button onClick={handledetail}>상세보기</button>;
   }

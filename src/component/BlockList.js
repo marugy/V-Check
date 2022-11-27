@@ -2,8 +2,12 @@ import { useState } from "react";
 import BlockItem from "./BlockItem";
 import BlockEnroll from "./BlockEnroll";
 
-const BlockList = ({ blockList, btnType, state }) => {
-  const [enrollModalOpen, setEnrollModalOpen] = useState(false);
+const BlockList = ({
+  blockList,
+  state,
+  enrollModalOpen,
+  setEnrollModalOpen,
+}) => {
   const blockAdd = () => {
     setEnrollModalOpen(true);
   };
@@ -21,6 +25,11 @@ const BlockList = ({ blockList, btnType, state }) => {
   return (
     <div className="BlockList">
       {blockenrollbtn}
+      <div className="category_wrapper">
+        <div>블럭 명</div>
+        <div>작업 단계</div>
+        <div>상세보기</div>
+      </div>
       {blockList.map((it) => (
         <BlockItem key={it.blockName} {...it} state={state} />
       ))}

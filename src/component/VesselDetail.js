@@ -4,6 +4,7 @@ import { useLocation } from "react-router-dom";
 import BlockList from "./BlockList";
 
 const VesselDetail = () => {
+  const [enrollModalOpen, setEnrollModalOpen] = useState(false);
   const { state } = useLocation();
   const [blockList, setBlockList] = useState({});
 
@@ -43,22 +44,13 @@ const VesselDetail = () => {
       });
   };
 
+  useEffect(() => {
+    handleSubmit();
+    // setEnrollModalOpen(false);
+  }, [enrollModalOpen]);
+
   return (
     <div className="VesselDetail">
-      <div className="vesselInfo">
-        <h2>현재 선박 정보</h2>
-        IMO : {state.imo}
-        <br />
-        이름 : {state.vesselName}
-        <br />
-        타입 : {state.vesselType}
-        <br />총 톤 수 : {state.ton}t
-        <br />
-        착공일 : {state.startDate}
-        <br />
-        준공일 : {state.endDate}
-      </div>
-
       <div className="Lookup_wrapper">
         <div className="Lookup">
           <h2>선박에 등록되어 있는 블럭 조회</h2>
@@ -95,9 +87,24 @@ const VesselDetail = () => {
         </div>
         <BlockList
           blockList={blockList.blockInfoList}
+          enrollModalOpen={enrollModalOpen}
+          setEnrollModalOpen={setEnrollModalOpen}
           btnType="detail"
           state={state}
         />
+      </div>
+      <div className="vesselInfo">
+        <h2>현재 선박 정보</h2>
+        IMO : {state.imo}
+        <br />
+        이름 : {state.vesselName}
+        <br />
+        타입 : {state.vesselType}
+        <br />총 톤 수 : {state.ton}t
+        <br />
+        착공일 : {state.startDate}
+        <br />
+        준공일 : {state.endDate}
       </div>
     </div>
   );

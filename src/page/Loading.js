@@ -37,7 +37,7 @@ const Loading = () => {
     <div className="Loading">
       <img src={spinner} alt="로딩중" width="5%" />
       <br />
-      <div>*회원 여부 확인중*</div>
+      <div>*Loading*</div>
     </div>
   );
 };

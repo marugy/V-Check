@@ -2,7 +2,6 @@ import React, { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 
 const VesselEnroll = () => {
-  const inputRef = useRef();
   const navigate = useNavigate();
 
   const [enrollInfo, setEnrollInfo] = useState({
@@ -29,7 +28,7 @@ const VesselEnroll = () => {
     });
   };
 
-  const checkEnroll = () => {
+  const checkEnroll = (e) => {
     alert(
       enrollInfo.imo +
         enrollInfo.vessel_name +
@@ -56,7 +55,7 @@ const VesselEnroll = () => {
     })
       .then((response) => response.json())
       .then((result) => {
-        navigate("/usermain//vesselenroll/");
+        navigate("/usermain/vesselenroll");
       })
       .catch((error) => console.log("error", error));
   };

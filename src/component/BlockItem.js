@@ -24,8 +24,8 @@ const BlockItem = ({ blockName, workingStep, imo, vessel_name, state }) => {
   return (
     <div className="BlockItem">
       <div className="BlockInfo">
-        <div>블럭 명 : {blockName}</div>
-        <div>작업 단계 : {blockStatusList[workingStep]}</div>
+        <div>{blockName}</div>
+        <div>{blockStatusList[workingStep]}</div>
         <div>
           <button onClick={handleDetail}>상세보기</button>
         </div>

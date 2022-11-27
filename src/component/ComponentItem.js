@@ -12,27 +12,11 @@ const ComponentItem = ({
   blockName,
   componentId,
   imo,
+  setChange,
 }) => {
   const [detailModalOpen, setDetailModalOpen] = useState(false);
-
   const componentDetail = () => {
     setDetailModalOpen(true);
-  };
-  const navigate = useNavigate();
-
-  const handleDetail = () => {
-    navigate(`/usermain/myvessel/${imo}/${blockName}/${componentId}`, {
-      state: {
-        faultType: faultType,
-        componentName: componentName,
-        sequenceNumber: sequenceNumber,
-        workingStatus: workingStatus,
-        uploadImageName: uploadImageName,
-        storeImageUrl: storeImageUrl,
-        blockName: blockName,
-        componentId: componentId,
-      },
-    });
   };
 
   const falutTypeList = {
@@ -54,19 +38,19 @@ const ComponentItem = ({
   };
 
   const workingStatusList = {
-    WorkingStart: "재작업 시작",
-    WorkingIng: "작업 중",
-    WorkingComplete: "작업 완료",
+    WorkingStart: "재작업 필요",
+    WorkingIng: "재작업 중",
+    WorkingComplete: "재작업 완료",
     InspectionComplete: "검사 완료",
   };
 
   return (
     <div className="ComponentItem">
       <div className="componentInfo_wrapper">
-        <div>부품 이름 : {componentName}</div>
-        <div>부품 일련번호: {sequenceNumber}</div>
-        <div>작업 상태 : {workingStatusList[workingStatus]}</div>
-        <div>불량 타입 : {falutTypeList[faultType]}</div>
+        <div>{componentName}</div>
+        <div>{sequenceNumber}</div>
+        <div>{workingStatusList[workingStatus]}</div>
+        <div>{falutTypeList[faultType]}</div>
         <div>
           <button onClick={componentDetail}>상세보기</button>
         </div>
@@ -74,6 +58,7 @@ const ComponentItem = ({
 
       {detailModalOpen && (
         <ComponentDetail
+          setChange={setChange}
           setDetailModalOpen={setDetailModalOpen}
           faultType={faultType}
           componentName={componentName}

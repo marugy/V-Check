@@ -1,9 +1,6 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 
 const BlockEnroll = ({ setEnrollModalOpen, imo }) => {
-  const navigate = useNavigate();
-
   const [enrollInfo, setEnrollInfo] = useState({
     imo: imo,
     blockName: "",
@@ -37,9 +34,7 @@ const BlockEnroll = ({ setEnrollModalOpen, imo }) => {
         blockName: enrollInfo.blockName,
         workingStep: enrollInfo.workingStep,
       }),
-    })
-      .then((response) => {})
-      .catch((error) => console.log("error", error));
+    }).then((response) => {});
     setEnrollModalOpen(false);
   };
 

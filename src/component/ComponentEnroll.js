@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import spinner from "../spinner/spinner.gif";
 
-const ComponentEnroll = ({ setEnrollModalOpen, blockName }) => {
+const ComponentEnroll = ({ setUploadModalOpen, blockName }) => {
   const navigate = useNavigate();
   const [componentName, setComponentName] = useState();
   const [sequenceNumber, setSequenceNumber] = useState("");
   const [imageUploadName, setImageUploadName] = useState();
+  const [loadingModalOpen, setLoadingModalOpen] = useState(false);
 
   const componentNameHandler = (e) => {
     setComponentName(e.target.value);
@@ -19,6 +21,7 @@ const ComponentEnroll = ({ setEnrollModalOpen, blockName }) => {
 
   const checkEnroll = (e) => {
     e.preventDefault();
+    setLoadingModalOpen(true);
     const file = e.currentTarget["fileInput"].files[0];
     const data = new FormData();
     data.append("blockName", blockName);
@@ -33,16 +36,36 @@ const ComponentEnroll = ({ setEnrollModalOpen, blockName }) => {
       },
       body: data,
     })
-      .then((response) => {})
+      .then((response) => {
+        setUploadModalOpen(false);
+        setLoadingModalOpen(false);
+      })
       .catch((error) => console.log("error", error));
   };
   const cancelModal = () => {
-    setEnrollModalOpen(false);
+    setUploadModalOpen(false);
   };
+
+  const loading = () => {
+    return (
+      <div className="loadingModal_wrapper">
+        <div className="loadingModal">
+          <img src={spinner} alt="로딩중" width="5%" />
+        </div>
+      </div>
+    );
+  };
+
+  const load = loading();
+
   return (
     <div className="ComponentEnroll">
       <div className="Component_wrapper">
-        <h2>선박에 등록할 블럭 정보를 입력하세요</h2>
+        {loadingModalOpen && load}
+        <h2>
+          블럭에 업로드할 <br />
+          부품 정보를 입력하세요
+        </h2>
         <form onSubmit={checkEnroll}>
           부품 이름 :{" "}
           <input type={"text"} name="imo" onChange={componentNameHandler} />

@@ -1,7 +1,9 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import { useState } from "react";
+import spinner from "../spinner/spinner.gif";
 
 const ComponentDetail = ({
+  setChange,
   setDetailModalOpen,
   faultType,
   componentName,
@@ -13,10 +15,9 @@ const ComponentDetail = ({
   componentId,
   imo,
 }) => {
-  const navigate = useNavigate();
   const { state } = useLocation();
   const [imageUploadName, setImageUploadName] = useState();
-
+  const [loadingModalOpen, setLoadingModalOpen] = useState(false);
   const falutTypeList = {
     GOOD: "정상",
     FAULT_TYPE_201: "가공불량",
@@ -36,9 +37,9 @@ const ComponentDetail = ({
   };
 
   const workingStatusList = {
-    WorkingStart: "재작업 시작",
-    WorkingIng: "작업 중",
-    WorkingComplete: "작업 완료",
+    WorkingStart: "재작업 필요",
+    WorkingIng: "재작업 중",
+    WorkingComplete: "재작업 완료",
     InspectionComplete: "검사 완료",
   };
 
@@ -47,11 +48,12 @@ const ComponentDetail = ({
   };
 
   const handleReupload = (e) => {
+    setLoadingModalOpen(true);
     e.preventDefault();
     const file = e.currentTarget["fileInput"].files[0];
     const data = new FormData();
     data.append("imageUploadName", file);
-    data.append("componentId", state.componentId);
+    data.append("componentId", componentId);
 
     fetch("http://34.64.185.37:8080/v2/component/re-upload", {
       method: "PATCH",
@@ -59,10 +61,15 @@ const ComponentDetail = ({
         Authorization: localStorage.getItem("access_token"),
       },
       body: data,
-    }).then((response) => navigate("/usermain/myvessel"));
+    }).then((response) => {
+      setDetailModalOpen(false);
+      setLoadingModalOpen(false);
+      setChange(true);
+    });
   };
 
   const handleWorkingStatus = () => {
+    setLoadingModalOpen(true);
     fetch("http://34.64.185.37:8080/v2/component/working-status", {
       method: "PATCH",
       headers: {
@@ -72,7 +79,11 @@ const ComponentDetail = ({
       body: JSON.stringify({
         componentId: state.componentId,
       }),
-    }).then((response) => setDetailModalOpen(false));
+    }).then((response) => {
+      setDetailModalOpen(false);
+      setChange(true);
+      setLoadingModalOpen(false);
+    });
   };
 
   const cancelModal = () => {
@@ -100,9 +111,33 @@ const ComponentDetail = ({
 
   const reuploadBtn = buttonOn();
 
+  const changeWorkingStatus = () => {
+    if (localStorage.getItem("clientType") == "INSPECTOR") return;
+    return (
+      <div>
+        <button onClick={handleWorkingStatus}>상태 변경하기</button>
+      </div>
+    );
+  };
+
+  const changeWorkingStatusBtn = changeWorkingStatus();
+
+  const loading = () => {
+    return (
+      <div className="loadingModal_wrapper">
+        <div className="loadingModal">
+          <img src={spinner} alt="로딩중" width="5%" />
+        </div>
+      </div>
+    );
+  };
+
+  const load = loading();
+
   return (
     <div className="ComponentDetail">
       <div className="componentDetail_wrapper">
+        {loadingModalOpen && load}
         <div className="img_wrapper">
           <img src={storeImageUrl} alt={""} />
         </div>
@@ -112,18 +147,16 @@ const ComponentDetail = ({
             <br />
             부품 일련번호: {sequenceNumber}
             <br />
-            불량 타입 : {falutTypeList[faultType]}
-            <br />
             업로드 파일 명 : {uploadImageName}
+            <br />
+            불량 타입 : {falutTypeList[faultType]}
             <br />
             작업 상태 : {workingStatusList[workingStatus]}
           </div>
           <div className="btn_wrapper">
-            <div>
-              <button onClick={handleWorkingStatus}>상태 변경하기</button>
-            </div>
+            {changeWorkingStatusBtn}
             {reuploadBtn}
-            <div>
+            <div className="close">
               <button className="cancelBtn" onClick={cancelModal}>
                 닫기
               </button>
