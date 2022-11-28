@@ -23,6 +23,9 @@ body{
 button{
   cursor: pointer;
 }
+.imposBtn{
+  cursor:auto;
+}
 
 /* Login.js */
 .Login {
@@ -86,7 +89,7 @@ button{
   justify-content: center;
 }
 .SignUp .signup_wrapper{
-  margin-top: 120px;
+  margin-top: 50px;
   width: 500px;
   height: fit-content;
   background-color: #f6f5f0;
@@ -119,7 +122,6 @@ button{
 .SignUp form select{
   border: 2px solid black;
 }
-
 .SignUp button {
   font-family: 'Jua', sans-serif;
   width: 100%;
@@ -136,7 +138,10 @@ button{
   height: fit-content;
   top:0;
   bottom:0;
-  background-color: #a0d7f0;
+  background-color: #a0bdf0;
+  background-image: url("../public/assets/containership.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 /* Header */
@@ -152,6 +157,7 @@ button{
   width: 230px;
   height:100%;
   font-weight: 600;
+  box-shadow: 3px 3px 20px rgba(0,0,0,.5);
 }
 
 /* UserInfo */
@@ -207,7 +213,7 @@ button{
   display:block;
 }
 .MenuList a:hover{
-  background-color: #808080;
+  background-color: #247cff;
   color: black;
 }
 .MenuList a img{
@@ -234,7 +240,7 @@ button{
   font-weight: 700;
 }
 .MenuList .logout button:hover{
-  background-color: #808080;
+  background-color: red;
   color: black;
 }
 .MenuList .logout img{
@@ -276,6 +282,9 @@ button{
   outline: none;
   box-sizing: border-box;
   font-size: 14px;
+}
+.VesselEnroll form input:focus{
+  background-color: rgb(220, 238, 246);
 }
 .VesselEnroll button {
   font-family: 'Jua', sans-serif;
@@ -336,6 +345,9 @@ button{
   margin-top: 5px;
   width: 90%;
 }
+.VesselLookup .Lookup .lookup_info div input:focus{
+background-color: rgb(232, 253, 255);
+}
 .VesselLookup .Lookup .lookup_info div select{
   margin-top: 5px;
   width:70%;
@@ -394,7 +406,6 @@ button{
  border: none;
 }
 .VesselItem button{
-  cursor: pointer;
   width: 100%;
 }
 

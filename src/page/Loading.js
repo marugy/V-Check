@@ -22,7 +22,7 @@ const Loading = () => {
           localStorage.setItem("refresh_token", response.refresh_token);
           localStorage.setItem("is_our_client", response.is_our_client);
           if (response.is_our_client) {
-            navigate("/usermain/");
+            navigate("/usermain/vessellookup");
           } else {
             localStorage.setItem("userName", response.name);
             localStorage.setItem("userEmail", response.email);

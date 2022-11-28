@@ -52,7 +52,7 @@ const VesselItem = ({
       button = <button onClick={handleSubmit}>선박 추가</button>;
     else if (own)
       button = (
-        <button onClick={handleSubmit} disabled>
+        <button className="imposBtn" onClick={handleSubmit} disabled>
           등록 완료
         </button>
       );
