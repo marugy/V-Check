@@ -29,15 +29,7 @@ const VesselEnroll = () => {
   };
 
   const checkEnroll = (e) => {
-    alert(
-      enrollInfo.imo +
-        enrollInfo.vessel_name +
-        enrollInfo.vessel_type +
-        enrollInfo.ton +
-        enrollInfo.startDate +
-        enrollInfo.endDate
-    );
-
+    e.preventDefault();
     fetch("http://34.64.185.37:8080/v2/vessel/register", {
       method: "POST",
       headers: {

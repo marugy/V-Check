@@ -1,9 +1,7 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import spinner from "../spinner/spinner.gif";
 
 const ComponentEnroll = ({ setUploadModalOpen, blockName }) => {
-  const navigate = useNavigate();
   const [componentName, setComponentName] = useState();
   const [sequenceNumber, setSequenceNumber] = useState("");
   const [imageUploadName, setImageUploadName] = useState();

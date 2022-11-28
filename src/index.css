@@ -9,6 +9,7 @@ a {
 body{
   /* font-family: 'Jua', sans-serif, 'Noto Sans KR', sans-serif; */
   font-family: Arial, sans-serif;
+  font-weight: 700;
 }
 .kakaobtn{
   width: 200px;
@@ -26,7 +27,9 @@ button{
 .imposBtn{
   cursor:auto;
 }
-
+input:focus{
+  background-color: rgb(232, 253, 255);
+}
 /* Login.js */
 .Login {
   background-image: url("../public/assets/containership.jpg");
@@ -259,10 +262,11 @@ button{
 }
 .VesselEnroll .vessel_wrapper{
   width: 500px;
-  background-color: #ffffff;
+  background-color: #e4edfe;
   border-radius: 5px;
   box-shadow: 2px 2px 20px rgba(0,0,0,.3);
   border:2px solid black;
+
 }
 .VesselEnroll  h2{
   display: block;
@@ -284,7 +288,7 @@ button{
   font-size: 14px;
 }
 .VesselEnroll form input:focus{
-  background-color: rgb(220, 238, 246);
+  background-color: rgb(235, 249, 255);
 }
 .VesselEnroll button {
   font-family: 'Jua', sans-serif;
@@ -321,6 +325,8 @@ button{
   padding:20px 20px 10px;
   margin-top: 20px;
   box-sizing: border-box;
+  box-shadow: 3px 3px 20px rgba(0,0,0,.5);
+
 }
 .VesselLookup .Lookup h2{
   text-decoration: underline skyblue;
@@ -371,6 +377,8 @@ background-color: rgb(232, 253, 255);
   box-sizing: border-box;
   padding-top: 5px;
   padding-bottom:5px;
+  box-shadow: 3px 3px 20px rgba(0,0,0,.5);
+
 }
 .VesselList select{
   margin-top:15px;
@@ -381,7 +389,7 @@ background-color: rgb(232, 253, 255);
 .VesselItem{
   position: relative;
   display: flex;
-  background-color: rgb(190, 230, 233);
+  background-color: rgb(217, 251, 255);
   border: 2px solid black;
   border-radius: 5px;
   padding:10px;
@@ -421,7 +429,7 @@ background-color: rgb(232, 253, 255);
 }
 .MyVessel h2{
   text-align: center;
-  text-decoration: underline 5px rgb(135, 137, 235);
+  text-decoration: underline 5px rgb(217, 251, 255);
   padding-top: 20px;
   font-size: 40px;
   font-weight:700;
@@ -452,6 +460,7 @@ background-color: rgb(232, 253, 255);
   padding:10px;
   border: 2px solid black;
   border-radius: 5px;
+  box-shadow: 3px 3px 20px rgba(0,0,0,.5);
 }
 .VesselDetail .vesselInfo h2{
   text-decoration: underline 4px skyblue;
@@ -475,6 +484,7 @@ background-color: rgb(232, 253, 255);
   border: 2px solid black;
   border-radius: 5px;
   padding:15px;
+  box-shadow: 3px 3px 20px rgba(0,0,0,.5);
 }
 .VesselDetail .Lookup_wrapper .Lookup h2{
   display: flex;
@@ -518,11 +528,13 @@ background-color: rgb(232, 253, 255);
   border:2px solid black;
   border-radius: 7px;
   padding:15px;
+  box-shadow: 3px 3px 20px rgba(0,0,0,.5);
 }
 .BlockList .category_wrapper{
   display: flex;
   padding-left:10px;
   padding-right:10px;
+  line-height: 30px;
 }
 .BlockList .category_wrapper div{
   text-align: center;
@@ -538,7 +550,7 @@ background-color: rgb(232, 253, 255);
 .BlockItem{
   position: relative;
   display: flex;
-  background-color: rgb(198, 190, 233);
+  background-color: rgb(231, 226, 255);
   border: 2px solid black;
   border-radius: 5px;
   margin: 10px;
@@ -552,7 +564,7 @@ background-color: rgb(232, 253, 255);
   display: flex;
   justify-content: center;
   width: 33%;
-  padding:13px 5px 5px;
+  padding:7px 5px 0;
   border-right: 2px solid black;
 }
 .BlockItem .BlockInfo div:last-child{
@@ -578,7 +590,7 @@ background-color: rgb(232, 253, 255);
   top:10%;
   width: 500px;
   color:rgb(0, 0, 0);
-  background-color: rgb(255, 255, 255);
+  background-color: #e4edfe;
   border-radius: 5px;
   box-shadow: 2px 2px 20px rgba(0,0,0,.3);
   border:2px solid black;
@@ -638,6 +650,8 @@ background-color: rgb(232, 253, 255);
   padding:10px;
   border: 2px solid black;
   border-radius: 5px;
+
+  box-shadow: 3px 3px 20px rgba(0,0,0,.5);
 }
 .BlockDetail .info_wrapper .vesselInfo h2{
   text-decoration: underline 4px skyblue;
@@ -658,6 +672,8 @@ background-color: rgb(232, 253, 255);
   padding:10px;
   border: 2px solid black;
   border-radius: 5px;
+
+  box-shadow: 3px 3px 20px rgba(0,0,0,.5);
 }
 .BlockDetail .info_wrapper .blockInfo h2{
   text-decoration: underline 4px rgb(215, 135, 235);
@@ -680,6 +696,7 @@ background-color: rgb(232, 253, 255);
   border: 2px solid black;
   border-radius: 5px;
   padding:15px;
+  box-shadow: 3px 3px 20px rgba(0,0,0,.5);
 }
 .BlockDetail .component_wrapper .search_wrapper h2{
   text-decoration: underline skyblue;
@@ -727,6 +744,7 @@ background-color: rgb(232, 253, 255);
   border:2px solid black;
   border-radius: 7px;
   padding:15px;
+  box-shadow: 3px 3px 20px rgba(0,0,0,.5);
 }
 .ComponentList .category_wrapper{
   display: flex;
@@ -742,7 +760,7 @@ background-color: rgb(232, 253, 255);
 .ComponentItem {
   position: relative;
   display: flex;
-  background-color: rgb(187, 255, 155);
+  background-color: rgb(226, 226, 226);
   border: 2px solid black;
   border-radius: 5px;
   margin-top: 15px;
@@ -854,7 +872,7 @@ background-color: rgb(232, 253, 255);
   top:10%;
   width: 500px;
   color:rgb(0, 0, 0);
-  background-color: rgb(255, 255, 255);
+  background-color: #e4edfe;
   border-radius: 5px;
   box-shadow: 2px 2px 20px rgba(0,0,0,.3);
   border:2px solid black;

@@ -22,7 +22,6 @@ const BlockEnroll = ({ setEnrollModalOpen, imo }) => {
   };
 
   const checkEnroll = (e) => {
-    alert(enrollInfo.imo + enrollInfo.blockName + enrollInfo.workingStep);
     fetch("http://34.64.185.37:8080/v2/block/register", {
       method: "POST",
       headers: {
