@@ -35,7 +35,11 @@ const BlockList = ({
       ))}
 
       {enrollModalOpen && (
-        <BlockEnroll setEnrollModalOpen={setEnrollModalOpen} imo={state.imo} />
+        <BlockEnroll
+          setEnrollModalOpen={setEnrollModalOpen}
+          enrollModalOpen={enrollModalOpen}
+          imo={state.imo}
+        />
       )}
     </div>
   );

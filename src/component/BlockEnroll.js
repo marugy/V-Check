@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const BlockEnroll = ({ setEnrollModalOpen, imo }) => {
+const BlockEnroll = ({ setEnrollModalOpen, enrollModalOpen, imo }) => {
   const [enrollInfo, setEnrollInfo] = useState({
     imo: imo,
     blockName: "",
@@ -33,8 +33,9 @@ const BlockEnroll = ({ setEnrollModalOpen, imo }) => {
         blockName: enrollInfo.blockName,
         workingStep: enrollInfo.workingStep,
       }),
-    }).then((response) => {});
-    setEnrollModalOpen(false);
+    }).then((response) => {
+      setEnrollModalOpen(false);
+    });
   };
 
   const cancelModal = () => {
