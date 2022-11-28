@@ -48,7 +48,7 @@ const SignUp = () => {
     })
       .then((response) => response.json())
       .then((result) => {
-        navigate("/usermain");
+        navigate("/usermain/vessellookup");
         localStorage.setItem("status", result);
         if (result.status === "OK") {
           localStorage.removeItem("userEmail");

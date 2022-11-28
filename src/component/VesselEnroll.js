@@ -29,7 +29,6 @@ const VesselEnroll = () => {
   };
 
   const checkEnroll = (e) => {
-    e.preventDefault();
     fetch("http://34.64.185.37:8080/v2/vessel/register", {
       method: "POST",
       headers: {
